@@ -1,0 +1,3540 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement !tph
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 2cm
+\headsep 2cm
+\footskip 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+
+\lang spanish
+Caracterización del amplificador operacional LM833
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Objetivos y resumen
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Se realizo un circuito en configuración no inversora como el ilustrado en
+ la siguiente figura:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/LM833Config.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito no inversor utilizando el LM833 como amplificador oepracional
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Dicho circuito se implemento haciendo uso del modelo de amplificador LM833.El
+ objetivo principal de la experiencia fue la medir la respuesta en frecuencia
+ de la salida del circuito así también como su impedancia de entrada.
+ Luego, se compararon los resultados obtenidos con aquellos obtenidos mediante
+ la resolución teórica del circuito, como también con las simulaciones del
+ mismo realizadas en LTSpice.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En una primera instancia los resultados iban a ser comparados con lo de
+ otro modelo(NE5534), pero como no pudimos conseguir el componente en cuestión
+ hicimos el análisis solo para el LM833.
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Resolución del circuito
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Para esta primera resolución teórica el circuito se realizo asumiendo que
+ el amplificador tiene una impedancia de entrada infinita así como también
+ impedancia de salida nula, así como también se despreciaron las corrientes
+ de bias y la tensión de offset del amplificador.
+ El circuito se resolvió utilizando el método de nodos en conjunto con la
+ ecuación característica del opamp, las ecuaciones resultantes son:
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $V_{in}=v^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v^{-}=\frac{R_{1}}{R_{1}+R_{2}}V_{out}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $V_{out}=A_{o}(\omega)(v^{+}-v^{-})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $A_{vol}=\frac{A}{1+\frac{j\omega}{\omega_{0}}}$
+\end_inset
+
+ , donde A es una constante y 
+\begin_inset Formula $\omega_{0}$
+\end_inset
+
+ es el ancho de banda del LM833 en lazo abierto.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Donde 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+es la ganancia a lazo abierto del LM833, y 
+\begin_inset Formula $v^{+}$
+\end_inset
+
+, 
+\begin_inset Formula $v^{-}$
+\end_inset
+
+son las tensiones no inversora y la inversora respectivamente, del LM833.
+ Resolviendo el sistema se llega a que la ganancia del sistema en función
+ de la frecuencia es:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $\frac{V_{out}}{V_{in}}=G(\omega)=\frac{A}{(1+\frac{AR_{1}}{R_{1}+R_{2}})(1+\frac{j\omega}{\omega_{p}})}$
+\end_inset
+
+(1)
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $\omega_{p}=\omega_{0}(1+\frac{AR_{1}}{R_{1}+R_{2}})$
+\end_inset
+
+ (2)
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Si se considera el modelo todavía mas ideal (
+\begin_inset Formula $A\longrightarrow\infty$
+\end_inset
+
+), se llega a la ganancia ideal de la configuración no inversora:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $G_{i}=1+\frac{R_{2}}{R_{1}}$
+\end_inset
+
+ (3)
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+A continuación se presenta una tabla con los valores utilizados de componentes
+ y los parámetros del LM833 obtenidos de la hoja de datos del mismo:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $R_{1}(k\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $R_{2}(k\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $R_{3}(k\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $A$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $\omega_{0}(rad/seg)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{in}(k\varOmega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+2.7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+220
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $3.16\times10^{4}<A<3.16\times10^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+298
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+175
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Valores utilizados en la resolucion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Reemplazado los valores de los componentes en las ecuaciones (2) y (3),
+ se obtienen los valores:
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $144KHz<f_{p}<182KHz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $G_{i}=82.5$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+El GBP(Gain Bandwith Product) del amplificador operacional se define como:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $GBP=G(\omega).\omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Lo que quiere decir que es el producto entre el ancho de banda y la ganancia
+ medida a esa frecuencia.El GBP tiene un valor que se considera constante
+ y depende del amplificador operacional, este parámetro se proporciona en
+ las datasheets de los amplificadores operacionales.
+ Como el GBP se considera constante y es independiente de a que ganancia
+ se mide, se puede usar la formula:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $GBP=A_{o}.\omega_{o}$
+\end_inset
+
+ (4)
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Donde 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ es la ganancia a lazo abierto del amplificador operacional y 
+\begin_inset Formula $\omega_{0}$
+\end_inset
+
+ es el ancho de banda en lazo abierto.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Despejando la ecuación (4) se tiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $\omega_{o}=\frac{GBP}{A_{o}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Por lo que el GBP influye en la respuesta en frecuencia del circuito, ya
+ que el valor del mismo influye en el valor del polo dominante dado por
+ la ecuación (2).
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+La impedancia de entrada vista por el generador puede calcularse también
+ de forma teórica, si consideramos que la resistencia interna del amplificador
+ operacional tiene un valor finito.
+ El circuito resolver es el siguiente:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/ImpEntrada.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito equivalente con resistencia interna finita
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Las ecuaciones del mismo son:
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $\frac{v_{in}-v^{+}}{R_{3}}=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v^{+}=IR_{in}+v^{-}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v^{-}=\frac{R_{1}R_{2}}{R_{1}+R_{2}}I+\frac{R_{2}+R_{1}}{R_{1}R_{2}^{2}}v_{out}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v_{out}=A_{vol}(v^{+}-v^{-})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $A_{vol}(s)=\frac{A}{\frac{s}{\omega_{o}}+1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+La resolución del sistema anterior es tedioso y largo por lo que a continuación
+ se presenta simplemente la forma final que se obtuvo para la impedancia
+ de entrada:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $Z_{inp}=\frac{v_{in}}{I}=\frac{(R_{3}+R_{in})(R_{1}+R_{2})+R_{1}R_{2}+AR_{in}R_{1}}{R_{1}+R_{2}}.\frac{(1+\frac{s}{\omega_{p}})}{(1+\frac{s}{\omega_{o}})}$
+\end_inset
+
+ (5)
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $\omega_{p}=\frac{\omega_{o}[(R_{3}+R_{in})(R_{1}+R_{2})+R_{1}R_{2}+AR_{in}R_{1}]}{(R_{3}+R_{in})(R_{1}+R_{2})+R_{1}R_{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Remplazando la expresión por los valores utilizados de resistencias y con
+ el A , el 
+\begin_inset Formula $\omega_{o}$
+\end_inset
+
+ como datos de la datasheet se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $Z_{inp}=\frac{v_{in}}{I}=670731192.\frac{(1+\frac{s}{\omega_{p}})}{(1+\frac{s}{\omega_{o}})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $f_{p}=\frac{\omega_{p}}{2\pi}=114.6KHz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $f_{o}=\frac{\omega_{o}}{2\pi}=47.4Hz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Resultados obtenidos
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Todas las mediciones se realizaron con una amplitud a la entrada menor que
+ 270mV, ya que para valores de entrada mayores que este la salida excede
+ la tensión de saturación por lo que ya no se puede hablar de una respuesta
+ en frecuencia porque no hay una sola frecuencia a la salida.
+ Este limite se obtuvo mediante la simulación en LTSpice del circuito, la
+ siguiente es la gráfica de la tensión a la salida en función de la tensión
+ de entrada(trabajando en continua):
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Saturacion.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang spanish
+Saturacion del circuito
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+A continuación se muestra la suerposicion de la respuesta en frecuencia
+ medida del circuito superpuesta con la teórica (ecuación 1):
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/NowWithDataCursor.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Grafico de la magnitud medida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/BodeFase.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Grafico de la fase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Donde la curva azul representa la respuesta en frecuencia teórica y las
+ cruces rojas los puntos medidos de mismo.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Las dos próximas figuras muestran las mediciones obtenidas de la impedancia
+ de entrada del circuito:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/ImpMedida.PNG
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Magnitud de la impedancia de entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/ImpFase.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fase de la impedancia de entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Análisis de los resultados
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Primero se analizaran los resultados obtenidos para la respuesta en frecuencia
+ de la salida del circuito y luego aquellos obtenidos para la impedancia
+ de entrada.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Puede verse claramente que la respuesta en frecuencia obtenida de manera
+ teórica utilizando el modelo de 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ con un polo simple, no se ajusta a los resultados medidos.
+ Puede presenciarse que hay un sobre pico en la magnitud a la salida centrado
+ en los 67KHz y al analizar la fase se puede ver que la misma queda establecida
+ en -180º y no en -90º como sugiere la teoría.
+ Esto indica que el circuito elaborado tiene mas de un polo y que el modelo
+ de un polo simple no alcanza para modelar satisfactoriamente al circuito.
+ En la datasheet del LM833 se puede encontrar que hay un efecto capacitivo
+ entre los pins de entradas del op-amp y que el valor típico de esta capacitanci
+a parásita es de 12pf.
+ Modelando en LTSpice el circuito teniendo en cuenta esta capacitancia parásita,
+ así también como el efecto de las puntas sobre el circuito (Todas las medicione
+s se realizaron con las puntas en configuración x1):
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/LM833Circuito.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo del circuito simulado en LTSpice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Se obtuvieron resultados que se ajustan mejor a los resultados medidos:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/RespFrecSimulada.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia simulada en LTSpice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Siguen habiendo discrepancias entre la simulación y los valores medidos,
+ una de las razones puede ser los efectos de la capacitancia parásita de
+ la protoboard utilizada.
+ Tambien consideramos que la capacitancia parasita del op-amp debe diferir
+ del valor típico, al realizar la simulación con una capacitancia parásita
+ de 50pf entre los pins de entrada se obtuvieron resultados muy similares
+ a los medidos.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/Sim50pf.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulacion utilizando capacitancia parasita de 50pf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Otra inconsistencia entre el modelo teórico, y la simulación es el valor
+ de la ganancia a bajas frecuencias.
+ Esto puede ser debido a que para el análisis teorico se consideraron corrientes
+ de bias y tensión de offset nulas.Sin embargo, en la datasheet se da como
+ valor típico de corriente de bias 500nA y como tensión de offset típica
+ 0.3mV.
+ Al considerar que antes de la entrada del pin no inversor hay una resistencia
+ de 100kΩ se obtiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v^{+}=v_{in}-I_{b}^{+}.100k\varOmega-v_{offset}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v^{+}\thickapprox v_{in}-50.3mV$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+A primera vista puede parecer una caída despreciable, pero considerando
+ que el circuito tiene una ganancia de cerca de 82 veces y que esta alimentado
+ con 
+\begin_inset Formula $V_{CC}=15V$
+\end_inset
+
+.
+ La 
+\begin_inset Formula $v_{in}$
+\end_inset
+
+ no toma valores superiores a 200mV, ya que en ese caso se estaría trabajando
+ en condición de saturación, por lo que una diferencia de 50mV a la entrada
+ es significativa, ya que ademas esta sale amplificada 82 veces.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En cuanto a la impedancia de entrada, también hay fuertes diferencias entre
+ el modelo teórico y las mediciones obtenidas.
+ En primer lugar, la gráfica de magnitud tiene una forma similar pero difiere
+ en el valor en el que comienza la impedancia de entrada para bajas frecuencias.
+ Esto puede deberse en cierta medida al valor de A utilizado en la ecuación
+ (5), ya que el mismo tiene un valor que aunque es grande su valor preciso
+ puede variar hasta en un orden de magnitud.
+ Ademas de esto, se tiene que para el modelo teórico no se tuvo en cuenta
+ la influencia de la capacitancia parásita del amplificador operacional,
+ ni de las puntas del osciloscopio ni de la protoboard utilizada.
+ La fase teórica no guarda ninguna relación con la teórica, esto era de
+ esperarse ya que como se menciono anteriormente, el análisis teórico se
+ realizo para el modelo de un solo polo simple, el cual no es el caso.
+ Asimismo, la medición de la fase obtenida no es muy confiable.
+ Esto se debe a que para obtener la fase de la impedancia de entrada, se
+ midió la tensión en la entrada no inversora del op-amp y la tensión de
+ excitación.Luego, mediante el canal 'MATH' del osciloscopio se hizo la resta
+ de estas dos tensiones, ya que por mallas:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{in}-v_{R}-v^{+}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{R}=v_{in}-v^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Como se tiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $Z_{inp}=\frac{v_{in}}{I}=\frac{v_{in}}{v_{R}}.R_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+La resistencia es un numero real positivo, por lo que no afecta la fase,
+ por lo que con medir el desfasaje de la tensión en la resistencia con respecto
+ a la fase de la entrada ya es posible obtener la fase de la impedancia
+ de entrada.
+ Sin embargo, como los valores de tensión obtenidos con el osciloscopio
+ al utilizar 'MATH' fueron muy pequeños, para valores bajos de frecuencias
+ el osciloscopio no pudo resolver el desfasaje entre las tensiones.
+ Asimismo, a mayores frecuencias la tensión de la entrada no inversora se
+ volvía considerablemente pequeña por lo que también era dificulta obtener
+ mediciones sin un error importante.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En cuanto a la simulación en LTSpice, teniendo en cuenta el efecto de las
+ puntas y la capacitancia parásita se obtuvo la siguiente impedancia de
+ entrada:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/ImpSimulada.PNG
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Impedancia de entrada simulada en LTSpice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Se puede notar que la magnitud de la impedancia simulada se corresponde
+ mucho mejor con la magnitud medida que como lo hacia la magnitud teórica.
+ En cuanto a la fase, aunque como por las razones explicadas previamente
+ no se pudieron realizar mediciones de fase para frecuencias altas ni para
+ frecuencias bajas, se puede ver que para los valores de frecuencia medidos
+ la fase también se ajusta mejor a la simulación que a la fase teórica.
+ Estos resultados son lo que se esperaba ya que el modelo teórico con el
+ que se trabajo para la impedancia de entrada deja afuera todos los elementos
+ capacitivos así como también el efecto de las impedancias de los instrumentos
+ de medición.
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Aplicaciones del LM833
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Como caracteristicas principales del LM833 se tiene un valor alto de GBP(entre
+ 10Mhz y 15MHz), un alto valor de ganancia a lazo abierto(
+\begin_inset Formula $3.16\times10^{4}<A<3.16\times10^{5}$
+\end_inset
+
+) por lo que tiene el potencial de amplificar senales con una gran ganancia
+ a un rango considerable de senales.
+ Ademas de las cualidades de aplificacion, tiene un buen slew rate(valor
+ tipico de 
+\begin_inset Formula $7\frac{V}{\mu s}$
+\end_inset
+
+) , una tension de offset muy baja(0.3mV como valor tipico) y poca distorsion
+ armonica total(0.002%).
+ Estas caracteristicas en particular hacen que el LM833 tenga un gran valor
+ para aplicaciones de amplificar senales debiles de audio, ya que las mismas
+ se encuentran en un rango desde los 20Hz hasta los 20KHz, por lo que el
+ op-amp es capaz de amplificar fuertemente senales en ese rango dentro de
+ un circuito retroalimentado sin que el polo dominante del 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ sea un problema, debido a su alto valor de GBP.
+ Ademas, el hecho de que tenga un slew rate de 
+\begin_inset Formula $7\frac{V}{\mu s}$
+\end_inset
+
+ permite amplitudes mayores de entrada siempre(teniendo en cuenta que la
+ amplificacion no excede la tension de saturacion del op-amp).
+ Por ultimo, el bajo nivel de distorsion tambien juega un papel muy importante,
+ ya que se desea que la salida del sistema no este distorsionada con respecto
+ a como era la entrada inicialmente (idealmente los armonicos a la salida
+ deben ser los mismos que a la entrada).
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Como conclusión, al trabajar con circuitos retroalimentados que tienen alto
+ valores de ganancias, hay que tener especial cuidado de que se puedan seguir
+ estableciendo ciertas suposiciones del modelo ideal sin que influyan significat
+ivamente en el análisis.
+ Por ejemplo, tener en cuenta efectos de corrientes de bias, tensión de
+ offset, impedancia de entrada finita, el polo dominante de la ganancia
+ a lazo abierto y capacitancias parásitas.Asimismo, hay que tener en cuenta
+ el efecto del instrumento de medición al realizar ciertas mediciones, como
+ en el caso de la impedancia de entrada donde el efecto de la resistencia
+ del osciloscopio y el capacitor de las puntas afectan considerablemente
+ al circuito.
+ Otro aspecto a tener en cuenta al trabajar con altos valores de ganancia,
+ es el de no excederse de la tensión de saturación a la salida del circuito
+ y también tener presente el slew rate del amplificador operacional utilizado.
+\end_layout
+
+\begin_layout Section
+
+\lang spanish
+Medición de corrientes de Bias y Offset
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Objetivos y resumen
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+El objetivo de la experiencia realizada fue el de estimar la magnitud de
+ la tensión de offset para dos modelos distintos de amplificadores operacionales
+, el LF356 y el TL081 .También se realizaron mediciones para estimar la corriente
+ de bias y de offset de cada modelo.
+ El circuito utilizado es el que se muestra en la siguiente figura:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/BiasConfig.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Configuracion utilizada para las mediciones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Cerrando y abriendo los distintos switches se pueden medir los distintos
+ parámetros deseados.Se explicara el funcionamiento del circuito ilustrado,
+ cuando funciona el mismo para la medición y que combinación de switches
+ corresponde a la medición de cada parámetro.
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Introducción teórica
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Cuando se trabaja con el modelo ideal de un amplificador operacional, se
+ supone que las corrientes entrantes por el pin inversor y el no inversor
+ del mismo son nulas, así como también que si ambas entradas están puestas
+ a tierras entonces la salida del op-amp a lazo abierto es nula.
+ Sin embargo, en la realidad existen corrientes no nulas que circulan por
+ las entradas de los op-amps, estas mismas se denominan corrientes de bias
+ y por lo general rondan en el orden de los pico-amperes o los nanoamperes.
+ Asimismo, debido a imperfecciones y diferencias entre los pines de entrada
+ de los op-amps, al conectar ambas entradas del mismo a la misma referencia
+ sigue existiendo una tensión de salida.La diferencia de tensión necesaria
+ entre ambas entadas para lograr que la salida sea nula se denomina tensión
+ de offset.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Una representación de un op-amp con corrientes de bias y tensión de offset
+ es la siguiente:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/BiasOffset.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Corientes de bias y tension de offset en un op-amp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Utilizando las corrientes representadas en la figura anterior se definen
+ la corriente de bias y la corriente de offset como:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $I_{bias}=\frac{I_{b}^{-}+I_{b}^{+}}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $I_{offset}=|I_{b}^{-}-I_{b}^{+}|$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Compensación de las corrientes de bias
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Asumiendo que las corrientes 
+\begin_inset Formula $I_{b}^{+}$
+\end_inset
+
+e 
+\begin_inset Formula $I_{b}^{-}$
+\end_inset
+
+ son comparables entre si, puede proponerse el siguiente circuito como posible
+ circuito de compensación para un amplificador operacional en configuración
+ inversora:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/CompensacionBias.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito de compensacion en configuracion inversora
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Considerando que la tensión en las entradas del Op-amp son casi iguales
+ y despreciando la tensión de offset, se tienen las siguientes ecuaciones:
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v^{+}=-I_{b}^{+}R_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v^{-}=v^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $\frac{v_{in}-v^{-}}{R_{1}}=I_{b}^{-}+\frac{v^{-}-v_{out}}{R_{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Remplazando la primera ecuación en la segunda, luego la segunda en la tercera
+ y despejando 
+\begin_inset Formula $v_{out}$
+\end_inset
+
+ se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{out}=-\frac{R_{2}}{R_{1}}v_{in}+I_{b}^{-}(R_{2}-R_{3})-I_{b}^{+}(\frac{R_{2}R_{3}}{R_{1}})$
+\end_inset
+
+ (0)
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Planteando:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $R_{2}-R_{3}=\frac{R_{2}R_{3}}{R_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $R_{2}=R_{3}(\frac{R_{2}}{R_{1}}+1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $R_{3}=\frac{R_{1}R_{2}}{R_{1}+R_{2}}=R_{1}\parallel R_{2}$
+\end_inset
+
+ (1)
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Entonces asumiendo que se cumple (1), se puede sacar factor común en la
+ ecuación (0) y la nueva forma de la ecuación compensada es :
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{out}=-\frac{R_{2}}{R_{1}}v_{in}+\frac{R_{2}^{2}}{R_{1}+R_{2}}I_{offset}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Por lo que, asumiendo que las corrientes de bias son comparables, el valor
+ de 
+\begin_inset Formula $I_{offset}$
+\end_inset
+
+ debería ser pequeño.
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Resolución del circuito
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang spanish
+Estabilidad del circuito
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En primer lugar, se analiza la estabilidad del circuito propuesto, para
+ hacer esto se divide el circuito en dos partes distintas donde solo hay
+ un opamp en cada parte.
+ Primero se hace el análisis de la región donde se encuentra el amplificador
+ OA_X:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/OA_X.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sector derecho del circuito de medicion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+De la figura anterior se puede ver que el OA_X esta en configuración inversora,
+ por lo que la salida del mismo es la entrada amplificada y negada.Planteando
+ las ecuaciones del circuito se obtienen:
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v_{out}=-A_{vol}v^{-}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v^{-}=\frac{1}{sR_{4}C+1}v_{in}+\frac{sCR_{4}}{1+sCR_{4}}v_{out}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+El grafo resultante es:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/GrafoOA_X.PNG
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Grafo de la configuracion inversora utilizada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Puede verse del grafo que la configuración actual es estable ya que la retroalim
+entacion es negativa.Sin embargo, si el amplificador se diera vuelta (retroalimen
+taddo por la entrada no inversora), el peso de abajo(
+\begin_inset Formula $-A_{o}$
+\end_inset
+
+) cambiaría de signo y se obtendría una retroalimentacion regenerativa que
+ correspondería a una configuración inestable en la que se llega siempre
+ a la saturación a la salida.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En cuanto a la región con el OpAmp a ser medido(OA_X2):
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/OA_X2.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sector 
+\lang spanish
+izquierdo
+\lang english
+ del circuito de 
+\lang spanish
+medición 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Donde las ecuaciones de dicho circuito son:
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v_{out}=A_{o}v^{+}-A_{o}v_{in}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula $v^{+}=\frac{1}{sR_{4}C(1+\frac{R_{3}}{10\varOmega})}v_{out}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $v_{in}$
+\end_inset
+
+ representa las caídas de tensión ocasionadas por las corrientes de bias
+ y la tensión de offset del OpAmp.Realizando el grafo asociado se tiene:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Graphics
+	filename Imagenes/GrafoOA_X2.PNG
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Grafo del sector del circuito con OA_X2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Puede verse en el ciclo que la retroalimentacion es negativa y por lo tanto
+ el sistema es estable.Sin embargo, si se dan vuelta las entradas del OA_X2
+ entonces cambia de signo el peso del lazo que une a 
+\begin_inset Formula $v_{in}$
+\end_inset
+
+con 
+\begin_inset Formula $v_{out}$
+\end_inset
+
+ así como también el peso del enlace que va desde 
+\begin_inset Formula $v^{+}$
+\end_inset
+
+hacia 
+\begin_inset Formula $v_{out}$
+\end_inset
+
+.En dicha situación el signo se invierte dos veces en el bucle, por lo que
+ se tiene una retroalimentacion regenerativa y el sistema no es estable.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Como conclusión, la configuración original propuesta es estable.
+ Si se invierte solo OA_X entonces la configuración se vuelve inestable
+ ya que se obtiene una retroalimentacion regenerativa en la segunda parte
+ del circuito.Asimismo, si se invierte solo OA_X2 la configuración resultante
+ también es inestable ya que se obtiene una retroalimentacion regenerativa
+ en la primera parte del circuito.Como ultima posibilidad, si se invierten
+ ambos amplificadores operacionales, la configuración obtenida también es
+ inestable, ya que la parte del circuito correspondiente a OA_X termina
+ con retroalimentaion regenerativa.
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang spanish
+Tensión de salida
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Resolviendo el circuito con los dos interruptores abiertos(sin cortocircuitar
+ ninguna resistencia) y asumiendo que 
+\begin_inset Formula $R_{5}=R_{6}=R$
+\end_inset
+
+, se tienen las ecuaciones:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v^{-}=-I_{b}^{-}(10\varOmega+R)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v^{+}=-v_{offset}-I_{b}^{-}(10\varOmega+R)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $\frac{v_{c}}{10\varOmega}+I_{b}^{+}=\frac{v_{out}-v_{c}}{R_{3}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $\frac{v_{c}-v^{+}}{R}=I_{b}^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Resolviendo el sistema, queda que la salida del sistema sin cortocircuitar
+ ninguna resistencia es:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{out}=I_{b}^{+}R(1+\frac{R_{3}}{10\varOmega})-I_{b}^{-}(R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
+\end_inset
+
+ (2)
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Como puede analizarse de la ecuación obtenida, el circuito realizado sirve
+ para medir las corrientes de bias y tensión de offset del amplificador
+ 
+\begin_inset Quotes eld
+\end_inset
+
+OA_X2
+\begin_inset Quotes erd
+\end_inset
+
+, y el otro amplificador operacional sirve para proporcionar la ganancia
+ necesaria para que la tensión de salida sea lo suficientemente apreciable
+ para ser medida.
+ Al activar los switches del circuito se puede jugar con que términos de
+ la ecuación (2) son relevantes y cuales despreciables.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Si ambos switches estan abiertos y se desprecia la caida:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $-I_{b}^{-}(R_{3}+10\varOmega)\thickapprox-(200pA)(7.5k\varOmega+10\varOmega)=-1.502\mu V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se obtiene de (2) una expresion para la corriente de offset:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Con ambos switches cerrados(R=0), la ecuación (2) se convierte en:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{out}=-I_{b}^{-}(R_{3}+10)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Si despreciamos la caída generada por 
+\begin_inset Formula $I_{b}^{-}$
+\end_inset
+
+, obtenemos que la salida depende unicamente de la tensión de offset según
+ la relación:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{out}\approx-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
+\end_inset
+
+ (3)
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Como justificación de que la caída ocasionada por la corriente de bias es
+ despreciable para nuestro caso, se realiza el calculo de la caída con el
+ valor de resistencia utilizado y el valor máximo de corriente de bias proporcio
+nado en la datasheet:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $I_{b}^{-}(R_{3}+10\varOmega)=(200pA)(7.5k\varOmega+10\varOmega)=1.502\mu V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+De la datasheet de ambos Op-amps se obtiene que la 
+\begin_inset Formula $v_{offset}$
+\end_inset
+
+esta en el orden de los millivolts, por lo que la caída ocasionada por la
+ corriente de bias es de 3 ordenes menor que la tensión de offset.Ademas
+ a la salida la tensión de offset sale amplificada 751 veces, por lo que
+ esta caída se hace todavía mas despreciable.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Si solo se cortocircuita 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+(SW1 cerrado y SW2 abierto), entonces se tiene de (2) que:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{out}=I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})-I_{b}^{-}(R_{3}+10\Omega)-v_{offset}(\frac{R_{3}}{10\Omega}+1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Por las mismas razones que en el caso anterior, se puede despreciar la caída
+ ocasionada por 
+\begin_inset Formula $I_{b}^{-}$
+\end_inset
+
+y se obtiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{out}\approx I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})-v_{offset}(\frac{R_{3}}{10\Omega}+1)$
+\end_inset
+
+ (4)
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $I_{b}^{+}\approx\frac{v_{out}+v_{offset}(\frac{R_{3}}{10\Omega}+1)}{R(1+\frac{R_{3}}{10\varOmega})}$
+\end_inset
+
+ (5)
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Asumiendo que conocemos la 
+\begin_inset Formula $v_{offset}$
+\end_inset
+
+ (obtenida midiendo con ambas resistencias cortocircuitadas), podemos medir
+ la tensión a la salida del circuito y obtener la 
+\begin_inset Formula $I_{b}^{+}$
+\end_inset
+
+ despejando la ecuación (4).
+ Para minimizar el error ocasionado por las imprecisiones de la medición,
+ lo mejor es que R sea lo suficientemente grande para que la caída ocasionada
+ por 
+\begin_inset Formula $I_{b}^{+}$
+\end_inset
+
+ sea apreciable.
+ Tomando 
+\begin_inset Formula $R=1M\varOmega$
+\end_inset
+
+, y la corriente típica de bias de la datasheet obtenemos que la caída ocasionad
+a por el primer termino de (4) es:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})=(30pA)(1M\varOmega)(1+\frac{7.5K\varOmega}{10\varOmega})\thickapprox22.6mV$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Finalmente, en el caso en el que solo cortocircuitamos 
+\begin_inset Formula $R_{6}$
+\end_inset
+
+(SW1 abierto y SW2 cerrado), llegamos de (2) a la ecuación:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $v_{out}=-I_{b}^{-}(R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $I_{b}^{-}=-\frac{v_{out}+v_{offset}(\frac{R_{3}}{10\varOmega}+1)}{R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega}$
+\end_inset
+
+ (6)
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang spanish
+Interferencia de linea
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Volviendo a analizar el circuito de la figura 7, se tiene que la ganancia
+ ideal de dicho circuito es:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang spanish
+\begin_inset Formula $\frac{v_{out}}{v_{in}}=H(s)=-\frac{1}{sR_{4}C}$
+\end_inset
+
+ (7)
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Dicha función transferencia es la de un pasa-bajos con frecuencia de corte
+ 
+\begin_inset Formula $f_{c}=\frac{1}{2\pi R_{4}C}$
+\end_inset
+
+ (frecuencia en la que la ganancia es 0Db).Por lo tanto el valor de C determina
+ a partir de que valor las frecuencias a la salida salen atenuadas, para
+ valores de C grandes la 
+\begin_inset Formula $f_{c}$
+\end_inset
+
+ es mas pequeña y por lo tanto hay un menor rango de frecuencias que salen
+ amplificadas y un mayor rango que sale atenuadas.En cambio, mientras mas
+ chico el valor de C, la 
+\begin_inset Formula $f_{c}$
+\end_inset
+
+ es mas grande, y un mayor rango de frecuencias sale amplificado y un menor
+ rango atenuado.
+ En teoría esto no deberia afectar al modelo ideal de medicion ya que se
+ trabaja solo en continua por lo que el capacitor se comporta simplemente
+ como un circuito abierto.Sin embargo, en la realidad existe interferencia
+ de linea, lo que significa que en el circuito hay señales de distintas
+ frecuencias ocasionadas por factores externos,principalmente señales de
+ f=50Hz.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Por lo tanto, mientras mas alto el valor de C, la medición sera mas precisa
+ ya que el circuito filtra mejor la salida correspondiente a las señales
+ indeseadas que entran al circuito.
+ En un principio se realizaron las mediciones con un valor de 100nf , pero
+ como la interferencia de linea era mas significativa que la tension que
+ se queria medir, se cambio a un capacitor de 1uf el cual sirvio para atenuar
+ considerablemente la interferencia.
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Resultados obtenidos
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Utilizando el modelo de OpAmp LF356 como OA_X2 y el modelo TL081 como OA_X
+ se midieron los siguientes valores:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+SW1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+SW2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $V_{out}(V)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $V_{offset}(mV)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $I_{b}^{+}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $I_{b}^{-}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $I_{offset}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-1.074
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+1.43
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-1.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-168
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-0.92
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-205
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-0.92
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+205
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tabla para la medicion del LF356
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Realizando la experiencia nuevamente, pero con el modelo TL081 como OA_X2
+ y el modelo LF356 como OA_X se obtuvo:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang spanish
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+SW1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+SW2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $V_{out}(mV)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $V_{offset}(mV)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $I_{b}^{+}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $I_{b}^{-}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Formula $I_{offset}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-0.09
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+114
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\lang spanish
+-23
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tabla para la medicion del TL081
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Analisis de los resultados
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Para el caso del amplificador operacional LF356, el valor de tension de
+ offset medido es cercano al valor tipico provisto por la datasheet de 3mV.Las
+ corrientes de bias resularon ser superiores al valor tipico de 30pA pero
+ la corriente de bias medida de 186.5pA, sigue estando dentro del valor maximo
+ de 200pA a una temperatura de 25ºC.
+ Algo inusual que se obtuvo de las mediciones es el alto valor para la corriente
+ de offset...
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+En cuanto al amplificador operacional TL081, 
+\end_layout
+
+\begin_layout Subsection
+
+\lang spanish
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+Para concluir, los efectos de las corrientes de bias y la tension de offset
+ deben ser tenidos en cuenta antes del diseno de un circuito, ya que sus
+ efectos pueden ocasionar que el circcuito no cumpla el fin para el cual
+ fue disenado.
+ A su vez hay que tener en cuenta que las corrientes de bias, dependen de
+ la temperatura y que a mayor temperatura estas corrientes se vuelven mas
+ apreciables.
+ Es posible elaborar un circuito de compensacion para minimizar el efecto
+ de estas corrientes a la salida del amplificador operacional.
+ En cuanto a su circuito de medicion, el orden de magnitud de estas corrientes
+ es por lo general del orden de los nA o los pA.
+ Para el circuito y los modelos de op-amps propuestos, debio considerarse
+ previamente el efecto de la interferencia de linea y el valor de los componente
+s que influyeron en la amplificacion de las caidas ocasionadas por las corriente
+s de bias.
+\end_layout
+
+\end_body
+\end_document
