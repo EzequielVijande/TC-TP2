@@ -291,7 +291,7 @@ A continuación se presenta una tabla con los valores utilizados de componentes
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1643,7 +1643,7 @@ Utilizando las corrientes representadas en la figura anterior se definen
 \begin_inset Formula $I_{bias}=\frac{I_{b}^{-}+I_{b}^{+}}{2}$
 \end_inset
 
-
+(0)
 \end_layout
 
 \begin_layout Standard
@@ -1653,7 +1653,7 @@ Utilizando las corrientes representadas en la figura anterior se definen
 \begin_inset Formula $I_{offset}=|I_{b}^{-}-I_{b}^{+}|$
 \end_inset
 
-
+(1)
 \end_layout
 
 \begin_layout Subsection
@@ -1775,7 +1775,7 @@ Remplazando la primera ecuación en la segunda, luego la segunda en la tercera
 \begin_inset Formula $v_{out}=-\frac{R_{2}}{R_{1}}v_{in}+I_{b}^{-}(R_{2}-R_{3})-I_{b}^{+}(\frac{R_{2}R_{3}}{R_{1}})$
 \end_inset
 
- (0)
+ (2)
 \end_layout
 
 \begin_layout Standard
@@ -1811,14 +1811,14 @@ Planteando:
 \begin_inset Formula $R_{3}=\frac{R_{1}R_{2}}{R_{1}+R_{2}}=R_{1}\parallel R_{2}$
 \end_inset
 
- (1)
+ (3)
 \end_layout
 
 \begin_layout Standard
 
 \lang spanish
-Entonces asumiendo que se cumple (1), se puede sacar factor común en la
- ecuación (0) y la nueva forma de la ecuación compensada es :
+Entonces asumiendo que se cumple (3), se puede sacar factor común en la
+ ecuación (2) y la nueva forma de la ecuación compensada es :
 \end_layout
 
 \begin_layout Standard
@@ -2246,7 +2246,7 @@ Resolviendo el sistema, queda que la salida del sistema sin cortocircuitar
 \begin_inset Formula $v_{out}=I_{b}^{+}R(1+\frac{R_{3}}{10\varOmega})-I_{b}^{-}(R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
 \end_inset
 
- (2)
+ (4)
 \end_layout
 
 \begin_layout Standard
@@ -2266,7 +2266,7 @@ OA_X2
  necesaria para que la tensión de salida sea lo suficientemente apreciable
  para ser medida.
  Al activar los switches del circuito se puede jugar con que términos de
- la ecuación (2) son relevantes y cuales despreciables.
+ la ecuación (4) son relevantes y cuales despreciables.
 \end_layout
 
 \begin_layout Standard
@@ -2286,7 +2286,7 @@ Si ambos switches estan abiertos y se desprecia la caida:
 \end_layout
 
 \begin_layout Standard
-Se obtiene de (2) una expresion para la corriente de offset:
+Se obtiene de (4) una expresion para la corriente de offset:
 \end_layout
 
 \begin_layout Standard
@@ -2308,7 +2308,7 @@ Se obtiene de (2) una expresion para la corriente de offset:
 \begin_layout Standard
 
 \lang spanish
-Con ambos switches cerrados(R=0), la ecuación (2) se convierte en:
+Con ambos switches cerrados(R=0), la ecuación (4) se convierte en:
 \end_layout
 
 \begin_layout Standard
@@ -2339,7 +2339,7 @@ Si despreciamos la caída generada por
 \begin_inset Formula $v_{out}\approx-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
 \end_inset
 
- (3)
+ (5)
 \end_layout
 
 \begin_layout Standard
@@ -2381,7 +2381,7 @@ Si solo se cortocircuita
 \begin_inset Formula $R_{5}$
 \end_inset
 
-(SW1 cerrado y SW2 abierto), entonces se tiene de (2) que:
+(SW1 cerrado y SW2 abierto), entonces se tiene de (4) que:
 \end_layout
 
 \begin_layout Standard
@@ -2412,7 +2412,7 @@ y se obtiene:
 \begin_inset Formula $v_{out}\approx I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})-v_{offset}(\frac{R_{3}}{10\Omega}+1)$
 \end_inset
 
- (4)
+ (6)
 \end_layout
 
 \begin_layout Standard
@@ -2422,7 +2422,7 @@ y se obtiene:
 \begin_inset Formula $I_{b}^{+}\approx\frac{v_{out}+v_{offset}(\frac{R_{3}}{10\Omega}+1)}{R(1+\frac{R_{3}}{10\varOmega})}$
 \end_inset
 
- (5)
+ (7)
 \end_layout
 
 \begin_layout Standard
@@ -2437,7 +2437,7 @@ Asumiendo que conocemos la
 \begin_inset Formula $I_{b}^{+}$
 \end_inset
 
- despejando la ecuación (4).
+ despejando la ecuación (6).
  Para minimizar el error ocasionado por las imprecisiones de la medición,
  lo mejor es que R sea lo suficientemente grande para que la caída ocasionada
  por 
@@ -2450,7 +2450,7 @@ Asumiendo que conocemos la
 \end_inset
 
 , y la corriente típica de bias de la datasheet obtenemos que la caída ocasionad
-a por el primer termino de (4) es:
+a por el primer termino de (6) es:
 \end_layout
 
 \begin_layout Standard
@@ -2470,7 +2470,7 @@ Finalmente, en el caso en el que solo cortocircuitamos
 \begin_inset Formula $R_{6}$
 \end_inset
 
-(SW1 abierto y SW2 cerrado), llegamos de (2) a la ecuación:
+(SW1 abierto y SW2 cerrado), llegamos de (4) a la ecuación:
 \end_layout
 
 \begin_layout Standard
@@ -2490,7 +2490,7 @@ Finalmente, en el caso en el que solo cortocircuitamos
 \begin_inset Formula $I_{b}^{-}=-\frac{v_{out}+v_{offset}(\frac{R_{3}}{10\varOmega}+1)}{R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega}$
 \end_inset
 
- (6)
+ (8)
 \end_layout
 
 \begin_layout Subsubsection
@@ -2513,7 +2513,7 @@ Volviendo a analizar el circuito de la figura 7, se tiene que la ganancia
 \begin_inset Formula $\frac{v_{out}}{v_{in}}=H(s)=-\frac{1}{sR_{4}C}$
 \end_inset
 
- (7)
+ (9)
 \end_layout
 
 \begin_layout Standard
@@ -3519,7 +3519,11 @@ Para el caso del amplificador operacional LF356, el valor de tension de
  la corriente de bias medida de 186.5pA, sigue estando dentro del valor maximo
  de 200pA a una temperatura de 25ºC.
  Algo inusual que se obtuvo de las mediciones es el alto valor para la corriente
- de offset...
+ de offset, lo mas probable es que dicha medicion haya tenido un error muy
+ grande.Sin embargo si se obtiene la corriente de offset por medio de la
+ ecuacion (1) y los valores medidos queda una corriente de offset de 37pA,
+ lo cual es un valor aceptable ya que se encuentra por debajo del valor
+ maximo de 100pA a 25ºC.
 \end_layout
 
 \begin_layout Standard
@@ -3629,7 +3633,7 @@ Salida medida en la simulacion
 
 \begin_layout Standard
 La tension de salida medida dio casi 10 veces mas que en la simulacion.Sin
- embargo, con el resultado de la simulacion y utilizando la ecuacion (3)
+ embargo, con el resultado de la simulacion y utilizando la ecuacion (5)
  se obtiene una tension de offset de aproximadamente 0.01mV.
  Este valor obtenido de la simulacion es claramente menor que el valor tipico
  obtenido de la datasheet(3mV), y mucho mas cercano al valor medido (-0.09mV).Es

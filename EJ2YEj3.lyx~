@@ -3637,7 +3637,7 @@ La tension de salida medida dio casi 10 veces mas que en la simulacion.Sin
  al modelo de spice utilizado, o que el amplificador operacional utilizado
  ya tenga una compensacion interna que disminuya la tension de offset.
  En cuanto a las corrietes de bias y la de offset, ambas dan dentro de los
- valores maximos provistos por la datasheet(100pA para la de offsety 200pA
+ valores maximos provistos por la datasheet(100pA para la de offset y 200pA
  para la de bias).
 \end_layout
 
