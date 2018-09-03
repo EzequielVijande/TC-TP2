@@ -3815,7 +3815,7 @@ Region del circuito analizada
 \end_layout
 
 \begin_layout Standard
-se tienen las ecuaciones:
+Aplicando nodos para el modelo ideal de Op-amp se llega a las dos ecuaciones:
 \end_layout
 
 \begin_layout Itemize
@@ -3827,6 +3827,35 @@ se tienen las ecuaciones:
 
 \begin_layout Itemize
 \begin_inset Formula $\frac{v^{-}-v_{out}}{R_{3}}+\frac{v^{-}}{R_{2}}=\frac{V_{cc}-v^{-}}{R_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Remplazando la primera ecuacion en la segunda y despejando se llega a la
+ expresion para la tension de salida.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{V_{LM}-v_{out}}{R_{3}}+\frac{V_{LM}}{R_{2}}=\frac{V_{cc}-V_{LM}}{R_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{LM}(\frac{1}{R_{3}}+\frac{1}{R_{2}})-\frac{V_{cc}}{R_{1}}=\frac{v_{out}}{R_{3}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}=\frac{R_{2}+R_{3}}{3_{2}}V_{LM}-\frac{R_{3}}{R_{1}}V_{cc}$
 \end_inset
 
 
