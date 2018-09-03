@@ -1419,24 +1419,24 @@ Aplicaciones del LM833
 \begin_layout Standard
 
 \lang spanish
-Como caracteristicas principales del LM833 se tiene un valor alto de GBP(entre
+Como características principales del LM833 se tiene un valor alto de GBP(entre
  10Mhz y 15MHz), un alto valor de ganancia a lazo abierto(
 \begin_inset Formula $3.16\times10^{4}<A<3.16\times10^{5}$
 \end_inset
 
-) por lo que tiene el potencial de amplificar senales con una gran ganancia
- a un rango considerable de senales.
- Ademas de las cualidades de aplificacion, tiene un buen slew rate(valor
- tipico de 
+) por lo que tiene el potencial de amplificar señales con una gran ganancia
+ a un rango considerable de señales.
+ Ademas de las cualidades de amplificacion, tiene un buen slew rate(valor
+ típico de 
 \begin_inset Formula $7\frac{V}{\mu s}$
 \end_inset
 
-) , una tension de offset muy baja(0.3mV como valor tipico) y poca distorsion
- armonica total(0.002%).
- Estas caracteristicas en particular hacen que el LM833 tenga un gran valor
- para aplicaciones de amplificar senales debiles de audio, ya que las mismas
+) , una tensión de offset muy baja(0.3mV como valor típico) y poca distorsión
+ armónica total(0.002%).
+ Estas características en particular hacen que el LM833 tenga un gran valor
+ para aplicaciones de amplificar señales débiles de audio, ya que las mismas
  se encuentran en un rango desde los 20Hz hasta los 20KHz, por lo que el
- op-amp es capaz de amplificar fuertemente senales en ese rango dentro de
+ op-amp es capaz de amplificar fuertemente señales en ese rango dentro de
  un circuito retroalimentado sin que el polo dominante del 
 \begin_inset Formula $A_{vol}$
 \end_inset
@@ -1447,10 +1447,10 @@ Como caracteristicas principales del LM833 se tiene un valor alto de GBP(entre
 \end_inset
 
  permite amplitudes mayores de entrada siempre(teniendo en cuenta que la
- amplificacion no excede la tension de saturacion del op-amp).
- Por ultimo, el bajo nivel de distorsion tambien juega un papel muy importante,
+ amplificación no excede la tensión de saturación del op-amp).
+ Por ultimo, el bajo nivel de distorsión también juega un papel muy importante,
  ya que se desea que la salida del sistema no este distorsionada con respecto
- a como era la entrada inicialmente (idealmente los armonicos a la salida
+ a como era la entrada inicialmente (idealmente los armónicos a la salida
  deben ser los mismos que a la entrada).
 \end_layout
 
@@ -2290,6 +2290,22 @@ Se obtiene de (2) una expresion para la corriente de offset:
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}\approx I_{offset}R(1+\frac{R_{3}}{10\varOmega})-v_{offset}(1+\frac{R_{3}}{10\varOmega})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{offset}\approx\frac{v_{out}}{R(1+\frac{R_{3}}{10\varOmega})}+\frac{v_{offset}}{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \lang spanish
 Con ambos switches cerrados(R=0), la ecuación (2) se convierte en:
@@ -2562,7 +2578,7 @@ Utilizando el modelo de OpAmp LF356 como OA_X2 y el modelo TL081 como OA_X
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3032,7 +3048,7 @@ Realizando la experiencia nuevamente, pero con el modelo TL081 como OA_X2
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3509,7 +3525,120 @@ Para el caso del amplificador operacional LF356, el valor de tension de
 \begin_layout Standard
 
 \lang spanish
-En cuanto al amplificador operacional TL081, 
+En cuanto al amplificador operacional TL081, la tension de offset medida
+ es considerablemente mas baja que el valor tipico de la datasheet(3mV),
+ sin embargo el valor de offset medido es similar al que se obtiene de simular
+ la medicion en LTSPICE:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/CircuitoSimulado.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang spanish
+Modelo simulado en LTspice para la tension de offset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Donde se obtuvo como salida:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/OffsetSimulado.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang spanish
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang spanish
+Salida medida en la simulacion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La tension de salida medida dio casi 10 veces mas que en la simulacion.Sin
+ embargo, con el resultado de la simulacion y utilizando la ecuacion (3)
+ se obtiene una tension de offset de aproximadamente 0.01mV.
+ Este valor obtenido de la simulacion es claramente menor que el valor tipico
+ obtenido de la datasheet(3mV), y mucho mas cercano al valor medido (-0.09mV).Es
+ posible que esto se deba a que la datasheet este desactualizada con respecto
+ al modelo de spice utilizado, o que el amplificador operacional utilizado
+ ya tenga una compensacion interna que disminuya la tension de offset.
+ En cuanto a las corrietes de bias y la de offset, ambas dan dentro de los
+ valores maximos provistos por la datasheet(100pA para la de offsety 200pA
+ para la de bias).
 \end_layout
 
 \begin_layout Subsection
@@ -3521,7 +3650,7 @@ Conclusiones
 \begin_layout Standard
 Para concluir, los efectos de las corrientes de bias y la tension de offset
  deben ser tenidos en cuenta antes del diseno de un circuito, ya que sus
- efectos pueden ocasionar que el circcuito no cumpla el fin para el cual
+ efectos pueden ocasionar que el circuito no cumpla el fin para el cual
  fue disenado.
  A su vez hay que tener en cuenta que las corrientes de bias, dependen de
  la temperatura y que a mayor temperatura estas corrientes se vuelven mas
