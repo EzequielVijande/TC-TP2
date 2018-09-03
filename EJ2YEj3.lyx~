@@ -3709,6 +3709,129 @@ Integrado LM35
 Diseno implementado
 \end_layout
 
+\begin_layout Standard
+Una vez que se obtiene la tension de salida del LM35, lo que resta para
+ cumplir las especificaciones de rango es desplazar la tension y ajustar
+ la pendiente de la recta.La recta deseada es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{out}=50V_{LM}-17.5$
+\end_inset
+
+ (1)
+\end_layout
+
+\begin_layout Standard
+Para realizar el ajuste necesario se propuso el siguiente circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/SensorCircuito.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito que ajusta la tension de salida del LM35
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Analizando el circuito en condiciones ideales (despreciando corrientes de
+ bias, tension de offset, asumiendo impedancia de entrada infinita), para
+ el ciruito a la izquierda de 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/SensorGananciaOpamp.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Region del circuito analizada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+se tienen las ecuaciones:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v^{+}=v^{-}=V_{LM}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\frac{v^{-}-v_{out}}{R_{3}}+\frac{v^{-}}{R_{2}}=\frac{V_{cc}-v^{-}}{R_{1}}$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Datasheet
 \end_layout
