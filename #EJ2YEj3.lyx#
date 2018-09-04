@@ -7,7 +7,7 @@
 \textclass article
 \use_default_options true
 \maintain_unincluded_children false
-\language spanish
+\language english
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -55,16 +55,18 @@
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 19mm
-\topmargin 19mm
-\rightmargin 19mm
-\bottommargin 43mm
-\headsep 2mm
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 2cm
+\headsep 2cm
+\footskip 2cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language french
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -78,19 +80,27 @@
 \begin_body
 
 \begin_layout Section
+
+\lang spanish
 Caracterización del amplificador operacional LM833
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Objetivos y resumen
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se realizo un circuito en configuración no inversora como el ilustrado en
  la siguiente figura:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -109,6 +119,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -130,6 +142,8 @@ Circuito no inversor utilizando el LM833 como amplificador oepracional
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Dicho circuito se implemento haciendo uso del modelo de amplificador LM833.El
  objetivo principal de la experiencia fue la medir la respuesta en frecuencia
  de la salida del circuito así también como su impedancia de entrada.
@@ -139,16 +153,22 @@ Dicho circuito se implemento haciendo uso del modelo de amplificador LM833.El
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En una primera instancia los resultados iban a ser comparados con lo de
  otro modelo(NE5534), pero como no pudimos conseguir el componente en cuestión
  hicimos el análisis solo para el LM833.
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Resolución del circuito
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Para esta primera resolución teórica el circuito se realizo asumiendo que
  el amplificador tiene una impedancia de entrada infinita así como también
  impedancia de salida nula, así como también se despreciaron las corrientes
@@ -158,6 +178,8 @@ Para esta primera resolución teórica el circuito se realizo asumiendo que
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $V_{in}=v^{+}$
 \end_inset
 
@@ -165,6 +187,8 @@ Para esta primera resolución teórica el circuito se realizo asumiendo que
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v^{-}=\frac{R_{1}}{R_{1}+R_{2}}V_{out}$
 \end_inset
 
@@ -172,6 +196,8 @@ Para esta primera resolución teórica el circuito se realizo asumiendo que
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $V_{out}=A_{o}(\omega)(v^{+}-v^{-})$
 \end_inset
 
@@ -179,6 +205,8 @@ Para esta primera resolución teórica el circuito se realizo asumiendo que
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $A_{vol}=\frac{A}{1+\frac{j\omega}{\omega_{0}}}$
 \end_inset
 
@@ -190,6 +218,8 @@ Para esta primera resolución teórica el circuito se realizo asumiendo que
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Donde 
 \begin_inset Formula $A_{vol}$
 \end_inset
@@ -209,6 +239,8 @@ son las tensiones no inversora y la inversora respectivamente, del LM833.
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $\frac{V_{out}}{V_{in}}=G(\omega)=\frac{A}{(1+\frac{AR_{1}}{R_{1}+R_{2}})(1+\frac{j\omega}{\omega_{p}})}$
 \end_inset
 
@@ -217,6 +249,8 @@ son las tensiones no inversora y la inversora respectivamente, del LM833.
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $\omega_{p}=\omega_{0}(1+\frac{AR_{1}}{R_{1}+R_{2}})$
 \end_inset
 
@@ -224,6 +258,8 @@ son las tensiones no inversora y la inversora respectivamente, del LM833.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Si se considera el modelo todavía mas ideal (
 \begin_inset Formula $A\longrightarrow\infty$
 \end_inset
@@ -233,6 +269,8 @@ Si se considera el modelo todavía mas ideal (
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $G_{i}=1+\frac{R_{2}}{R_{1}}$
 \end_inset
 
@@ -240,11 +278,15 @@ Si se considera el modelo todavía mas ideal (
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 A continuación se presenta una tabla con los valores utilizados de componentes
  y los parámetros del LM833 obtenidos de la hoja de datos del mismo:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float table
 placement H
 wide false
@@ -253,6 +295,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="6">
 <features tabularvalignment="middle">
@@ -267,6 +311,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $R_{1}(k\Omega)$
 \end_inset
 
@@ -279,6 +325,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $R_{2}(k\Omega)$
 \end_inset
 
@@ -291,6 +339,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $R_{3}(k\Omega)$
 \end_inset
 
@@ -303,6 +353,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $A$
 \end_inset
 
@@ -315,6 +367,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $\omega_{0}(rad/seg)$
 \end_inset
 
@@ -341,6 +395,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 2.7
 \end_layout
 
@@ -350,6 +406,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 220
 \end_layout
 
@@ -359,6 +417,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 100
 \end_layout
 
@@ -368,6 +428,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $3.16\times10^{4}<A<3.16\times10^{5}$
 \end_inset
 
@@ -380,6 +442,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 298
 \end_layout
 
@@ -403,6 +467,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -424,11 +490,15 @@ Valores utilizados en la resolucion
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Reemplazado los valores de los componentes en las ecuaciones (2) y (3),
  se obtienen los valores:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $144KHz<f_{p}<182KHz$
 \end_inset
 
@@ -436,6 +506,8 @@ Reemplazado los valores de los componentes en las ecuaciones (2) y (3),
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $G_{i}=82.5$
 \end_inset
 
@@ -443,11 +515,15 @@ Reemplazado los valores de los componentes en las ecuaciones (2) y (3),
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 El GBP(Gain Bandwith Product) del amplificador operacional se define como:
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $GBP=G(\omega).\omega$
 \end_inset
 
@@ -455,6 +531,8 @@ El GBP(Gain Bandwith Product) del amplificador operacional se define como:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Lo que quiere decir que es el producto entre el ancho de banda y la ganancia
  medida a esa frecuencia.El GBP tiene un valor que se considera constante
  y depende del amplificador operacional, este parámetro se proporciona en
@@ -465,6 +543,8 @@ Lo que quiere decir que es el producto entre el ancho de banda y la ganancia
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $GBP=A_{o}.\omega_{o}$
 \end_inset
 
@@ -472,6 +552,8 @@ Lo que quiere decir que es el producto entre el ancho de banda y la ganancia
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Donde 
 \begin_inset Formula $A_{o}$
 \end_inset
@@ -484,11 +566,15 @@ Donde
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Despejando la ecuación (4) se tiene que:
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $\omega_{o}=\frac{GBP}{A_{o}}$
 \end_inset
 
@@ -496,12 +582,16 @@ Despejando la ecuación (4) se tiene que:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Por lo que el GBP influye en la respuesta en frecuencia del circuito, ya
  que el valor del mismo influye en el valor del polo dominante dado por
  la ecuación (2).
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 La impedancia de entrada vista por el generador puede calcularse también
  de forma teórica, si consideramos que la resistencia interna del amplificador
  operacional tiene un valor finito.
@@ -509,6 +599,8 @@ La impedancia de entrada vista por el generador puede calcularse también
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -517,6 +609,8 @@ status open
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ImpEntrada.PNG
 	scale 50
@@ -527,6 +621,8 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -548,10 +644,14 @@ Circuito equivalente con resistencia interna finita
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Las ecuaciones del mismo son:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $\frac{v_{in}-v^{+}}{R_{3}}=I$
 \end_inset
 
@@ -559,6 +659,8 @@ Las ecuaciones del mismo son:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v^{+}=IR_{in}+v^{-}$
 \end_inset
 
@@ -566,6 +668,8 @@ Las ecuaciones del mismo son:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v^{-}=\frac{R_{1}R_{2}}{R_{1}+R_{2}}I+\frac{R_{2}+R_{1}}{R_{1}R_{2}^{2}}v_{out}$
 \end_inset
 
@@ -573,6 +677,8 @@ Las ecuaciones del mismo son:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v_{out}=A_{vol}(v^{+}-v^{-})$
 \end_inset
 
@@ -580,6 +686,8 @@ Las ecuaciones del mismo son:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $A_{vol}(s)=\frac{A}{\frac{s}{\omega_{o}}+1}$
 \end_inset
 
@@ -587,6 +695,8 @@ Las ecuaciones del mismo son:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 La resolución del sistema anterior es tedioso y largo por lo que a continuación
  se presenta simplemente la forma final que se obtuvo para la impedancia
  de entrada:
@@ -594,6 +704,8 @@ La resolución del sistema anterior es tedioso y largo por lo que a continuació
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $Z_{inp}=\frac{v_{in}}{I}=\frac{(R_{3}+R_{in})(R_{1}+R_{2})+R_{1}R_{2}+AR_{in}R_{1}}{R_{1}+R_{2}}.\frac{(1+\frac{s}{\omega_{p}})}{(1+\frac{s}{\omega_{o}})}$
 \end_inset
 
@@ -602,6 +714,8 @@ La resolución del sistema anterior es tedioso y largo por lo que a continuació
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $\omega_{p}=\frac{\omega_{o}[(R_{3}+R_{in})(R_{1}+R_{2})+R_{1}R_{2}+AR_{in}R_{1}]}{(R_{3}+R_{in})(R_{1}+R_{2})+R_{1}R_{2}}$
 \end_inset
 
@@ -609,6 +723,8 @@ La resolución del sistema anterior es tedioso y largo por lo que a continuació
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Remplazando la expresión por los valores utilizados de resistencias y con
  el A , el 
 \begin_inset Formula $\omega_{o}$
@@ -619,6 +735,8 @@ Remplazando la expresión por los valores utilizados de resistencias y con
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $Z_{inp}=\frac{v_{in}}{I}=670731192.\frac{(1+\frac{s}{\omega_{p}})}{(1+\frac{s}{\omega_{o}})}$
 \end_inset
 
@@ -627,6 +745,8 @@ Remplazando la expresión por los valores utilizados de resistencias y con
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $f_{p}=\frac{\omega_{p}}{2\pi}=114.6KHz$
 \end_inset
 
@@ -635,6 +755,8 @@ Remplazando la expresión por los valores utilizados de resistencias y con
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $f_{o}=\frac{\omega_{o}}{2\pi}=47.4Hz$
 \end_inset
 
@@ -642,10 +764,14 @@ Remplazando la expresión por los valores utilizados de resistencias y con
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Resultados obtenidos
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Todas las mediciones se realizaron con una amplitud a la entrada menor que
  270mV, ya que para valores de entrada mayores que este la salida excede
  la tensión de saturación por lo que ya no se puede hablar de una respuesta
@@ -656,6 +782,8 @@ Todas las mediciones se realizaron con una amplitud a la entrada menor que
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -674,9 +802,13 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Saturacion del circuito
 \end_layout
 
@@ -695,11 +827,15 @@ Saturacion del circuito
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 A continuación se muestra la suerposicion de la respuesta en frecuencia
  medida del circuito superpuesta con la teórica (ecuación 1):
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -708,6 +844,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/NowWithDataCursor.PNG
 	scale 50
@@ -718,6 +856,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -739,6 +879,8 @@ Grafico de la magnitud medida
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -747,6 +889,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/BodeFase.PNG
 	scale 50
@@ -757,6 +901,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -778,16 +924,22 @@ Grafico de la fase
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Donde la curva azul representa la respuesta en frecuencia teórica y las
  cruces rojas los puntos medidos de mismo.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Las dos próximas figuras muestran las mediciones obtenidas de la impedancia
  de entrada del circuito:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -796,6 +948,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ImpMedida.PNG
 	scale 40
@@ -806,6 +960,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -827,6 +983,8 @@ Magnitud de la impedancia de entrada
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -835,6 +993,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ImpFase.PNG
 	scale 50
@@ -845,6 +1005,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -866,16 +1028,22 @@ Fase de la impedancia de entrada
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Análisis de los resultados
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Primero se analizaran los resultados obtenidos para la respuesta en frecuencia
  de la salida del circuito y luego aquellos obtenidos para la impedancia
  de entrada.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Puede verse claramente que la respuesta en frecuencia obtenida de manera
  teórica utilizando el modelo de 
 \begin_inset Formula $A_{vol}$
@@ -896,6 +1064,8 @@ s se realizaron con las puntas en configuración x1):
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -904,6 +1074,8 @@ status open
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/LM833Circuito.PNG
 	scale 50
@@ -914,6 +1086,8 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -935,10 +1109,14 @@ Modelo del circuito simulado en LTSpice
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se obtuvieron resultados que se ajustan mejor a los resultados medidos:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -947,6 +1125,8 @@ status open
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/RespFrecSimulada.PNG
 	scale 50
@@ -957,6 +1137,8 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -978,6 +1160,8 @@ Respuesta en frecuencia simulada en LTSpice
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Siguen habiendo discrepancias entre la simulación y los valores medidos,
  una de las razones puede ser los efectos de la capacitancia parásita de
  la protoboard utilizada.
@@ -988,6 +1172,8 @@ Siguen habiendo discrepancias entre la simulación y los valores medidos,
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -996,6 +1182,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/Sim50pf.PNG
 	scale 50
@@ -1006,6 +1194,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1027,6 +1217,8 @@ Simulacion utilizando capacitancia parasita de 50pf
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Otra inconsistencia entre el modelo teórico, y la simulación es el valor
  de la ganancia a bajas frecuencias.
  Esto puede ser debido a que para el análisis teorico se consideraron corrientes
@@ -1039,6 +1231,8 @@ Otra inconsistencia entre el modelo teórico, y la simulación es el valor
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v^{+}=v_{in}-I_{b}^{+}.100k\varOmega-v_{offset}$
 \end_inset
 
@@ -1047,6 +1241,8 @@ Otra inconsistencia entre el modelo teórico, y la simulación es el valor
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v^{+}\thickapprox v_{in}-50.3mV$
 \end_inset
 
@@ -1054,6 +1250,8 @@ Otra inconsistencia entre el modelo teórico, y la simulación es el valor
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 A primera vista puede parecer una caída despreciable, pero considerando
  que el circuito tiene una ganancia de cerca de 82 veces y que esta alimentado
  con 
@@ -1071,6 +1269,8 @@ A primera vista puede parecer una caída despreciable, pero considerando
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En cuanto a la impedancia de entrada, también hay fuertes diferencias entre
  el modelo teórico y las mediciones obtenidas.
  En primer lugar, la gráfica de magnitud tiene una forma similar pero difiere
@@ -1093,6 +1293,8 @@ En cuanto a la impedancia de entrada, también hay fuertes diferencias entre
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{in}-v_{R}-v^{+}=0$
 \end_inset
 
@@ -1101,6 +1303,8 @@ En cuanto a la impedancia de entrada, también hay fuertes diferencias entre
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{R}=v_{in}-v^{+}$
 \end_inset
 
@@ -1108,11 +1312,15 @@ En cuanto a la impedancia de entrada, también hay fuertes diferencias entre
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Como se tiene que:
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $Z_{inp}=\frac{v_{in}}{I}=\frac{v_{in}}{v_{R}}.R_{3}$
 \end_inset
 
@@ -1120,6 +1328,8 @@ Como se tiene que:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 La resistencia es un numero real positivo, por lo que no afecta la fase,
  por lo que con medir el desfasaje de la tensión en la resistencia con respecto
  a la fase de la entrada ya es posible obtener la fase de la impedancia
@@ -1133,12 +1343,16 @@ La resistencia es un numero real positivo, por lo que no afecta la fase,
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En cuanto a la simulación en LTSpice, teniendo en cuenta el efecto de las
  puntas y la capacitancia parásita se obtuvo la siguiente impedancia de
  entrada:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -1147,6 +1361,8 @@ status open
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ImpSimulada.PNG
 	scale 40
@@ -1157,6 +1373,8 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1178,6 +1396,8 @@ Impedancia de entrada simulada en LTSpice
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se puede notar que la magnitud de la impedancia simulada se corresponde
  mucho mejor con la magnitud medida que como lo hacia la magnitud teórica.
  En cuanto a la fase, aunque como por las razones explicadas previamente
@@ -1191,10 +1411,14 @@ Se puede notar que la magnitud de la impedancia simulada se corresponde
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Aplicaciones del LM833
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Como características principales del LM833 se tiene un valor alto de GBP(entre
  10Mhz y 15MHz), un alto valor de ganancia a lazo abierto(
 \begin_inset Formula $3.16\times10^{4}<A<3.16\times10^{5}$
@@ -1231,10 +1455,14 @@ Como características principales del LM833 se tiene un valor alto de GBP(entre
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Conclusiones
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Como conclusión, al trabajar con circuitos retroalimentados que tienen alto
  valores de ganancias, hay que tener especial cuidado de que se puedan seguir
  estableciendo ciertas suposiciones del modelo ideal sin que influyan significat
@@ -1252,14 +1480,20 @@ ivamente en el análisis.
 \end_layout
 
 \begin_layout Section
+
+\lang spanish
 Medición de corrientes de Bias y Offset
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Objetivos y resumen
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 El objetivo de la experiencia realizada fue el de estimar la magnitud de
  la tensión de offset para dos modelos distintos de amplificadores operacionales
 , el LF356 y el TL081 .También se realizaron mediciones para estimar la corriente
@@ -1268,6 +1502,8 @@ El objetivo de la experiencia realizada fue el de estimar la magnitud de
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -1286,6 +1522,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1307,6 +1545,8 @@ Configuracion utilizada para las mediciones
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Cerrando y abriendo los distintos switches se pueden medir los distintos
  parámetros deseados.Se explicara el funcionamiento del circuito ilustrado,
  cuando funciona el mismo para la medición y que combinación de switches
@@ -1314,10 +1554,14 @@ Cerrando y abriendo los distintos switches se pueden medir los distintos
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Introducción teórica
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Cuando se trabaja con el modelo ideal de un amplificador operacional, se
  supone que las corrientes entrantes por el pin inversor y el no inversor
  del mismo son nulas, así como también que si ambas entradas están puestas
@@ -1333,11 +1577,15 @@ Cuando se trabaja con el modelo ideal de un amplificador operacional, se
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Una representación de un op-amp con corrientes de bias y tensión de offset
  es la siguiente:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -1346,6 +1594,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/BiasOffset.PNG
 	scale 50
@@ -1357,6 +1607,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1378,12 +1630,16 @@ Corientes de bias y tension de offset en un op-amp
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Utilizando las corrientes representadas en la figura anterior se definen
  la corriente de bias y la corriente de offset como:
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $I_{bias}=\frac{I_{b}^{-}+I_{b}^{+}}{2}$
 \end_inset
 
@@ -1392,6 +1648,8 @@ Utilizando las corrientes representadas en la figura anterior se definen
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $I_{offset}=|I_{b}^{-}-I_{b}^{+}|$
 \end_inset
 
@@ -1399,10 +1657,14 @@ Utilizando las corrientes representadas en la figura anterior se definen
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Compensación de las corrientes de bias
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Asumiendo que las corrientes 
 \begin_inset Formula $I_{b}^{+}$
 \end_inset
@@ -1417,6 +1679,8 @@ e
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -1425,6 +1689,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/CompensacionBias.PNG
 	scale 50
@@ -1435,6 +1701,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1456,11 +1724,15 @@ Circuito de compensacion en configuracion inversora
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Considerando que la tensión en las entradas del Op-amp son casi iguales
  y despreciando la tensión de offset, se tienen las siguientes ecuaciones:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v^{+}=-I_{b}^{+}R_{3}$
 \end_inset
 
@@ -1468,6 +1740,8 @@ Considerando que la tensión en las entradas del Op-amp son casi iguales
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v^{-}=v^{+}$
 \end_inset
 
@@ -1475,6 +1749,8 @@ Considerando que la tensión en las entradas del Op-amp son casi iguales
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $\frac{v_{in}-v^{-}}{R_{1}}=I_{b}^{-}+\frac{v^{-}-v_{out}}{R_{2}}$
 \end_inset
 
@@ -1482,6 +1758,8 @@ Considerando que la tensión en las entradas del Op-amp son casi iguales
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Remplazando la primera ecuación en la segunda, luego la segunda en la tercera
  y despejando 
 \begin_inset Formula $v_{out}$
@@ -1492,6 +1770,8 @@ Remplazando la primera ecuación en la segunda, luego la segunda en la tercera
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{out}=-\frac{R_{2}}{R_{1}}v_{in}+I_{b}^{-}(R_{2}-R_{3})-I_{b}^{+}(\frac{R_{2}R_{3}}{R_{1}})$
 \end_inset
 
@@ -1499,11 +1779,15 @@ Remplazando la primera ecuación en la segunda, luego la segunda en la tercera
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Planteando:
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $R_{2}-R_{3}=\frac{R_{2}R_{3}}{R_{1}}$
 \end_inset
 
@@ -1512,6 +1796,8 @@ Planteando:
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $R_{2}=R_{3}(\frac{R_{2}}{R_{1}}+1)$
 \end_inset
 
@@ -1520,6 +1806,8 @@ Planteando:
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $R_{3}=\frac{R_{1}R_{2}}{R_{1}+R_{2}}=R_{1}\parallel R_{2}$
 \end_inset
 
@@ -1527,12 +1815,16 @@ Planteando:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Entonces asumiendo que se cumple (3), se puede sacar factor común en la
  ecuación (2) y la nueva forma de la ecuación compensada es :
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{out}=-\frac{R_{2}}{R_{1}}v_{in}+\frac{R_{2}^{2}}{R_{1}+R_{2}}I_{offset}$
 \end_inset
 
@@ -1540,6 +1832,8 @@ Entonces asumiendo que se cumple (3), se puede sacar factor común en la
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Por lo que, asumiendo que las corrientes de bias son comparables, el valor
  de 
 \begin_inset Formula $I_{offset}$
@@ -1549,14 +1843,20 @@ Por lo que, asumiendo que las corrientes de bias son comparables, el valor
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Resolución del circuito
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Estabilidad del circuito
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En primer lugar, se analiza la estabilidad del circuito propuesto, para
  hacer esto se divide el circuito en dos partes distintas donde solo hay
  un opamp en cada parte.
@@ -1565,6 +1865,8 @@ En primer lugar, se analiza la estabilidad del circuito propuesto, para
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -1573,6 +1875,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/OA_X.PNG
 	scale 50
@@ -1583,6 +1887,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1604,12 +1910,16 @@ Sector derecho del circuito de medicion
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 De la figura anterior se puede ver que el OA_X esta en configuración inversora,
  por lo que la salida del mismo es la entrada amplificada y negada.Planteando
  las ecuaciones del circuito se obtienen:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v_{out}=-A_{vol}v^{-}$
 \end_inset
 
@@ -1617,6 +1927,8 @@ De la figura anterior se puede ver que el OA_X esta en configuración inversora,
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v^{-}=\frac{1}{sR_{4}C+1}v_{in}+\frac{sCR_{4}}{1+sCR_{4}}v_{out}$
 \end_inset
 
@@ -1624,10 +1936,14 @@ De la figura anterior se puede ver que el OA_X esta en configuración inversora,
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 El grafo resultante es:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -1636,6 +1952,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/GrafoOA_X.PNG
 	scale 70
@@ -1646,6 +1964,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1667,6 +1987,8 @@ Grafo de la configuracion inversora utilizada
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Puede verse del grafo que la configuración actual es estable ya que la retroalim
 entacion es negativa.Sin embargo, si el amplificador se diera vuelta (retroalimen
 taddo por la entrada no inversora), el peso de abajo(
@@ -1679,10 +2001,14 @@ taddo por la entrada no inversora), el peso de abajo(
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En cuanto a la región con el OpAmp a ser medido(OA_X2):
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -1691,6 +2017,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/OA_X2.PNG
 	scale 50
@@ -1701,10 +2029,18 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Sector izquierdo del circuito de medición 
+Sector 
+\lang spanish
+izquierdo
+\lang english
+ del circuito de 
+\lang spanish
+medición 
 \end_layout
 
 \end_inset
@@ -1722,10 +2058,14 @@ Sector izquierdo del circuito de medición
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Donde las ecuaciones de dicho circuito son:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v_{out}=A_{o}v^{+}-A_{o}v_{in}$
 \end_inset
 
@@ -1733,6 +2073,8 @@ Donde las ecuaciones de dicho circuito son:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $v^{+}=\frac{1}{sR_{4}C(1+\frac{R_{3}}{10\varOmega})}v_{out}$
 \end_inset
 
@@ -1740,6 +2082,8 @@ Donde las ecuaciones de dicho circuito son:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula $v_{in}$
 \end_inset
 
@@ -1748,6 +2092,8 @@ Donde las ecuaciones de dicho circuito son:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -1756,6 +2102,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/GrafoOA_X2.PNG
 	scale 70
@@ -1766,6 +2114,8 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1787,6 +2137,8 @@ Grafo del sector del circuito con OA_X2
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Puede verse en el ciclo que la retroalimentacion es negativa y por lo tanto
  el sistema es estable.Sin embargo, si se dan vuelta las entradas del OA_X2
  entonces cambia de signo el peso del lazo que une a 
@@ -1810,6 +2162,8 @@ hacia
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Como conclusión, la configuración original propuesta es estable.
  Si se invierte solo OA_X entonces la configuración se vuelve inestable
  ya que se obtiene una retroalimentacion regenerativa en la segunda parte
@@ -1822,10 +2176,14 @@ Como conclusión, la configuración original propuesta es estable.
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Tensión de salida
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Resolviendo el circuito con los dos interruptores abiertos(sin cortocircuitar
  ninguna resistencia) y asumiendo que 
 \begin_inset Formula $R_{5}=R_{6}=R$
@@ -1836,6 +2194,8 @@ Resolviendo el circuito con los dos interruptores abiertos(sin cortocircuitar
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v^{-}=-I_{b}^{-}(10\varOmega+R)$
 \end_inset
 
@@ -1844,6 +2204,8 @@ Resolviendo el circuito con los dos interruptores abiertos(sin cortocircuitar
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v^{+}=-v_{offset}-I_{b}^{-}(10\varOmega+R)$
 \end_inset
 
@@ -1852,6 +2214,8 @@ Resolviendo el circuito con los dos interruptores abiertos(sin cortocircuitar
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $\frac{v_{c}}{10\varOmega}+I_{b}^{+}=\frac{v_{out}-v_{c}}{R_{3}}$
 \end_inset
 
@@ -1860,6 +2224,8 @@ Resolviendo el circuito con los dos interruptores abiertos(sin cortocircuitar
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $\frac{v_{c}-v^{+}}{R}=I_{b}^{+}$
 \end_inset
 
@@ -1867,12 +2233,16 @@ Resolviendo el circuito con los dos interruptores abiertos(sin cortocircuitar
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Resolviendo el sistema, queda que la salida del sistema sin cortocircuitar
  ninguna resistencia es:
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{out}=I_{b}^{+}R(1+\frac{R_{3}}{10\varOmega})-I_{b}^{-}(R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
 \end_inset
 
@@ -1880,6 +2250,8 @@ Resolviendo el sistema, queda que la salida del sistema sin cortocircuitar
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Como puede analizarse de la ecuación obtenida, el circuito realizado sirve
  para medir las corrientes de bias y tensión de offset del amplificador
  
@@ -1898,11 +2270,15 @@ OA_X2
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Si ambos switches estan abiertos y se desprecia la caida:
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $-I_{b}^{-}(R_{3}+10\varOmega)\thickapprox-(200pA)(7.5k\varOmega+10\varOmega)=-1.502\mu V$
 \end_inset
 
@@ -1930,11 +2306,15 @@ Se obtiene de (4) una expresion para la corriente de offset:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Con ambos switches cerrados(R=0), la ecuación (4) se convierte en:
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{out}=-I_{b}^{-}(R_{3}+10)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
 \end_inset
 
@@ -1942,6 +2322,8 @@ Con ambos switches cerrados(R=0), la ecuación (4) se convierte en:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Si despreciamos la caída generada por 
 \begin_inset Formula $I_{b}^{-}$
 \end_inset
@@ -1952,6 +2334,8 @@ Si despreciamos la caída generada por
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{out}\approx-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
 \end_inset
 
@@ -1959,6 +2343,8 @@ Si despreciamos la caída generada por
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Como justificación de que la caída ocasionada por la corriente de bias es
  despreciable para nuestro caso, se realiza el calculo de la caída con el
  valor de resistencia utilizado y el valor máximo de corriente de bias proporcio
@@ -1967,6 +2353,8 @@ nado en la datasheet:
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $I_{b}^{-}(R_{3}+10\varOmega)=(200pA)(7.5k\varOmega+10\varOmega)=1.502\mu V$
 \end_inset
 
@@ -1974,6 +2362,8 @@ nado en la datasheet:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 De la datasheet de ambos Op-amps se obtiene que la 
 \begin_inset Formula $v_{offset}$
 \end_inset
@@ -1985,6 +2375,8 @@ esta en el orden de los millivolts, por lo que la caída ocasionada por la
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Si solo se cortocircuita 
 \begin_inset Formula $R_{5}$
 \end_inset
@@ -1994,6 +2386,8 @@ Si solo se cortocircuita
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{out}=I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})-I_{b}^{-}(R_{3}+10\Omega)-v_{offset}(\frac{R_{3}}{10\Omega}+1)$
 \end_inset
 
@@ -2001,6 +2395,8 @@ Si solo se cortocircuita
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Por las mismas razones que en el caso anterior, se puede despreciar la caída
  ocasionada por 
 \begin_inset Formula $I_{b}^{-}$
@@ -2011,6 +2407,8 @@ y se obtiene:
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{out}\approx I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})-v_{offset}(\frac{R_{3}}{10\Omega}+1)$
 \end_inset
 
@@ -2019,6 +2417,8 @@ y se obtiene:
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $I_{b}^{+}\approx\frac{v_{out}+v_{offset}(\frac{R_{3}}{10\Omega}+1)}{R(1+\frac{R_{3}}{10\varOmega})}$
 \end_inset
 
@@ -2026,6 +2426,8 @@ y se obtiene:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Asumiendo que conocemos la 
 \begin_inset Formula $v_{offset}$
 \end_inset
@@ -2053,6 +2455,8 @@ a por el primer termino de (6) es:
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})=(30pA)(1M\varOmega)(1+\frac{7.5K\varOmega}{10\varOmega})\thickapprox22.6mV$
 \end_inset
 
@@ -2060,6 +2464,8 @@ a por el primer termino de (6) es:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Finalmente, en el caso en el que solo cortocircuitamos 
 \begin_inset Formula $R_{6}$
 \end_inset
@@ -2069,6 +2475,8 @@ Finalmente, en el caso en el que solo cortocircuitamos
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $v_{out}=-I_{b}^{-}(R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
 \end_inset
 
@@ -2077,6 +2485,8 @@ Finalmente, en el caso en el que solo cortocircuitamos
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $I_{b}^{-}=-\frac{v_{out}+v_{offset}(\frac{R_{3}}{10\varOmega}+1)}{R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega}$
 \end_inset
 
@@ -2084,16 +2494,22 @@ Finalmente, en el caso en el que solo cortocircuitamos
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Interferencia de linea
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Volviendo a analizar el circuito de la figura 7, se tiene que la ganancia
  ideal de dicho circuito es:
 \end_layout
 
 \begin_layout Standard
 \align center
+
+\lang spanish
 \begin_inset Formula $\frac{v_{out}}{v_{in}}=H(s)=-\frac{1}{sR_{4}C}$
 \end_inset
 
@@ -2101,6 +2517,8 @@ Volviendo a analizar el circuito de la figura 7, se tiene que la ganancia
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Dicha función transferencia es la de un pasa-bajos con frecuencia de corte
  
 \begin_inset Formula $f_{c}=\frac{1}{2\pi R_{4}C}$
@@ -2129,6 +2547,8 @@ Dicha función transferencia es la de un pasa-bajos con frecuencia de corte
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Por lo tanto, mientras mas alto el valor de C, la medición sera mas precisa
  ya que el circuito filtra mejor la salida correspondiente a las señales
  indeseadas que entran al circuito.
@@ -2139,15 +2559,21 @@ Por lo tanto, mientras mas alto el valor de C, la medición sera mas precisa
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Resultados obtenidos
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Utilizando el modelo de OpAmp LF356 como OA_X2 y el modelo TL081 como OA_X
  se midieron los siguientes valores:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float table
 placement H
 wide false
@@ -2156,6 +2582,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="7">
 <features tabularvalignment="middle">
@@ -2171,6 +2599,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 SW1
 \end_layout
 
@@ -2180,6 +2610,8 @@ SW1
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 SW2
 \end_layout
 
@@ -2189,6 +2621,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $V_{out}(V)$
 \end_inset
 
@@ -2201,6 +2635,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $V_{offset}(mV)$
 \end_inset
 
@@ -2213,6 +2649,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $I_{b}^{+}(pA)$
 \end_inset
 
@@ -2225,6 +2663,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $I_{b}^{-}(pA)$
 \end_inset
 
@@ -2237,6 +2677,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $I_{offset}(pA)$
 \end_inset
 
@@ -2251,6 +2693,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 cerrado
 \end_layout
 
@@ -2260,6 +2704,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 cerrado
 \end_layout
 
@@ -2269,6 +2715,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -1.074
 \end_layout
 
@@ -2278,6 +2726,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 1.43
 \end_layout
 
@@ -2287,6 +2737,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2296,6 +2748,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2305,6 +2759,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2316,6 +2772,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 cerrado
 \end_layout
 
@@ -2325,6 +2783,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 abierto
 \end_layout
 
@@ -2334,6 +2794,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -1.2
 \end_layout
 
@@ -2343,6 +2805,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2352,6 +2816,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -168
 \end_layout
 
@@ -2361,6 +2827,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2370,6 +2838,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2381,6 +2851,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 abierto
 \end_layout
 
@@ -2390,6 +2862,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 cerrado
 \end_layout
 
@@ -2399,6 +2873,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -0.92
 \end_layout
 
@@ -2408,6 +2884,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2417,6 +2895,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2426,6 +2906,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -205
 \end_layout
 
@@ -2435,6 +2917,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2446,6 +2930,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 abierto
 \end_layout
 
@@ -2455,6 +2941,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 abierto
 \end_layout
 
@@ -2464,6 +2952,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -0.92
 \end_layout
 
@@ -2473,6 +2963,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2482,6 +2974,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2491,6 +2985,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2500,6 +2996,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 205
 \end_layout
 
@@ -2514,6 +3012,8 @@ abierto
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -2535,11 +3035,15 @@ Tabla para la medicion del LF356
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Realizando la experiencia nuevamente, pero con el modelo TL081 como OA_X2
  y el modelo LF356 como OA_X se obtuvo:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float table
 placement H
 wide false
@@ -2548,6 +3052,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
+
+\lang spanish
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="7">
 <features tabularvalignment="middle">
@@ -2563,6 +3069,8 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 SW1
 \end_layout
 
@@ -2572,6 +3080,8 @@ SW1
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 SW2
 \end_layout
 
@@ -2581,6 +3091,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $V_{out}(mV)$
 \end_inset
 
@@ -2593,6 +3105,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $V_{offset}(mV)$
 \end_inset
 
@@ -2605,6 +3119,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $I_{b}^{+}(pA)$
 \end_inset
 
@@ -2617,6 +3133,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $I_{b}^{-}(pA)$
 \end_inset
 
@@ -2629,6 +3147,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Formula $I_{offset}(pA)$
 \end_inset
 
@@ -2643,6 +3163,8 @@ SW2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 cerrado
 \end_layout
 
@@ -2652,6 +3174,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 cerrado
 \end_layout
 
@@ -2661,6 +3185,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 70
 \end_layout
 
@@ -2670,6 +3196,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -0.09
 \end_layout
 
@@ -2679,6 +3207,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2688,6 +3218,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2697,6 +3229,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2708,6 +3242,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 cerrado
 \end_layout
 
@@ -2717,6 +3253,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 abierto
 \end_layout
 
@@ -2726,6 +3264,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 30
 \end_layout
 
@@ -2735,6 +3275,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2744,6 +3286,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -50
 \end_layout
 
@@ -2753,6 +3297,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2762,6 +3308,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2773,6 +3321,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 abierto
 \end_layout
 
@@ -2782,6 +3332,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 cerrado
 \end_layout
 
@@ -2791,6 +3343,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -16
 \end_layout
 
@@ -2800,6 +3354,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2809,6 +3365,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2818,6 +3376,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 114
 \end_layout
 
@@ -2827,6 +3387,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2838,6 +3400,8 @@ cerrado
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 abierto
 \end_layout
 
@@ -2847,6 +3411,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 abierto
 \end_layout
 
@@ -2856,6 +3422,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 50
 \end_layout
 
@@ -2865,6 +3433,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2874,6 +3444,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2883,6 +3455,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -
 \end_layout
 
@@ -2892,6 +3466,8 @@ abierto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\lang spanish
 -23
 \end_layout
 
@@ -2906,6 +3482,8 @@ abierto
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -2927,10 +3505,14 @@ Tabla para la medicion del TL081
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Analisis de los resultados
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Para el caso del amplificador operacional LF356, el valor de tension de
  offset medido es cercano al valor tipico provisto por la datasheet de 3mV.Las
  corrientes de bias resularon ser superiores al valor tipico de 30pA pero
@@ -2945,6 +3527,8 @@ Para el caso del amplificador operacional LF356, el valor de tension de
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En cuanto al amplificador operacional TL081, la tension de offset medida
  es considerablemente mas baja que el valor tipico de la datasheet(3mV),
  sin embargo el valor de offset medido es similar al que se obtiene de simular
@@ -2952,6 +3536,8 @@ En cuanto al amplificador operacional TL081, la tension de offset medida
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -2970,9 +3556,13 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Modelo simulado en LTspice para la tension de offset
 \end_layout
 
@@ -2991,10 +3581,14 @@ Modelo simulado en LTspice para la tension de offset
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Donde se obtuvo como salida:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 placement H
 wide false
@@ -3013,9 +3607,13 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Salida medida en la simulacion
 \end_layout
 
@@ -3048,6 +3646,8 @@ La tension de salida medida dio casi 10 veces mas que en la simulacion.Sin
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Conclusiones
 \end_layout
 
@@ -3070,14 +3670,20 @@ s de bias.
 \end_layout
 
 \begin_layout Section
+
+\lang spanish
 Circuito Integrador y Derivador
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Introducción téorica
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Dada una señal de entrada 
 \begin_inset Formula $x(t)$
 \end_inset
@@ -3094,6 +3700,8 @@ Dada una señal de entrada
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Para el caso del derivador, lo que se quiere es una salida 
 \begin_inset Formula $y(t)$
 \end_inset
@@ -3107,6 +3715,8 @@ Para el caso del derivador, lo que se quiere es una salida
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 Y(s)=H(s)X(s)=sX(s)
@@ -3118,6 +3728,8 @@ Y(s)=H(s)X(s)=sX(s)
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Es decir, se debe obtener una transferencia de la forma 
 \begin_inset Formula $H(s)=s$
 \end_inset
@@ -3126,11 +3738,15 @@ Es decir, se debe obtener una transferencia de la forma
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En el caso contrario, para el integrador, se quiere una salida de la siguiente
  forma:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \[
 y(t)=\intop_{-\infty}^{\tau}x(t)dt=\intop_{-\infty}^{\infty}x(t)u(\tau-t)dt=x(t)*u(t)
@@ -3142,6 +3758,8 @@ y(t)=\intop_{-\infty}^{\tau}x(t)dt=\intop_{-\infty}^{\infty}x(t)u(\tau-t)dt=x(t)
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Transformando se obtiene 
 \begin_inset Formula $Y(s)=X(s)\frac{1}{s}=H(s)X(s)$
 \end_inset
@@ -3155,20 +3773,28 @@ Transformando se obtiene
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Función Transferencia del Circuito
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se armaron los siguientes circuitos:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -3177,6 +3803,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/circuitoderivador.png
 	lyxscale 75
@@ -3188,9 +3816,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Circuito Derivador
 \end_layout
 
@@ -3214,6 +3846,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/circuitointegrador.png
 	lyxscale 75
@@ -3225,6 +3859,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Circuito Integrador
 \end_layout
 
@@ -3239,9 +3875,13 @@ Circuito Integrador
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Circuitos realizados
 \end_layout
 
@@ -3256,6 +3896,8 @@ Circuitos realizados
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Para no repetir el análisis para ambos casos, se llamó 
 \begin_inset Formula $Z_{2}$
 \end_inset
@@ -3268,6 +3910,8 @@ Para no repetir el análisis para ambos casos, se llamó
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Para el siguiente análisis se consideró la impedancia de entrada del operacional
  y la de salida como infinita y nula, respectivamente; es decir 
 \begin_inset Formula $Z_{in}=\infty$
@@ -3281,6 +3925,8 @@ Para el siguiente análisis se consideró la impedancia de entrada del operacion
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Si tenemos en cuenta que 
 \begin_inset Formula $V^{+}=0$
 \end_inset
@@ -3290,6 +3936,8 @@ Si tenemos en cuenta que
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 V_{out}=A_{vol}(V^{+}-V^{-})=-A_{vol}V^{-}\label{eq:gananciaopamp}
@@ -3301,10 +3949,14 @@ V_{out}=A_{vol}(V^{+}-V^{-})=-A_{vol}V^{-}\label{eq:gananciaopamp}
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Planteando nodos, la ecuación del circuito es entonces:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 \frac{V_{in}-V^{-}}{Z_{1}}+\frac{V_{out}-V^{-}}{Z_{2}}=0\label{nodoscircuitos}
@@ -3316,6 +3968,8 @@ Planteando nodos, la ecuación del circuito es entonces:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Despejando 
 \begin_inset Formula $V_{in}$
 \end_inset
@@ -3332,6 +3986,8 @@ Despejando
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 H(s)=\frac{-A_{vol}Z_{2}}{Z_{1}(1+A_{vol})+Z_{2}}\label{eq:avolfinito}
@@ -3343,6 +3999,8 @@ H(s)=\frac{-A_{vol}Z_{2}}{Z_{1}(1+A_{vol})+Z_{2}}\label{eq:avolfinito}
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 La ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3358,6 +4016,8 @@ reference "eq:avolfinito"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Si se hace tender 
 \begin_inset Formula $A_{vol}\rightarrow\infty$
 \end_inset
@@ -3373,6 +4033,8 @@ reference "eq:avolideal"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 H(s)=\frac{-Z_{2}}{Z_{1}}\label{eq:avolideal}
@@ -3384,6 +4046,8 @@ H(s)=\frac{-Z_{2}}{Z_{1}}\label{eq:avolideal}
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Sin embargo, se puede hacer más parecido a la realidad si se considera el
  polo dominante del operacional, ésto es que la ganancia del mismo no es
  constante, sino que tiene un polo (
@@ -3402,6 +4066,8 @@ Avol=\frac{Ao}{\frac{s}{\omega_{p}}+1}
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Reemplazando esta expresión en la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3414,6 +4080,8 @@ reference "eq:avolfinito"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 H(s)=-\frac{Z_{2}/Z_{1}}{1+\left[\frac{s}{GBP}+\frac{1}{A_{o}}\right]+\left[1+\frac{Z_{2}}{Z_{1}}\right]}\label{eq:polodominante}
@@ -3425,15 +4093,21 @@ H(s)=-\frac{Z_{2}/Z_{1}}{1+\left[\frac{s}{GBP}+\frac{1}{A_{o}}\right]+\left[1+\f
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se tiene pues, tres modelos del comportamiento téorico del circuito.
  
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Impedancia de entrada
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se buscó a continuación la impedancia de entrada del circuito sabiendo que
  la misma era 
 \begin_inset Formula $Z_{in}=\frac{V_{in}}{I_{in}}$
@@ -3457,6 +4131,8 @@ reference "eq:gananciaopamp"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 Z_{in}=Z_{1}+\frac{Z_{2}}{A_{vol}+1}\label{zin}
@@ -3468,16 +4144,22 @@ Z_{in}=Z_{1}+\frac{Z_{2}}{A_{vol}+1}\label{zin}
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Amplificador Operacional
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 El operacional que se utilizó fue el LM833.
  Los datos extraídos de la hoja de datos que fueron de utilidad se enumeran
  a continuación:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 Tensión operacional: 
 \begin_inset Formula $\pm5V$
 \end_inset
@@ -3499,6 +4181,8 @@ Tensión operacional:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $A_{o}=110dB$
 \end_inset
 
@@ -3514,6 +4198,8 @@ Tensión operacional:
 \end_layout
 
 \begin_layout Itemize
+
+\lang spanish
 \begin_inset Formula $GBP=16MHz$
 \end_inset
 
@@ -3521,6 +4207,8 @@ Tensión operacional:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Además, al ser el LM833 un operacional Dual, es decir con dos OpAmps internos,
  se tuvo el cuidado de conectar los pines que no se utilizaban a tierra,
  para que no cargara el circuito.
@@ -3530,6 +4218,8 @@ n del operacional y tierra, para filtrar el ruido de alterna de la fuente
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Para finalizar la introducción, los valores nominales que se utilizaron
  para ambos circuitos fueron 
 \begin_inset Formula $C=4.7nF$
@@ -3543,10 +4233,14 @@ Para finalizar la introducción, los valores nominales que se utilizaron
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Circuito Derivador
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se tomó como 
 \begin_inset Formula $Z_{2}$
 \end_inset
@@ -3563,6 +4257,8 @@ Se tomó como
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 De esta forma, y según la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3574,6 +4270,8 @@ reference "eq:avolideal"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 H(s)=-sRC\label{eq:derivadorideal}
@@ -3585,6 +4283,8 @@ H(s)=-sRC\label{eq:derivadorideal}
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Como se vio en la sección anterior, la función transferencia tiene ahora
  la forma de un derivador.
  A simple vista se puede ver, además, que el signo negativo de la transferencia
@@ -3605,6 +4305,7 @@ Como se vio en la sección anterior, la función transferencia tiene ahora
 \uwave off
 \noun off
 \color none
+\lang english
 
 \begin_inset Formula $90^{o}$
 \end_inset
@@ -3617,6 +4318,8 @@ Como se vio en la sección anterior, la función transferencia tiene ahora
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Para comprobar el carácter derivador del circuito se utilizó la función
  
 \begin_inset Formula $Math$
@@ -3629,10 +4332,14 @@ Para comprobar el carácter derivador del circuito se utilizó la función
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Lo anterior se verifica en la siguiente imagen:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -3641,6 +4348,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/singularidad derivador.png
 	lyxscale 40
@@ -3654,9 +4363,13 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Salida del circuito al ser excitado con una señal triangular a 1.3kHz.
 \end_layout
 
@@ -3676,10 +4389,14 @@ Notar que la señal derivada, es decir aquella verde, está desfasada
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Función Transferencia
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se consideró relevante analizar la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3700,6 +4417,8 @@ reference "eq:polodominante"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 H(s)=-\frac{sRC}{\frac{s^{2}RC}{GBP}+s\left[\frac{1}{GBP}+\frac{CR}{A_{o}}\right]+1}\label{eq:dersincompensar}
@@ -3711,6 +4430,8 @@ H(s)=-\frac{sRC}{\frac{s^{2}RC}{GBP}+s\left[\frac{1}{GBP}+\frac{CR}{A_{o}}\right
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En la misma se observa que si bien posee un cero que le otorga el carácter
  derivador, tiene dos polos complejos conjugados, que pueden llegar a afectar
  al comportamiento del circuito, como se analizará más adelante.
@@ -3724,6 +4445,8 @@ En la misma se observa que si bien posee un cero que le otorga el carácter
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se graficaron y compararon los bodes teóricos de la transferencia ideal,
  es decir utilizando la ecuación 
 \begin_inset CommandInset ref
@@ -3758,12 +4481,16 @@ reference "eq:dersincompensar"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -3772,6 +4499,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/magbodesteoricossincompensarderivador.png
 	lyxscale 50
@@ -3783,9 +4512,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de magnitud.
 \end_layout
 
@@ -3809,6 +4542,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/fasebodesteoricossincompensarderivador.png
 	lyxscale 50
@@ -3820,9 +4555,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de fase.
 \end_layout
 
@@ -3837,9 +4576,13 @@ Bode de fase.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Comparación de las funciones transferencia teóricas: ideal, Avol finito
  y Avol(w) con polo dominante del derivador no compensado.
 \end_layout
@@ -3855,6 +4598,8 @@ Comparación de las funciones transferencia teóricas: ideal, Avol finito
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Notar que el caso 
 \begin_inset Formula $A_{vol}$
 \end_inset
@@ -3877,6 +4622,8 @@ dose a una ganancia ideal.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En el bode de magnitud se evidencia el efecto de los polos complejos conjugados
  en el caso del polo dominante, es un diagrama típico de un circuito subamortigu
 ado.
@@ -3886,17 +4633,23 @@ ado.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Posteriormente, se analizaron los bodes del circuito simulado, el medido
  y el teórico con polo dominante.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -3905,6 +4658,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/magbodesincompensarder.png
 	lyxscale 40
@@ -3918,9 +4673,13 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de magnitud.
 \end_layout
 
@@ -3944,6 +4703,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/fasebodesincompensarder.png
 	lyxscale 40
@@ -3957,9 +4718,13 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de fase.
 \end_layout
 
@@ -3974,9 +4739,13 @@ Bode de fase.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Comparación del bode medido, comparado, y teórico (con polo dominante) del
  derivador no compensado.
 \end_layout
@@ -3992,12 +4761,16 @@ Comparación del bode medido, comparado, y teórico (con polo dominante) del
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Teóricamente, funciona como un derivador hasta cierta frecuencia en la que
  deja de derivar por efecto del polo dominante del operacional.
  Ésto se condice con lo medido.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Los bodes del circuito medido y el simulado presentan mucha similitud; sin
  embargo, las variaciones pueden deberse a las tolerancias de los componentes
  utilizados en el circuito que se realizó.
@@ -4022,10 +4795,14 @@ Los bodes del circuito medido y el simulado presentan mucha similitud; sin
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Circuito Derivador Compensado
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se puede ver por la forma de la transferencia, que diverge a altas frecuencias,
  presentando el circuito un comportamiento indeseado.
  Lo que se buscó al compensar fue un circuito inversor en las frecuencias
@@ -4041,6 +4818,8 @@ Se puede ver por la forma de la transferencia, que diverge a altas frecuencias,
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Esto se puede analizar de forma física, ya que a altas frecuencias el capacitor
  actúa como un cable.
  Entonces, colocando una resistencia de valor apropiado en serie con el
@@ -4049,6 +4828,8 @@ Esto se puede analizar de forma física, ya que a altas frecuencias el capacitor
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 De esta manera, se compensó con una resistencia de valor nominal 
 \begin_inset Formula $1k\Omega$
 \end_inset
@@ -4063,15 +4844,21 @@ De esta manera, se compensó con una resistencia de valor nominal
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Función transferencia
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se repitieron los análisis para el caso del derivador compensado.
  La función transferencia resultante en esta ocasión es la siguiente:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 H(s)=-\frac{sRC}{\frac{s^{2}C(R+R')}{GBP}+s\left[\frac{1}{GBP}+\frac{CR}{A_{o}}+CR'\right]+1}\label{eq:derivadorcompensado}
@@ -4083,6 +4870,8 @@ H(s)=-\frac{sRC}{\frac{s^{2}C(R+R')}{GBP}+s\left[\frac{1}{GBP}+\frac{CR}{A_{o}}+
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Con 
 \begin_inset Formula $R'$
 \end_inset
@@ -4102,6 +4891,8 @@ Con
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 También es válido analizar que esta nueva función transferencia no tiene
  polos complejos conjugados, como el derivador sin compensar, sino que al
  agregar la resistencia de compensación se obtiene un comportamiento sobreamorti
@@ -4109,6 +4900,8 @@ guado, es decir sus polos son reales y distintos entre sí.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Seguidamente, se graficaron los bodes comparativos teóricos, con ganancia
  ideal, con 
 \begin_inset Formula $A_{vol}$
@@ -4122,12 +4915,16 @@ Seguidamente, se graficaron los bodes comparativos teóricos, con ganancia
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -4136,6 +4933,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/magbodesteoricoscompensadosderivador.png
 	lyxscale 40
@@ -4147,9 +4946,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de magnitud.
 \end_layout
 
@@ -4173,6 +4976,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/fasebodesteoricoscompensadosderivador.png
 	lyxscale 40
@@ -4184,9 +4989,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de fase.
 \end_layout
 
@@ -4201,9 +5010,13 @@ Bode de fase.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Comparación de las funciones transferencia teóricas: ideal, 
 \begin_inset Formula $A_{vol}$
 \end_inset
@@ -4226,6 +5039,8 @@ Comparación de las funciones transferencia teóricas: ideal,
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 De manera análoga al derivador sin compensar, se puede notar que el caso
  
 \begin_inset Formula $A_{vol}$
@@ -4248,6 +5063,8 @@ dose a una ganancia ideal.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Además se evidencia el efecto de sendos polos distintos y reales, siendo
  el cambio de fase mucho menos pronunciado alrededor de la frecuencia de
  corte (al ser sobreamortiguado 
@@ -4258,17 +5075,23 @@ Además se evidencia el efecto de sendos polos distintos y reales, siendo
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Posteriormente, se analizaron los bodes del circuito simulado, el medido
  y el teórico con polo dominante.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -4277,6 +5100,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/magbodecompensadoder.png
 	lyxscale 40
@@ -4288,9 +5113,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de magnitud.
 \end_layout
 
@@ -4314,6 +5143,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/fasebodecompensadoder.png
 	lyxscale 40
@@ -4325,9 +5156,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de fase.
 \end_layout
 
@@ -4342,9 +5177,13 @@ Bode de fase.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Comparación del bode medido, comparado, y teórico (con polo dominante).
 \end_layout
 
@@ -4359,6 +5198,8 @@ Comparación del bode medido, comparado, y teórico (con polo dominante).
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Teóricamente, funciona como un derivador hasta que alcanza cierta frecuencia,
  cuya habilidad de derivación no se ve condicionada por la magnitud, ya
  que no diverge, sino que el verdadero límite es la fase, que deja de ser
@@ -4366,6 +5207,8 @@ Teóricamente, funciona como un derivador hasta que alcanza cierta frecuencia,
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 De manera análoga, se plantea que las diferencias entre el medido y simulado
  con el téorico se deben a las tolerancias en los componentes, y a su vez,
  al hecho de que los valores de 
@@ -4386,17 +5229,23 @@ De manera análoga, se plantea que las diferencias entre el medido y simulado
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Por último, resulta de interés y se muestra a continuación la comparación
  entre el bode del derivador compensado con el del no compensado.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -4405,6 +5254,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/magcompvsnocompder.png
 	lyxscale 40
@@ -4416,9 +5267,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de magnitud.
 \end_layout
 
@@ -4442,6 +5297,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/fasecompvsnocompder.png
 	lyxscale 40
@@ -4453,9 +5310,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de fase.
 \end_layout
 
@@ -4470,9 +5331,13 @@ Bode de fase.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Comparación del bode medido del derivador compensado y no compensado.
 \end_layout
 
@@ -4487,6 +5352,8 @@ Comparación del bode medido del derivador compensado y no compensado.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Analicemos primero la fase.
  Si bien el compensado parece tener un cambio brusco de fase en la frecuencia
  de corte, realmente el cambio no es brusco, ya que ocurre lo mismo que
@@ -4497,6 +5364,8 @@ Analicemos primero la fase.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Lo más relevante de esta comparación se observa en el diagrama de magnitud,
  ya que si bien al compensarlo tiene menor ganancia, lo que se buscó fue
  que no tuviera sobrepicos al tener un ancho de banda mayor, es decir, no
@@ -4507,10 +5376,14 @@ Lo más relevante de esta comparación se observa en el diagrama de magnitud,
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Impedancia de entrada
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Para medir la impedancia de entrada del circuito se colocó una resistencia
  de 
 \begin_inset Formula $1k\Omega$
@@ -4557,6 +5430,8 @@ Para medir la impedancia de entrada del circuito se colocó una resistencia
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En este caso, la resistencia elegida para medir la impedancia de entrada
  resulta igual a la utilizada al compensar el circuito, por lo que no se
  volvió a medir para el circuito compensado, puesto que se habría medido
@@ -4564,11 +5439,15 @@ En este caso, la resistencia elegida para medir la impedancia de entrada
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se graficó el módulo de la impedancia de entrada medido, que se muestra
  a continuación:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -4577,6 +5456,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/magzinder.png
 	lyxscale 50
@@ -4588,9 +5469,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Módulo de impedancia de entrada simulada, medida, y teórica.
 \end_layout
 
@@ -4608,22 +5493,30 @@ Si analizamos el circuito de manera física, debería tener impedancia de
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Observaciones 
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se notó la presencia del transitorio de un subamortiguado al medir con el
  osciloscopio el derivador no compensado.
  La singularidad se muestra a continuación:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -4632,6 +5525,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/delta.png
 	lyxscale 50
@@ -4643,9 +5538,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Respuesta a señal cuadrada de 500Hz.
 \end_layout
 
@@ -4669,6 +5568,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/delta singularidad.png
 	lyxscale 50
@@ -4680,9 +5581,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Respuesta a señal cuadrada de 2.5kHz.
 \end_layout
 
@@ -4697,9 +5602,13 @@ Respuesta a señal cuadrada de 2.5kHz.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Respuesta a una señal cuadrada a distintas frecuencias.
 \end_layout
 
@@ -4714,6 +5623,8 @@ Respuesta a una señal cuadrada a distintas frecuencias.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se puede observar que a menor frecuencia el transitorio subamortiguado parecería
  no aparecer, sin embargo, esto se debe a que se está viendo un tiempo mayor
  de la respuesta, por lo que llega a observarse en gran medida el estado
@@ -4723,6 +5634,8 @@ Se puede observar que a menor frecuencia el transitorio subamortiguado parecerí
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se resume entonces que esta singularidad aparece a cualquier frecuencia
  de excitación de la señal de entrada como respuesta de un cambio brusco
  en la tensión de entrada, cuando la derivada de la señal sólo existe de
@@ -4733,10 +5646,14 @@ Se resume entonces que esta singularidad aparece a cualquier frecuencia
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Circuito Integrador
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Como se vio en la introducción, para el caso del integrador se tomó 
 \begin_inset Formula $Z_{2}$
 \end_inset
@@ -4749,6 +5666,8 @@ Como se vio en la introducción, para el caso del integrador se tomó
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 De esta forma, y según la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4760,6 +5679,8 @@ reference "eq:avolideal"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Formula 
 \begin{equation}
 H(s)=-\frac{1}{sRC}\label{eq:integradorideal}
@@ -4771,22 +5692,30 @@ H(s)=-\frac{1}{sRC}\label{eq:integradorideal}
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Ahora la función transferencia tiene la forma de un integrador.
  También el signo negativo hace que se desfase 180° respecto de la fase
  ideal.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Para comprobar el carácter integrador del circuito, se lo excitó con una
  señal cuadrada a 2.5kHz.
  Entonces, la salida debería ser un señal triangular, pues esa es su integral.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Lo anterior se verifica en la siguiente imagen:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -4795,6 +5724,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/integrador2-5k.png
 	lyxscale 40
@@ -4808,9 +5739,13 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Salida del circuito al ser excitado con una señal cuadrada a 2.5kHz.
 \end_layout
 
@@ -4831,10 +5766,14 @@ r.
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang spanish
 Función Transferencia
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se analizó la función transferencia con la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4856,6 +5795,8 @@ reference "eq:polodominante"
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 Llegándose a la siguiente expresión:
 \end_layout
 
@@ -4865,6 +5806,8 @@ Llegándose a la siguiente expresión:
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se graficaron y compararon los bodes teóricos de la transferencia ideal,
  es decir utilizando la ecuación 
 \begin_inset CommandInset ref
@@ -4899,12 +5842,16 @@ reference "eq:dersincompensar"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -4913,6 +5860,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
 	filename Imagenes/ej4/magbodeintteoricosincompensar.png
 	lyxscale 40
@@ -4924,9 +5873,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de magnitud.
 \end_layout
 
@@ -4950,8 +5903,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
-	filename Imagenes/ej4/fasebodeintteoricosincompensar.png
+	filename ../../../../Documents/GitHub/tc-tps/TP 2/fasebodeintteoricosincompensar.png
 	lyxscale 40
 	scale 40
 
@@ -4961,9 +5916,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de fase.
 \end_layout
 
@@ -4978,9 +5937,13 @@ Bode de fase.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Comparación de las funciones transferencia teóricas: ideal, Avol finito
  y Avol(w) con polo dominante del intregador no compensado.
 \end_layout
@@ -4996,6 +5959,8 @@ Comparación de las funciones transferencia teóricas: ideal, Avol finito
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Notar que el caso 
 \begin_inset Formula $A_{vol}$
 \end_inset
@@ -5018,17 +5983,23 @@ dose a la ganancia del integrador ideal.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Posteriormente, se analizaron los bodes del circuito simulado, el medido
  y el teórico con polo dominante.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -5037,8 +6008,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
-	filename Imagenes/ej4/magbodesincompensarint.png
+	filename ../../../../Documents/GitHub/tc-tps/TP 2/magbodesincompensarint.png
 	lyxscale 40
 	scale 40
 
@@ -5050,9 +6023,13 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de magnitud.
 \end_layout
 
@@ -5076,8 +6053,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
-	filename Imagenes/ej4/fasebodesincompensarint.png
+	filename ../../../../Documents/GitHub/tc-tps/TP 2/fasebodesincompensarint.png
 	lyxscale 40
 	scale 40
 
@@ -5089,9 +6068,13 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de fase.
 \end_layout
 
@@ -5106,9 +6089,13 @@ Bode de fase.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Comparación del bode medido, comparado, y teórico (con polo dominante) del
  integrador no compensado.
 \end_layout
@@ -5124,6 +6111,8 @@ Comparación del bode medido, comparado, y teórico (con polo dominante) del
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Teóricamente, funciona como un integrador a partir de cierta frecuencia.
  Hasta que deja de integrar pues se ve limitado por la fase, que deja de
  ser 90°, ocasionado por el polo dominante del operacional, que si bien
@@ -5132,10 +6121,14 @@ Teóricamente, funciona como un integrador a partir de cierta frecuencia.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 An integrator will have a low pass filtering effect but when given an offset
  it will accumulate a value building it until it reaches a limit of the
  system or overflows.
@@ -5147,16 +6140,22 @@ An integrator will have a low pass filtering effect but when given an offset
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Circuito Integrador Compensado
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Como en el caso del derivador, cuya función transferencia diverge a altas
  frecuencias, en la situación del integrador ocurre lo inverso, es decir,
  diverge a bajas frecuencias, presentando un comportamiento indeseado.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 El análisis fue similar a la compensación del derivador; lo que se buscó
  fue un circuito inversor en las frecuencias conflictivas del integrador,
  es decir, se buscaron 
@@ -5171,6 +6170,8 @@ El análisis fue similar a la compensación del derivador; lo que se buscó
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Esto se puede analizar de forma física, ya que a bajas frecuencias el capacitor
  actúa como un circuito abierto.
  Entonces, colocando una resistencia de valor apropiado en paralelo con
@@ -5180,6 +6181,8 @@ Esto se puede analizar de forma física, ya que a bajas frecuencias el capacitor
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 De esta manera, se compensó con una resistencia de valor nominal 
 \begin_inset Formula $120k\Omega$
 \end_inset
@@ -5194,6 +6197,8 @@ De esta manera, se compensó con una resistencia de valor nominal
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Seguidamente, se graficaron los bodes comparativos teóricos, con ganancia
  ideal, con 
 \begin_inset Formula $A_{vol}$
@@ -5207,12 +6212,16 @@ Seguidamente, se graficaron los bodes comparativos teóricos, con ganancia
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -5221,8 +6230,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
-	filename Imagenes/ej4/magbodeintteoricocompensado.png
+	filename ../../../../Documents/GitHub/tc-tps/TP 2/magbodeintteoricocompensado.png
 	lyxscale 50
 	scale 50
 
@@ -5232,9 +6243,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de magnitud.
 \end_layout
 
@@ -5258,8 +6273,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
-	filename Imagenes/ej4/fasebodeintteoricocompensado.png
+	filename ../../../../Documents/GitHub/tc-tps/TP 2/fasebodeintteoricocompensado.png
 	lyxscale 50
 	scale 50
 
@@ -5269,9 +6286,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de fase.
 \end_layout
 
@@ -5286,9 +6307,13 @@ Bode de fase.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Comparación de las funciones transferencia teóricas: ideal, 
 \begin_inset Formula $A_{vol}$
 \end_inset
@@ -5311,6 +6336,8 @@ Comparación de las funciones transferencia teóricas: ideal,
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Se puede notar que el caso 
 \begin_inset Formula $A_{vol}$
 \end_inset
@@ -5331,6 +6358,8 @@ Se puede notar que el caso
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Teóricamente, funciona como un integrador hasta que alcanza cierta frecuencia,
  cuya habilidad de integración no se ve condicionada por la magnitud, ya
  que no diverge a bajas frecuencias, sino que el verdadero límite es la
@@ -5338,17 +6367,23 @@ Teóricamente, funciona como un integrador hasta que alcanza cierta frecuencia,
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Por último, resulta de interés y se muestra a continuación la comparación
  entre el bode del integrador compensado con el no compensado.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -5357,8 +6392,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
-	filename Imagenes/ej4/magcompvsnocompint.png
+	filename ../../../../Documents/GitHub/tc-tps/TP 2/magcompvsnocompint.png
 	lyxscale 50
 	scale 50
 
@@ -5368,9 +6405,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de magnitud.
 \end_layout
 
@@ -5394,8 +6435,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
-	filename Imagenes/ej4/fasecompvsnocompint.png
+	filename ../../../../Documents/GitHub/tc-tps/TP 2/fasecompvsnocompint.png
 	lyxscale 50
 	scale 50
 
@@ -5405,9 +6448,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Bode de fase.
 \end_layout
 
@@ -5422,9 +6469,13 @@ Bode de fase.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Comparación del bode medido del integrador compensado y no compensado.
 \end_layout
 
@@ -5439,6 +6490,8 @@ Comparación del bode medido del integrador compensado y no compensado.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 El módulo de la transferencia medida compensada se mantiene constante entre
  10 y 20 dB hasta los 1000Hz, que era aproximadamente hasta donde tenía
  problemas el integrador no compensado.
@@ -5448,15 +6501,21 @@ El módulo de la transferencia medida compensada se mantiene constante entre
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Parecería haber algún error de medición en las fases más bajas ya que el
  compensado medido no se condice con los bodes teóricos.
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Impedancia de entrada
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 La impedancia de entrada se midió de igual manera que para el derivador,
  esto es, se colocó una resistencia entre 
 \begin_inset Formula $V_{in}$
@@ -5476,18 +6535,24 @@ La impedancia de entrada se midió de igual manera que para el derivador,
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 El valor nominal del resistor que se utilizó fue de 2.7kHz.
  Seguidamente, se graficaró el módulo y la fase de la impedancia de entrada
  del integrador con y sin compensar.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Float figure
 wide false
 sideways false
@@ -5496,8 +6561,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
-	filename Imagenes/ej4/magzinintcompvssincomp.png
+	filename ../../../../Documents/GitHub/tc-tps/TP 2/magzinintcompvssincomp.png
 	lyxscale 40
 	scale 40
 
@@ -5507,9 +6574,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Módulo impedancia de entrada.
 \end_layout
 
@@ -5533,8 +6604,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang spanish
 \begin_inset Graphics
-	filename Imagenes/ej4/fasezinintcompvssincomp.png
+	filename ../../../../Documents/GitHub/tc-tps/TP 2/fasezinintcompvssincomp.png
 	lyxscale 40
 	scale 40
 
@@ -5544,9 +6617,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Fase impedancia de entrada.
 \end_layout
 
@@ -5561,9 +6638,13 @@ Fase impedancia de entrada.
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang spanish
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang spanish
 Impedancia de entrada del circuito integrador con y sin compensar.
 \end_layout
 
@@ -5578,6 +6659,8 @@ Impedancia de entrada del circuito integrador con y sin compensar.
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 Si se observa la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5599,25 +6682,35 @@ reference "zin"
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 En el caso del compensado, a bajas frecuencias la impedancia es más alta
  ya que se le suma la resistencia de compensación, que a frecuencias bajas
  se hace comparable.
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Observaciones
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 LO DEL OFFSET TURBIOH
 \end_layout
 
 \begin_layout Standard
+
+\lang spanish
 //hablar del offset, se puso la salida del osciloscopio en modo AC para
  matar la continua y con ella el offset que aparecía
 \end_layout
 
 \begin_layout Subsection
+
+\lang spanish
 Conclusiones
 \end_layout
 
