@@ -5699,6 +5699,7 @@ El circuito integrado LM35 es un dispositivo cuya tensión de salida varia
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -5832,6 +5833,7 @@ Analizando el circuito en condiciones ideales (despreciando corrientes de
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -6037,19 +6039,501 @@ se utilizo el hecho de que la corriente maxima da salida del LM35 es de
  deberia ser capaz de tolerar la potencia disipada por dicha corriente como
  tambien por dicha, las resistencias utilizadas son de 0.125Watts, por lo
  que una resistencia mayor a 2kΩ ya cumple la especificacion.
- Sin embargo, para tener un margen el valor cconveniente para 
+ Sin embargo, para tener un margen mas grande de errror el valor conveniente
+ para 
 \begin_inset Formula $R_{4}$
 \end_inset
 
  fue de 10kΩ.
 \end_layout
 
+\begin_layout Standard
+Finalmente la medida de seguridad implementada para asegurar que la salida
+ del dispositivo cumpla con que no haya mas de 6V ni menos de -1V a la salida,
+ es la resistencia 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+ en serie con un diodo zener en inversa de 5.6V de tension de breakdown.
+ El diodo en inversa asegura que al superarse la tension de 5.6V a la salida
+ del amplificador operacional, el diodo puede modelarse como si fuera una
+ fuente de tension de valor constante de 5.6V, y que cuando la tension a
+ la salida del Opamp, se encuentra entre -0.7V y 5.6V el diodo se comporta
+ como un circuito abierto.
+\end_layout
+
+\begin_layout Standard
+Entonces cuando la tension a la salida del opamp es mayor a 5.6V, el circuito
+ se comporta de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/DiodoBreakdown.PNG
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diodo zener en breakdown
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que el valor maximo de tension de salida es 5.6V.
+ Asimismo, cuando la tension ded salida del Opamp se encuenta dentro del
+ intervalo -0.7V a 5.6V, se puede modelar al diodo como un circuito abierto:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/DiodoAbierto.PNG
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comportamiento del diodo para tensiones entre -0.7V y 5.6V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con lo que, si la corriente que pudiera circular por 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+ se considera despreciable, dentro del intervalo -0.7V a 5.6V, la tension
+ de salida del sensor es igual a la tension de salida del Opamp.
+ Por ultimo, cuando la tension de salida del OpAmp es menor a -0.7V, el comportam
+iento del diodo puede modelarse como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/DiodoEnForwardbias.PNG
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo del diodo para tensiones menores a -0.7V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logrando que la tension de salida tenga como valor minimo posible -0.7V,
+ y como valor maximo 5.6V.
+ El rol de la resistencia 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+ en el circuito es el de prevenir que la corriente que atravies al mismo
+ ocasione que este se queme.El diodo zenner implementado puede disipar una
+ potencia maxima de 0.5Watts, por lo que en el peor caso(cuando esta en breakdown
+ y ocasiona una caida de 5.6V), se tiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $P=V.I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $0.5Watts=5.6V.I_{max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{max}\thickapprox90mA$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Planteando mallas para el modelo en el que el diodo se comporta como una
+ fuente de 5.6V, se tiene que la corriente esta dada por:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I=\frac{V_{opamp}-5.6V}{R_{5}}$
+\end_inset
+
+(4)
+\end_layout
+
+\begin_layout Standard
+Asumiendo que la tension del opamp es la maxima (9V, ya que es el valor
+ de la alimentacion), y que la corriente es la maxima permitida (90mA).
+ Entonces despejando la ecuacion anterior, se obtiene que el valor de la
+ resistencia debe ser como minimo:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $R_{5}>37.8\varOmega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tambien se debe tener en cuenta que las resistencias con las que se trabaja
+ son de 0.125Watts, por lo que el valor de resistencia debe ser tal que pueda
+ tolerar la potencia disipada sin quemarse.
+\end_layout
+
+\begin_layout Standard
+Al elegir 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+
+\begin_inset Formula $R_{5}=1.5k\varOmega$
+\end_inset
+
+ se obtiene de (4), que la corriente maxima es aproximadamente 2mA,corriente
+ a la cual 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+ disipa una potencia de 6mW que esta dentro del maximo de 0.125Watts.
+ 
+\end_layout
+
 \begin_layout Subsection
 Datasheet
 \end_layout
 
+\begin_layout Subsubsection
+Layout y funcionamiento
+\end_layout
+
+\begin_layout Standard
+El sensor de temperatura tiene 4 puertos(dos entradas de alimentación, la
+ referencia a masa, y el puerto de salida).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/CircDatasheet.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Representación del circuito en LTSpice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para el correcto funcionamiento del sensor se debe tener en cuenta que:
+\end_layout
+
+\begin_layout Itemize
+El valor de la alimentación debe ser 
+\begin_inset Formula $V_{cc}=9V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Si se alimenta el dispositivo con 
+\begin_inset Formula $V_{cc}$
+\end_inset
+
+ mayor a 18V o menor a -0.2V se puede dañar permanentemente el dispositivo
+\end_layout
+
+\begin_layout Itemize
+La impedancia de salida del dispositivo es de 
+\begin_inset Formula $1.5k\varOmega$
+\end_inset
+
+(con una tolerancia del 5%) cuando el dispositivo no esta en saturación,
+ en saturación la impedancia de salida esta en el orden de los ohms.
+\end_layout
+
+\begin_layout Standard
+El dispositivo esta diseñado para funcionar correctamente en el rango de
+ los 35ºC hasta los 45ºC, para valores de temperatura menores que 35ºC el
+ dispositivo satura en una tensión cercana a -0.7V y para temperaturas mayores
+ a 45ºC satura en una tensión cercana a 5.6V.
+ El dispositivo puede no funcionar adecuadamente fuera del rango de 2ºC
+ hasta 150ºC por el uso interno del integrado LM35.
+ Asimismo, con el sistema calibrado y asumiendo el funcionamiento correcto
+ de todos los componentes, el error mínimo del dispositivo es de 0.5ºC por
+ el error del LM35 en el rango de los 35ºC hasta los 45ºC.
+\end_layout
+
+\begin_layout Standard
+A continuación se presentan las imágenes resultantes de las mediciones obtenidas
+ del sensor:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/VvsTemp.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tensión en funcion de la temperatura
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Los valores no se midieron directamente con temperatura, sino que se simulo
+ la tensión de salida del LM35 a dichas temperaturas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el siguiente gráfico se muestra en detalle los valores medidos para el
+ rango de 35ºC hasta los 45ºC(el rango para el cual fue diseñado el sensor)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/VvsTempentre0y5.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tensión de salida en el rango de 35º a 45º
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Calibración
+\end_layout
+
+\begin_layout Standard
+La calibración del dispositivo se realiza mediante dos presets.Para la correcta
+ calibración del sensor, primero debe ajustarse el preset correspondiente
+ a 
+\begin_inset Formula $R_{3}$
+\end_inset
+
+ y luego el preset correspondiente a 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+.
+ Esto se debe a que la resistencia 
+\begin_inset Formula $R_{3}$
+\end_inset
+
+ afecta tanto el offset como la gradiente de la recta que representa la
+ variación lineal con la temperatura.Mientras que la resistencia , solo afecta
+ la gradiente de la recta, por lo que si el valor mínimo o máximo devuelto
+ por el sensor es correcto, solo debe ajustarse el valor de la pendiente
+ ajustando el valor del preset correspondiente a 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 Conclusiones
+\end_layout
+
+\begin_layout Standard
+Resumiendo lo expuesto, se pudo diseñar un sensor de temperatura utilizando
+ el integrado LM35 y el modelo de amplificador TL082.
+ El dispositivo en si cuenta con dos presets que permiten la calibración
+ del mismo, así como un diodo zener que sirve para asegurar que la salida
+ del sensor este limitada dentro del rango de –0.7V a 5.6V .Se debe tener en
+ cuenta que el mayor error es cerca de la saturación del diodo, ya que el
+ mismo no es un elemento lineal por lo que la recta en ese punto se curva
+ un poco.
 \end_layout
 
 \end_body
