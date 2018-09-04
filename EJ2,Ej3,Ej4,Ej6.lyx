@@ -5204,11 +5204,12 @@ Seguidamente, se graficaron los bodes comparativos teóricos, con ganancia
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -5246,6 +5247,7 @@ Bode de magnitud.
 
 
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -5343,10 +5345,11 @@ Por último, resulta de interés y se muestra a continuación la comparación
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -5384,6 +5387,7 @@ Bode de magnitud.
 
 
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6454,6 +6458,7 @@ En el siguiente gráfico se muestra en detalle los valores medidos para el
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed

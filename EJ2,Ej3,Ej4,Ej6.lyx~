@@ -6397,7 +6397,97 @@ El dispositivo esta diseñado para funcionar correctamente en el rango de
 \end_layout
 
 \begin_layout Standard
-A continuación se presentan las imágenes resultantes de las mediciones
+A continuación se presentan las imágenes resultantes de las mediciones obtenidas
+ del sensor:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/VvsTemp.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tensión en funcion de la temperatura
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Los valores no se midieron directamente con temperatura, sino que se simulo
+ la tensión de salida del LM35 a dichas temperaturas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el siguiente gráfico se muestra en detalle los valores medidos para el
+ rango de 35ºC hasta los 45ºC(el rango para el cual fue diseñado el sensor)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/VvsTempentre0y5.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tensión de salida en el rango de 35º a 45º
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
