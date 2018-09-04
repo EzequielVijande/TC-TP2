@@ -3163,7 +3163,9 @@ Se armaron los siguientes circuitos:
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -3180,7 +3182,6 @@ status open
 \begin_inset Graphics
 	filename Imagenes/ej4/circuitoderivador.png
 	lyxscale 75
-	scale 75
 
 \end_inset
 
@@ -3217,7 +3218,6 @@ status open
 \begin_inset Graphics
 	filename Imagenes/ej4/circuitointegrador.png
 	lyxscale 75
-	scale 75
 
 \end_inset
 
@@ -3521,17 +3521,7 @@ Tensión operacional:
 \end_layout
 
 \begin_layout Standard
-Además, al ser el LM833 un operacional Dual, es decir con dos OpAmps internos,
- se tuvo el cuidado de conectar los pines que no se utilizaban a tierra,
- para que no cargara el circuito.
- Y de colocar capacitores de desacople de 100nF en paralelo entre la alimentació
-n del operacional y tierra, para filtrar el ruido de alterna de la fuente
- de CC.
-\end_layout
-
-\begin_layout Standard
-Para finalizar la introducción, los valores nominales que se utilizaron
- para ambos circuitos fueron 
+Los valores nominales que se utilizaron para ambos circuitos fueron 
 \begin_inset Formula $C=4.7nF$
 \end_inset
 
@@ -3633,7 +3623,9 @@ Lo anterior se verifica en la siguiente imagen:
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -3758,7 +3750,9 @@ reference "eq:dersincompensar"
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -3891,12 +3885,15 @@ Posteriormente, se analizaron los bodes del circuito simulado, el medido
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -4122,12 +4119,15 @@ Seguidamente, se graficaron los bodes comparativos teóricos, con ganancia
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -4263,12 +4263,15 @@ Posteriormente, se analizaron los bodes del circuito simulado, el medido
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -4391,12 +4394,15 @@ Por último, resulta de interés y se muestra a continuación la comparación
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -4569,7 +4575,9 @@ Se graficó el módulo de la impedancia de entrada medido, que se muestra
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -4618,7 +4626,9 @@ Se notó la presencia del transitorio de un subamortiguado al medir con el
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -4787,7 +4797,9 @@ Lo anterior se verifica en la siguiente imagen:
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -4851,17 +4863,6 @@ reference "eq:polodominante"
 \end_inset
 
  por los valores adecuados.
- 
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-Llegándose a la siguiente expresión:
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4899,12 +4900,15 @@ reference "eq:dersincompensar"
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -5023,12 +5027,15 @@ Posteriormente, se analizaron los bodes del circuito simulado, el medido
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -5131,21 +5138,6 @@ Teóricamente, funciona como un integrador a partir de cierta frecuencia.
  de cierta frecuencia.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-An integrator will have a low pass filtering effect but when given an offset
- it will accumulate a value building it until it reaches a limit of the
- system or overflows.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Circuito Integrador Compensado
 \end_layout
@@ -5207,12 +5199,15 @@ Seguidamente, se graficaron los bodes comparativos teóricos, con ganancia
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -5343,7 +5338,9 @@ Por último, resulta de interés y se muestra a continuación la comparación
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -5482,15 +5479,30 @@ El valor nominal del resistor que se utilizó fue de 2.7kHz.
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
@@ -5504,13 +5516,10 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Módulo impedancia de entrada.
+Módulo de la impedancia de entrada.
 \end_layout
 
 \end_inset
@@ -5525,13 +5534,25 @@ Módulo impedancia de entrada.
 \end_inset
 
 
-\begin_inset Float figure
-wide false
-sideways false
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
-\noindent
 \align center
 \begin_inset Graphics
 	filename Imagenes/ej4/fasezinintcompvssincomp.png
@@ -5541,13 +5562,10 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Fase impedancia de entrada.
+Fase de impedancia de entrada.
 \end_layout
 
 \end_inset
@@ -5600,8 +5618,8 @@ reference "zin"
 
 \begin_layout Standard
 En el caso del compensado, a bajas frecuencias la impedancia es más alta
- ya que se le suma la resistencia de compensación, que a frecuencias bajas
- se hace comparable.
+ ya que se le suma la resistencia de compensación, que se hace comparable
+ a frecuencias bajas.
 \end_layout
 
 \begin_layout Subsection
@@ -5609,16 +5627,33 @@ Observaciones
 \end_layout
 
 \begin_layout Standard
-LO DEL OFFSET TURBIOH
+Se observó que en el caso del integrador no compensado, la salida medida
+ con el osciloscopio aparecía corrida, o sea, tenía un offset de continua.
+ Para evitar esto se colocó al instrumento en modo coupling AC, para que
+ la señal permaneciera quieta en pantalla.
+ Con este modo se coloca un capacitor en serie, y así filtrando la continua.
 \end_layout
 
 \begin_layout Standard
-//hablar del offset, se puso la salida del osciloscopio en modo AC para
- matar la continua y con ella el offset que aparecía
+Este offset en la salida puede deberse a que la fuente de excitación de
+ entrada tiene algún componente de continua.
+ Entonces, la impedancia del capacitor se torna infinita, y se rompe la
+ realimentación, amplificando la tensión de offset del OpAmp.
 \end_layout
 
 \begin_layout Subsection
 Conclusiones
+\end_layout
+
+\begin_layout Standard
+Se logró diseñar circuitos que deriven o integren una señal de entrada en
+ un rango de frecuencias.
+ Si bien, se encontraron comportamientos indeseados en las frecuencias altas
+ para el caso del derivador y en las altas para el caso del integrador,
+ se pudo compensar para evitar que se saturen en las frecuencias conflictivas
+ disminuyendo la ganancia, y así obteniendo un comportamiento más ideal
+ en un mayor ancho de banda.
+ 
 \end_layout
 
 \begin_layout Section
