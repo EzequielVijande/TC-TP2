@@ -5755,10 +5755,6 @@ La alimentación del mismo puede ser de 4V hasta 30V
 Tiene una impedancia de salida baja(típicamente de 0.1Ω)
 \end_layout
 
-\begin_layout Itemize
-La coriente maxima de salida es 10mA.
-\end_layout
-
 \begin_layout Subsubsection
 Diseño implementado
 \end_layout
@@ -6024,24 +6020,6 @@ Utilizando los valores para
 En lo que respecta a la etapa del Opamp del circuito, los valores de los
  componentes ya estan establecidos.Ahora falta analizar los componentes necesario
 s luego del TL082.
- Para el valor de 
-\begin_inset Formula $R_{4}$
-\end_inset
-
-se utilizo el hecho de que la corriente maxima da salida del LM35 es de
- 10mA, y la tension maxima de salida es de 6V.
- Por lo que 
-\begin_inset Formula $R_{4}$
-\end_inset
-
- deberia ser capaz de tolerar la potencia disipada por dicha corriente como
- tambien por dicha, las resistencias utilizadas son de 0.125Watts, por lo
- que una resistencia mayor a 2kΩ ya cumple la especificacion.
- Sin embargo, para tener un margen el valor cconveniente para 
-\begin_inset Formula $R_{4}$
-\end_inset
-
- fue de 10kΩ.
 \end_layout
 
 \begin_layout Subsection
