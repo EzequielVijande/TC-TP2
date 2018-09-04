@@ -1,0 +1,8989 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement !tph
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 19mm
+\topmargin 19mm
+\rightmargin 19mm
+\bottommargin 43mm
+\headsep 2mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Caracterización del amplificador operacional LM833
+\end_layout
+
+\begin_layout Subsection
+Objetivos y resumen
+\end_layout
+
+\begin_layout Standard
+Se realizo un circuito en configuración no inversora como el ilustrado en
+ la siguiente figura:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/LM833Config.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito no inversor utilizando el LM833 como amplificador oepracional
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dicho circuito se implemento haciendo uso del modelo de amplificador LM833.El
+ objetivo principal de la experiencia fue la medir la respuesta en frecuencia
+ de la salida del circuito así también como su impedancia de entrada.
+ Luego, se compararon los resultados obtenidos con aquellos obtenidos mediante
+ la resolución teórica del circuito, como también con las simulaciones del
+ mismo realizadas en LTSpice.
+\end_layout
+
+\begin_layout Standard
+En una primera instancia los resultados iban a ser comparados con lo de
+ otro modelo(NE5534), pero como no pudimos conseguir el componente en cuestión
+ hicimos el análisis solo para el LM833.
+\end_layout
+
+\begin_layout Subsection
+Resolución del circuito
+\end_layout
+
+\begin_layout Standard
+Para esta primera resolución teórica el circuito se realizo asumiendo que
+ el amplificador tiene una impedancia de entrada infinita así como también
+ impedancia de salida nula, así como también se despreciaron las corrientes
+ de bias y la tensión de offset del amplificador.
+ El circuito se resolvió utilizando el método de nodos en conjunto con la
+ ecuación característica del opamp, las ecuaciones resultantes son:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $V_{in}=v^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v^{-}=\frac{R_{1}}{R_{1}+R_{2}}V_{out}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $V_{out}=A_{o}(\omega)(v^{+}-v^{-})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A_{vol}=\frac{A}{1+\frac{j\omega}{\omega_{0}}}$
+\end_inset
+
+ , donde A es una constante y 
+\begin_inset Formula $\omega_{0}$
+\end_inset
+
+ es el ancho de banda del LM833 en lazo abierto.
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+es la ganancia a lazo abierto del LM833, y 
+\begin_inset Formula $v^{+}$
+\end_inset
+
+, 
+\begin_inset Formula $v^{-}$
+\end_inset
+
+son las tensiones no inversora y la inversora respectivamente, del LM833.
+ Resolviendo el sistema se llega a que la ganancia del sistema en función
+ de la frecuencia es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{V_{out}}{V_{in}}=G(\omega)=\frac{A}{(1+\frac{AR_{1}}{R_{1}+R_{2}})(1+\frac{j\omega}{\omega_{p}})}$
+\end_inset
+
+(1)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\omega_{p}=\omega_{0}(1+\frac{AR_{1}}{R_{1}+R_{2}})$
+\end_inset
+
+ (2)
+\end_layout
+
+\begin_layout Standard
+Si se considera el modelo todavía mas ideal (
+\begin_inset Formula $A\longrightarrow\infty$
+\end_inset
+
+), se llega a la ganancia ideal de la configuración no inversora:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $G_{i}=1+\frac{R_{2}}{R_{1}}$
+\end_inset
+
+ (3)
+\end_layout
+
+\begin_layout Standard
+A continuación se presenta una tabla con los valores utilizados de componentes
+ y los parámetros del LM833 obtenidos de la hoja de datos del mismo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{1}(k\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{2}(k\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{3}(k\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\omega_{0}(rad/seg)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{in}(k\varOmega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+220
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3.16\times10^{4}<A<3.16\times10^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+298
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+175
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Valores utilizados en la resolucion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reemplazado los valores de los componentes en las ecuaciones (2) y (3),
+ se obtienen los valores:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $144KHz<f_{p}<182KHz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $G_{i}=82.5$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El GBP(Gain Bandwith Product) del amplificador operacional se define como:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $GBP=G(\omega).\omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo que quiere decir que es el producto entre el ancho de banda y la ganancia
+ medida a esa frecuencia.El GBP tiene un valor que se considera constante
+ y depende del amplificador operacional, este parámetro se proporciona en
+ las datasheets de los amplificadores operacionales.
+ Como el GBP se considera constante y es independiente de a que ganancia
+ se mide, se puede usar la formula:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $GBP=A_{o}.\omega_{o}$
+\end_inset
+
+ (4)
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ es la ganancia a lazo abierto del amplificador operacional y 
+\begin_inset Formula $\omega_{0}$
+\end_inset
+
+ es el ancho de banda en lazo abierto.
+\end_layout
+
+\begin_layout Standard
+Despejando la ecuación (4) se tiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\omega_{o}=\frac{GBP}{A_{o}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que el GBP influye en la respuesta en frecuencia del circuito, ya
+ que el valor del mismo influye en el valor del polo dominante dado por
+ la ecuación (2).
+\end_layout
+
+\begin_layout Standard
+La impedancia de entrada vista por el generador puede calcularse también
+ de forma teórica, si consideramos que la resistencia interna del amplificador
+ operacional tiene un valor finito.
+ El circuito resolver es el siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/ImpEntrada.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito equivalente con resistencia interna finita
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las ecuaciones del mismo son:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\frac{v_{in}-v^{+}}{R_{3}}=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v^{+}=IR_{in}+v^{-}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v^{-}=\frac{R_{1}R_{2}}{R_{1}+R_{2}}I+\frac{R_{2}+R_{1}}{R_{1}R_{2}^{2}}v_{out}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v_{out}=A_{vol}(v^{+}-v^{-})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A_{vol}(s)=\frac{A}{\frac{s}{\omega_{o}}+1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+La resolución del sistema anterior es tedioso y largo por lo que a continuación
+ se presenta simplemente la forma final que se obtuvo para la impedancia
+ de entrada:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Z_{inp}=\frac{v_{in}}{I}=\frac{(R_{3}+R_{in})(R_{1}+R_{2})+R_{1}R_{2}+AR_{in}R_{1}}{R_{1}+R_{2}}.\frac{(1+\frac{s}{\omega_{p}})}{(1+\frac{s}{\omega_{o}})}$
+\end_inset
+
+ (5)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\omega_{p}=\frac{\omega_{o}[(R_{3}+R_{in})(R_{1}+R_{2})+R_{1}R_{2}+AR_{in}R_{1}]}{(R_{3}+R_{in})(R_{1}+R_{2})+R_{1}R_{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Remplazando la expresión por los valores utilizados de resistencias y con
+ el A , el 
+\begin_inset Formula $\omega_{o}$
+\end_inset
+
+ como datos de la datasheet se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Z_{inp}=\frac{v_{in}}{I}=670731192.\frac{(1+\frac{s}{\omega_{p}})}{(1+\frac{s}{\omega_{o}})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{p}=\frac{\omega_{p}}{2\pi}=114.6KHz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{o}=\frac{\omega_{o}}{2\pi}=47.4Hz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Resultados obtenidos
+\end_layout
+
+\begin_layout Standard
+Todas las mediciones se realizaron con una amplitud a la entrada menor que
+ 270mV, ya que para valores de entrada mayores que este la salida excede
+ la tensión de saturación por lo que ya no se puede hablar de una respuesta
+ en frecuencia porque no hay una sola frecuencia a la salida.
+ Este limite se obtuvo mediante la simulación en LTSpice del circuito, la
+ siguiente es la gráfica de la tensión a la salida en función de la tensión
+ de entrada(trabajando en continua):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Saturacion.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Saturacion del circuito
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A continuación se muestra la suerposicion de la respuesta en frecuencia
+ medida del circuito superpuesta con la teórica (ecuación 1):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/NowWithDataCursor.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Grafico de la magnitud medida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/BodeFase.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Grafico de la fase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde la curva azul representa la respuesta en frecuencia teórica y las
+ cruces rojas los puntos medidos de mismo.
+\end_layout
+
+\begin_layout Standard
+Las dos próximas figuras muestran las mediciones obtenidas de la impedancia
+ de entrada del circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/ImpMedida.PNG
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Magnitud de la impedancia de entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/ImpFase.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fase de la impedancia de entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Análisis de los resultados
+\end_layout
+
+\begin_layout Standard
+Primero se analizaran los resultados obtenidos para la respuesta en frecuencia
+ de la salida del circuito y luego aquellos obtenidos para la impedancia
+ de entrada.
+\end_layout
+
+\begin_layout Standard
+Puede verse claramente que la respuesta en frecuencia obtenida de manera
+ teórica utilizando el modelo de 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ con un polo simple, no se ajusta a los resultados medidos.
+ Puede presenciarse que hay un sobre pico en la magnitud a la salida centrado
+ en los 67KHz y al analizar la fase se puede ver que la misma queda establecida
+ en -180º y no en -90º como sugiere la teoría.
+ Esto indica que el circuito elaborado tiene mas de un polo y que el modelo
+ de un polo simple no alcanza para modelar satisfactoriamente al circuito.
+ En la datasheet del LM833 se puede encontrar que hay un efecto capacitivo
+ entre los pins de entradas del op-amp y que el valor típico de esta capacitanci
+a parásita es de 12pf.
+ Modelando en LTSpice el circuito teniendo en cuenta esta capacitancia parásita,
+ así también como el efecto de las puntas sobre el circuito (Todas las medicione
+s se realizaron con las puntas en configuración x1):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/LM833Circuito.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo del circuito simulado en LTSpice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se obtuvieron resultados que se ajustan mejor a los resultados medidos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/RespFrecSimulada.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia simulada en LTSpice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Siguen habiendo discrepancias entre la simulación y los valores medidos,
+ una de las razones puede ser los efectos de la capacitancia parásita de
+ la protoboard utilizada.
+ Tambien consideramos que la capacitancia parasita del op-amp debe diferir
+ del valor típico, al realizar la simulación con una capacitancia parásita
+ de 50pf entre los pins de entrada se obtuvieron resultados muy similares
+ a los medidos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Sim50pf.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulacion utilizando capacitancia parasita de 50pf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otra inconsistencia entre el modelo teórico, y la simulación es el valor
+ de la ganancia a bajas frecuencias.
+ Esto puede ser debido a que para el análisis teorico se consideraron corrientes
+ de bias y tensión de offset nulas.Sin embargo, en la datasheet se da como
+ valor típico de corriente de bias 500nA y como tensión de offset típica
+ 0.3mV.
+ Al considerar que antes de la entrada del pin no inversor hay una resistencia
+ de 100kΩ se obtiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v^{+}=v_{in}-I_{b}^{+}.100k\varOmega-v_{offset}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v^{+}\thickapprox v_{in}-50.3mV$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A primera vista puede parecer una caída despreciable, pero considerando
+ que el circuito tiene una ganancia de cerca de 82 veces y que esta alimentado
+ con 
+\begin_inset Formula $V_{CC}=15V$
+\end_inset
+
+.
+ La 
+\begin_inset Formula $v_{in}$
+\end_inset
+
+ no toma valores superiores a 200mV, ya que en ese caso se estaría trabajando
+ en condición de saturación, por lo que una diferencia de 50mV a la entrada
+ es significativa, ya que ademas esta sale amplificada 82 veces.
+\end_layout
+
+\begin_layout Standard
+En cuanto a la impedancia de entrada, también hay fuertes diferencias entre
+ el modelo teórico y las mediciones obtenidas.
+ En primer lugar, la gráfica de magnitud tiene una forma similar pero difiere
+ en el valor en el que comienza la impedancia de entrada para bajas frecuencias.
+ Esto puede deberse en cierta medida al valor de A utilizado en la ecuación
+ (5), ya que el mismo tiene un valor que aunque es grande su valor preciso
+ puede variar hasta en un orden de magnitud.
+ Ademas de esto, se tiene que para el modelo teórico no se tuvo en cuenta
+ la influencia de la capacitancia parásita del amplificador operacional,
+ ni de las puntas del osciloscopio ni de la protoboard utilizada.
+ La fase teórica no guarda ninguna relación con la teórica, esto era de
+ esperarse ya que como se menciono anteriormente, el análisis teórico se
+ realizo para el modelo de un solo polo simple, el cual no es el caso.
+ Asimismo, la medición de la fase obtenida no es muy confiable.
+ Esto se debe a que para obtener la fase de la impedancia de entrada, se
+ midió la tensión en la entrada no inversora del op-amp y la tensión de
+ excitación.Luego, mediante el canal 'MATH' del osciloscopio se hizo la resta
+ de estas dos tensiones, ya que por mallas:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{in}-v_{R}-v^{+}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{R}=v_{in}-v^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se tiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Z_{inp}=\frac{v_{in}}{I}=\frac{v_{in}}{v_{R}}.R_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La resistencia es un numero real positivo, por lo que no afecta la fase,
+ por lo que con medir el desfasaje de la tensión en la resistencia con respecto
+ a la fase de la entrada ya es posible obtener la fase de la impedancia
+ de entrada.
+ Sin embargo, como los valores de tensión obtenidos con el osciloscopio
+ al utilizar 'MATH' fueron muy pequeños, para valores bajos de frecuencias
+ el osciloscopio no pudo resolver el desfasaje entre las tensiones.
+ Asimismo, a mayores frecuencias la tensión de la entrada no inversora se
+ volvía considerablemente pequeña por lo que también era dificulta obtener
+ mediciones sin un error importante.
+\end_layout
+
+\begin_layout Standard
+En cuanto a la simulación en LTSpice, teniendo en cuenta el efecto de las
+ puntas y la capacitancia parásita se obtuvo la siguiente impedancia de
+ entrada:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/ImpSimulada.PNG
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Impedancia de entrada simulada en LTSpice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede notar que la magnitud de la impedancia simulada se corresponde
+ mucho mejor con la magnitud medida que como lo hacia la magnitud teórica.
+ En cuanto a la fase, aunque como por las razones explicadas previamente
+ no se pudieron realizar mediciones de fase para frecuencias altas ni para
+ frecuencias bajas, se puede ver que para los valores de frecuencia medidos
+ la fase también se ajusta mejor a la simulación que a la fase teórica.
+ Estos resultados son lo que se esperaba ya que el modelo teórico con el
+ que se trabajo para la impedancia de entrada deja afuera todos los elementos
+ capacitivos así como también el efecto de las impedancias de los instrumentos
+ de medición.
+\end_layout
+
+\begin_layout Subsection
+Aplicaciones del LM833
+\end_layout
+
+\begin_layout Standard
+Como características principales del LM833 se tiene un valor alto de GBP(entre
+ 10Mhz y 15MHz), un alto valor de ganancia a lazo abierto(
+\begin_inset Formula $3.16\times10^{4}<A<3.16\times10^{5}$
+\end_inset
+
+) por lo que tiene el potencial de amplificar señales con una gran ganancia
+ a un rango considerable de señales.
+ Ademas de las cualidades de amplificacion, tiene un buen slew rate(valor
+ típico de 
+\begin_inset Formula $7\frac{V}{\mu s}$
+\end_inset
+
+) , una tensión de offset muy baja(0.3mV como valor típico) y poca distorsión
+ armónica total(0.002%).
+ Estas características en particular hacen que el LM833 tenga un gran valor
+ para aplicaciones de amplificar señales débiles de audio, ya que las mismas
+ se encuentran en un rango desde los 20Hz hasta los 20KHz, por lo que el
+ op-amp es capaz de amplificar fuertemente señales en ese rango dentro de
+ un circuito retroalimentado sin que el polo dominante del 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ sea un problema, debido a su alto valor de GBP.
+ Ademas, el hecho de que tenga un slew rate de 
+\begin_inset Formula $7\frac{V}{\mu s}$
+\end_inset
+
+ permite amplitudes mayores de entrada siempre(teniendo en cuenta que la
+ amplificación no excede la tensión de saturación del op-amp).
+ Por ultimo, el bajo nivel de distorsión también juega un papel muy importante,
+ ya que se desea que la salida del sistema no este distorsionada con respecto
+ a como era la entrada inicialmente (idealmente los armónicos a la salida
+ deben ser los mismos que a la entrada).
+\end_layout
+
+\begin_layout Subsection
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+Como conclusión, al trabajar con circuitos retroalimentados que tienen alto
+ valores de ganancias, hay que tener especial cuidado de que se puedan seguir
+ estableciendo ciertas suposiciones del modelo ideal sin que influyan significat
+ivamente en el análisis.
+ Por ejemplo, tener en cuenta efectos de corrientes de bias, tensión de
+ offset, impedancia de entrada finita, el polo dominante de la ganancia
+ a lazo abierto y capacitancias parásitas.Asimismo, hay que tener en cuenta
+ el efecto del instrumento de medición al realizar ciertas mediciones, como
+ en el caso de la impedancia de entrada donde el efecto de la resistencia
+ del osciloscopio y el capacitor de las puntas afectan considerablemente
+ al circuito.
+ Otro aspecto a tener en cuenta al trabajar con altos valores de ganancia,
+ es el de no excederse de la tensión de saturación a la salida del circuito
+ y también tener presente el slew rate del amplificador operacional utilizado.
+\end_layout
+
+\begin_layout Section
+Medición de corrientes de Bias y Offset
+\end_layout
+
+\begin_layout Subsection
+Objetivos y resumen
+\end_layout
+
+\begin_layout Standard
+El objetivo de la experiencia realizada fue el de estimar la magnitud de
+ la tensión de offset para dos modelos distintos de amplificadores operacionales
+, el LF356 y el TL081 .También se realizaron mediciones para estimar la corriente
+ de bias y de offset de cada modelo.
+ El circuito utilizado es el que se muestra en la siguiente figura:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/BiasConfig.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Configuracion utilizada para las mediciones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cerrando y abriendo los distintos switches se pueden medir los distintos
+ parámetros deseados.Se explicara el funcionamiento del circuito ilustrado,
+ cuando funciona el mismo para la medición y que combinación de switches
+ corresponde a la medición de cada parámetro.
+\end_layout
+
+\begin_layout Subsection
+Introducción teórica
+\end_layout
+
+\begin_layout Standard
+Cuando se trabaja con el modelo ideal de un amplificador operacional, se
+ supone que las corrientes entrantes por el pin inversor y el no inversor
+ del mismo son nulas, así como también que si ambas entradas están puestas
+ a tierras entonces la salida del op-amp a lazo abierto es nula.
+ Sin embargo, en la realidad existen corrientes no nulas que circulan por
+ las entradas de los op-amps, estas mismas se denominan corrientes de bias
+ y por lo general rondan en el orden de los pico-amperes o los nanoamperes.
+ Asimismo, debido a imperfecciones y diferencias entre los pines de entrada
+ de los op-amps, al conectar ambas entradas del mismo a la misma referencia
+ sigue existiendo una tensión de salida.La diferencia de tensión necesaria
+ entre ambas entadas para lograr que la salida sea nula se denomina tensión
+ de offset.
+\end_layout
+
+\begin_layout Standard
+Una representación de un op-amp con corrientes de bias y tensión de offset
+ es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/BiasOffset.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Corientes de bias y tension de offset en un op-amp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Utilizando las corrientes representadas en la figura anterior se definen
+ la corriente de bias y la corriente de offset como:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{bias}=\frac{I_{b}^{-}+I_{b}^{+}}{2}$
+\end_inset
+
+(0)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{offset}=|I_{b}^{-}-I_{b}^{+}|$
+\end_inset
+
+(1)
+\end_layout
+
+\begin_layout Subsection
+Compensación de las corrientes de bias
+\end_layout
+
+\begin_layout Standard
+Asumiendo que las corrientes 
+\begin_inset Formula $I_{b}^{+}$
+\end_inset
+
+e 
+\begin_inset Formula $I_{b}^{-}$
+\end_inset
+
+ son comparables entre si, puede proponerse el siguiente circuito como posible
+ circuito de compensación para un amplificador operacional en configuración
+ inversora:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/CompensacionBias.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito de compensacion en configuracion inversora
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando que la tensión en las entradas del Op-amp son casi iguales
+ y despreciando la tensión de offset, se tienen las siguientes ecuaciones:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v^{+}=-I_{b}^{+}R_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v^{-}=v^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\frac{v_{in}-v^{-}}{R_{1}}=I_{b}^{-}+\frac{v^{-}-v_{out}}{R_{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Remplazando la primera ecuación en la segunda, luego la segunda en la tercera
+ y despejando 
+\begin_inset Formula $v_{out}$
+\end_inset
+
+ se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}=-\frac{R_{2}}{R_{1}}v_{in}+I_{b}^{-}(R_{2}-R_{3})-I_{b}^{+}(\frac{R_{2}R_{3}}{R_{1}})$
+\end_inset
+
+ (2)
+\end_layout
+
+\begin_layout Standard
+Planteando:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $R_{2}-R_{3}=\frac{R_{2}R_{3}}{R_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $R_{2}=R_{3}(\frac{R_{2}}{R_{1}}+1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $R_{3}=\frac{R_{1}R_{2}}{R_{1}+R_{2}}=R_{1}\parallel R_{2}$
+\end_inset
+
+ (3)
+\end_layout
+
+\begin_layout Standard
+Entonces asumiendo que se cumple (3), se puede sacar factor común en la
+ ecuación (2) y la nueva forma de la ecuación compensada es :
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}=-\frac{R_{2}}{R_{1}}v_{in}+\frac{R_{2}^{2}}{R_{1}+R_{2}}I_{offset}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que, asumiendo que las corrientes de bias son comparables, el valor
+ de 
+\begin_inset Formula $I_{offset}$
+\end_inset
+
+ debería ser pequeño.
+\end_layout
+
+\begin_layout Subsection
+Resolución del circuito
+\end_layout
+
+\begin_layout Subsubsection
+Estabilidad del circuito
+\end_layout
+
+\begin_layout Standard
+En primer lugar, se analiza la estabilidad del circuito propuesto, para
+ hacer esto se divide el circuito en dos partes distintas donde solo hay
+ un opamp en cada parte.
+ Primero se hace el análisis de la región donde se encuentra el amplificador
+ OA_X:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/OA_X.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sector derecho del circuito de medicion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De la figura anterior se puede ver que el OA_X esta en configuración inversora,
+ por lo que la salida del mismo es la entrada amplificada y negada.Planteando
+ las ecuaciones del circuito se obtienen:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v_{out}=-A_{vol}v^{-}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v^{-}=\frac{1}{sR_{4}C+1}v_{in}+\frac{sCR_{4}}{1+sCR_{4}}v_{out}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El grafo resultante es:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/GrafoOA_X.PNG
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Grafo de la configuracion inversora utilizada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Puede verse del grafo que la configuración actual es estable ya que la retroalim
+entacion es negativa.Sin embargo, si el amplificador se diera vuelta (retroalimen
+taddo por la entrada no inversora), el peso de abajo(
+\begin_inset Formula $-A_{o}$
+\end_inset
+
+) cambiaría de signo y se obtendría una retroalimentacion regenerativa que
+ correspondería a una configuración inestable en la que se llega siempre
+ a la saturación a la salida.
+\end_layout
+
+\begin_layout Standard
+En cuanto a la región con el OpAmp a ser medido(OA_X2):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/OA_X2.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sector izquierdo del circuito de medición 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde las ecuaciones de dicho circuito son:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v_{out}=A_{o}v^{+}-A_{o}v_{in}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v^{+}=\frac{1}{sR_{4}C(1+\frac{R_{3}}{10\varOmega})}v_{out}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v_{in}$
+\end_inset
+
+ representa las caídas de tensión ocasionadas por las corrientes de bias
+ y la tensión de offset del OpAmp.Realizando el grafo asociado se tiene:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/GrafoOA_X2.PNG
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Grafo del sector del circuito con OA_X2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Puede verse en el ciclo que la retroalimentacion es negativa y por lo tanto
+ el sistema es estable.Sin embargo, si se dan vuelta las entradas del OA_X2
+ entonces cambia de signo el peso del lazo que une a 
+\begin_inset Formula $v_{in}$
+\end_inset
+
+con 
+\begin_inset Formula $v_{out}$
+\end_inset
+
+ así como también el peso del enlace que va desde 
+\begin_inset Formula $v^{+}$
+\end_inset
+
+hacia 
+\begin_inset Formula $v_{out}$
+\end_inset
+
+.En dicha situación el signo se invierte dos veces en el bucle, por lo que
+ se tiene una retroalimentacion regenerativa y el sistema no es estable.
+\end_layout
+
+\begin_layout Standard
+Como conclusión, la configuración original propuesta es estable.
+ Si se invierte solo OA_X entonces la configuración se vuelve inestable
+ ya que se obtiene una retroalimentacion regenerativa en la segunda parte
+ del circuito.Asimismo, si se invierte solo OA_X2 la configuración resultante
+ también es inestable ya que se obtiene una retroalimentacion regenerativa
+ en la primera parte del circuito.Como ultima posibilidad, si se invierten
+ ambos amplificadores operacionales, la configuración obtenida también es
+ inestable, ya que la parte del circuito correspondiente a OA_X termina
+ con retroalimentaion regenerativa.
+\end_layout
+
+\begin_layout Subsubsection
+Tensión de salida
+\end_layout
+
+\begin_layout Standard
+Resolviendo el circuito con los dos interruptores abiertos(sin cortocircuitar
+ ninguna resistencia) y asumiendo que 
+\begin_inset Formula $R_{5}=R_{6}=R$
+\end_inset
+
+, se tienen las ecuaciones:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v^{-}=-I_{b}^{-}(10\varOmega+R)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v^{+}=-v_{offset}-I_{b}^{-}(10\varOmega+R)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{v_{c}}{10\varOmega}+I_{b}^{+}=\frac{v_{out}-v_{c}}{R_{3}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{v_{c}-v^{+}}{R}=I_{b}^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Resolviendo el sistema, queda que la salida del sistema sin cortocircuitar
+ ninguna resistencia es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}=I_{b}^{+}R(1+\frac{R_{3}}{10\varOmega})-I_{b}^{-}(R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
+\end_inset
+
+ (4)
+\end_layout
+
+\begin_layout Standard
+Como puede analizarse de la ecuación obtenida, el circuito realizado sirve
+ para medir las corrientes de bias y tensión de offset del amplificador
+ 
+\begin_inset Quotes eld
+\end_inset
+
+OA_X2
+\begin_inset Quotes erd
+\end_inset
+
+, y el otro amplificador operacional sirve para proporcionar la ganancia
+ necesaria para que la tensión de salida sea lo suficientemente apreciable
+ para ser medida.
+ Al activar los switches del circuito se puede jugar con que términos de
+ la ecuación (4) son relevantes y cuales despreciables.
+\end_layout
+
+\begin_layout Standard
+Si ambos switches estan abiertos y se desprecia la caida:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $-I_{b}^{-}(R_{3}+10\varOmega)\thickapprox-(200pA)(7.5k\varOmega+10\varOmega)=-1.502\mu V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se obtiene de (4) una expresion para la corriente de offset:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}\approx I_{offset}R(1+\frac{R_{3}}{10\varOmega})-v_{offset}(1+\frac{R_{3}}{10\varOmega})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{offset}\approx\frac{v_{out}}{R(1+\frac{R_{3}}{10\varOmega})}+\frac{v_{offset}}{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con ambos switches cerrados(R=0), la ecuación (4) se convierte en:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}=-I_{b}^{-}(R_{3}+10)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si despreciamos la caída generada por 
+\begin_inset Formula $I_{b}^{-}$
+\end_inset
+
+, obtenemos que la salida depende unicamente de la tensión de offset según
+ la relación:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}\approx-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
+\end_inset
+
+ (5)
+\end_layout
+
+\begin_layout Standard
+Como justificación de que la caída ocasionada por la corriente de bias es
+ despreciable para nuestro caso, se realiza el calculo de la caída con el
+ valor de resistencia utilizado y el valor máximo de corriente de bias proporcio
+nado en la datasheet:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{b}^{-}(R_{3}+10\varOmega)=(200pA)(7.5k\varOmega+10\varOmega)=1.502\mu V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De la datasheet de ambos Op-amps se obtiene que la 
+\begin_inset Formula $v_{offset}$
+\end_inset
+
+esta en el orden de los millivolts, por lo que la caída ocasionada por la
+ corriente de bias es de 3 ordenes menor que la tensión de offset.Ademas
+ a la salida la tensión de offset sale amplificada 751 veces, por lo que
+ esta caída se hace todavía mas despreciable.
+\end_layout
+
+\begin_layout Standard
+Si solo se cortocircuita 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+(SW1 cerrado y SW2 abierto), entonces se tiene de (4) que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}=I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})-I_{b}^{-}(R_{3}+10\Omega)-v_{offset}(\frac{R_{3}}{10\Omega}+1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por las mismas razones que en el caso anterior, se puede despreciar la caída
+ ocasionada por 
+\begin_inset Formula $I_{b}^{-}$
+\end_inset
+
+y se obtiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}\approx I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})-v_{offset}(\frac{R_{3}}{10\Omega}+1)$
+\end_inset
+
+ (6)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{b}^{+}\approx\frac{v_{out}+v_{offset}(\frac{R_{3}}{10\Omega}+1)}{R(1+\frac{R_{3}}{10\varOmega})}$
+\end_inset
+
+ (7)
+\end_layout
+
+\begin_layout Standard
+Asumiendo que conocemos la 
+\begin_inset Formula $v_{offset}$
+\end_inset
+
+ (obtenida midiendo con ambas resistencias cortocircuitadas), podemos medir
+ la tensión a la salida del circuito y obtener la 
+\begin_inset Formula $I_{b}^{+}$
+\end_inset
+
+ despejando la ecuación (6).
+ Para minimizar el error ocasionado por las imprecisiones de la medición,
+ lo mejor es que R sea lo suficientemente grande para que la caída ocasionada
+ por 
+\begin_inset Formula $I_{b}^{+}$
+\end_inset
+
+ sea apreciable.
+ Tomando 
+\begin_inset Formula $R=1M\varOmega$
+\end_inset
+
+, y la corriente típica de bias de la datasheet obtenemos que la caída ocasionad
+a por el primer termino de (6) es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{b}^{+}R(1+\frac{R_{3}}{10\Omega})=(30pA)(1M\varOmega)(1+\frac{7.5K\varOmega}{10\varOmega})\thickapprox22.6mV$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, en el caso en el que solo cortocircuitamos 
+\begin_inset Formula $R_{6}$
+\end_inset
+
+(SW1 abierto y SW2 cerrado), llegamos de (4) a la ecuación:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}=-I_{b}^{-}(R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega)-v_{offset}(\frac{R_{3}}{10\varOmega}+1)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{b}^{-}=-\frac{v_{out}+v_{offset}(\frac{R_{3}}{10\varOmega}+1)}{R_{3}+\frac{R_{3}\times R}{10\varOmega}+R+10\varOmega}$
+\end_inset
+
+ (8)
+\end_layout
+
+\begin_layout Subsubsection
+Interferencia de linea
+\end_layout
+
+\begin_layout Standard
+Volviendo a analizar el circuito de la figura 7, se tiene que la ganancia
+ ideal de dicho circuito es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{v_{out}}{v_{in}}=H(s)=-\frac{1}{sR_{4}C}$
+\end_inset
+
+ (9)
+\end_layout
+
+\begin_layout Standard
+Dicha función transferencia es la de un pasa-bajos con frecuencia de corte
+ 
+\begin_inset Formula $f_{c}=\frac{1}{2\pi R_{4}C}$
+\end_inset
+
+ (frecuencia en la que la ganancia es 0Db).Por lo tanto el valor de C determina
+ a partir de que valor las frecuencias a la salida salen atenuadas, para
+ valores de C grandes la 
+\begin_inset Formula $f_{c}$
+\end_inset
+
+ es mas pequeña y por lo tanto hay un menor rango de frecuencias que salen
+ amplificadas y un mayor rango que sale atenuadas.En cambio, mientras mas
+ chico el valor de C, la 
+\begin_inset Formula $f_{c}$
+\end_inset
+
+ es mas grande, y un mayor rango de frecuencias sale amplificado y un menor
+ rango atenuado.
+ En teoría esto no deberia afectar al modelo ideal de medicion ya que se
+ trabaja solo en continua por lo que el capacitor se comporta simplemente
+ como un circuito abierto.Sin embargo, en la realidad existe interferencia
+ de linea, lo que significa que en el circuito hay señales de distintas
+ frecuencias ocasionadas por factores externos,principalmente señales de
+ f=50Hz.
+\end_layout
+
+\begin_layout Standard
+Por lo tanto, mientras mas alto el valor de C, la medición sera mas precisa
+ ya que el circuito filtra mejor la salida correspondiente a las señales
+ indeseadas que entran al circuito.
+ En un principio se realizaron las mediciones con un valor de 100nf , pero
+ como la interferencia de linea era mas significativa que la tension que
+ se queria medir, se cambio a un capacitor de 1uf el cual sirvio para atenuar
+ considerablemente la interferencia.
+\end_layout
+
+\begin_layout Subsection
+Resultados obtenidos
+\end_layout
+
+\begin_layout Standard
+Utilizando el modelo de OpAmp LF356 como OA_X2 y el modelo TL081 como OA_X
+ se midieron los siguientes valores:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SW1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SW2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{out}(V)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{offset}(mV)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{b}^{+}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{b}^{-}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{offset}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-1.074
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.43
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-1.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-168
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.92
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-205
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.92
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+205
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tabla para la medicion del LF356
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Realizando la experiencia nuevamente, pero con el modelo TL081 como OA_X2
+ y el modelo LF356 como OA_X se obtuvo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SW1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SW2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{out}(mV)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{offset}(mV)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{b}^{+}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{b}^{-}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{offset}(pA)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.09
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cerrado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+114
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+abierto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-23
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tabla para la medicion del TL081
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Analisis de los resultados
+\end_layout
+
+\begin_layout Standard
+Para el caso del amplificador operacional LF356, el valor de tension de
+ offset medido es cercano al valor tipico provisto por la datasheet de 3mV.Las
+ corrientes de bias resularon ser superiores al valor tipico de 30pA pero
+ la corriente de bias medida de 186.5pA, sigue estando dentro del valor maximo
+ de 200pA a una temperatura de 25ºC.
+ Algo inusual que se obtuvo de las mediciones es el alto valor para la corriente
+ de offset, lo mas probable es que dicha medicion haya tenido un error muy
+ grande.Sin embargo si se obtiene la corriente de offset por medio de la
+ ecuacion (1) y los valores medidos queda una corriente de offset de 37pA,
+ lo cual es un valor aceptable ya que se encuentra por debajo del valor
+ maximo de 100pA a 25ºC.
+\end_layout
+
+\begin_layout Standard
+En cuanto al amplificador operacional TL081, la tension de offset medida
+ es considerablemente mas baja que el valor tipico de la datasheet(3mV),
+ sin embargo el valor de offset medido es similar al que se obtiene de simular
+ la medicion en LTSPICE:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/CircuitoSimulado.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo simulado en LTspice para la tension de offset
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde se obtuvo como salida:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/OffsetSimulado.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Salida medida en la simulacion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La tension de salida medida dio casi 10 veces mas que en la simulacion.Sin
+ embargo, con el resultado de la simulacion y utilizando la ecuacion (5)
+ se obtiene una tension de offset de aproximadamente 0.01mV.
+ Este valor obtenido de la simulacion es claramente menor que el valor tipico
+ obtenido de la datasheet(3mV), y mucho mas cercano al valor medido (-0.09mV).Es
+ posible que esto se deba a que la datasheet este desactualizada con respecto
+ al modelo de spice utilizado, o que el amplificador operacional utilizado
+ ya tenga una compensacion interna que disminuya la tension de offset.
+ En cuanto a las corrietes de bias y la de offset, ambas dan dentro de los
+ valores maximos provistos por la datasheet(100pA para la de offset y 200pA
+ para la de bias).
+\end_layout
+
+\begin_layout Subsection
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+Para concluir, los efectos de las corrientes de bias y la tension de offset
+ deben ser tenidos en cuenta antes del diseno de un circuito, ya que sus
+ efectos pueden ocasionar que el circuito no cumpla el fin para el cual
+ fue disenado.
+ A su vez hay que tener en cuenta que las corrientes de bias, dependen de
+ la temperatura y que a mayor temperatura estas corrientes se vuelven mas
+ apreciables.
+ Es posible elaborar un circuito de compensacion para minimizar el efecto
+ de estas corrientes a la salida del amplificador operacional.
+ En cuanto a su circuito de medicion, el orden de magnitud de estas corrientes
+ es por lo general del orden de los nA o los pA.
+ Para el circuito y los modelos de op-amps propuestos, debio considerarse
+ previamente el efecto de la interferencia de linea y el valor de los componente
+s que influyeron en la amplificacion de las caidas ocasionadas por las corriente
+s de bias.
+\end_layout
+
+\begin_layout Section
+Circuito Integrador y Derivador
+\end_layout
+
+\begin_layout Subsection
+Introducción téorica
+\end_layout
+
+\begin_layout Standard
+Dada una señal de entrada 
+\begin_inset Formula $x(t)$
+\end_inset
+
+ se quiere diseñar dos circuitos, cuya salida 
+\begin_inset Formula $y(t)$
+\end_inset
+
+ sea la integral o la derivada, que denominaremos 
+\begin_inset Formula $h(t)$
+\end_inset
+
+, de la señal de entrada.
+\end_layout
+
+\begin_layout Standard
+Para el caso del derivador, lo que se quiere es una salida 
+\begin_inset Formula $y(t)$
+\end_inset
+
+ que cumpla 
+\begin_inset Formula $y(t)=h(t)*x(t)=x'(t)$
+\end_inset
+
+.
+ Transformando se obtiene:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Y(s)=H(s)X(s)=sX(s)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es decir, se debe obtener una transferencia de la forma 
+\begin_inset Formula $H(s)=s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En el caso contrario, para el integrador, se quiere una salida de la siguiente
+ forma:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y(t)=\intop_{-\infty}^{\tau}x(t)dt=\intop_{-\infty}^{\infty}x(t)u(\tau-t)dt=x(t)*u(t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Transformando se obtiene 
+\begin_inset Formula $Y(s)=X(s)\frac{1}{s}=H(s)X(s)$
+\end_inset
+
+.
+ Es decir, se busca una función transferencia de la forma 
+\begin_inset Formula $H(s)=\frac{1}{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Función Transferencia del Circuito
+\end_layout
+
+\begin_layout Standard
+Se armaron los siguientes circuitos:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/circuitoderivador.png
+	lyxscale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito Derivador
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/circuitointegrador.png
+	lyxscale 75
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito Integrador
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuitos realizados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para no repetir el análisis para ambos casos, se llamó 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ a la impedancia de realimentación y 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ a aquella entre el operacional y la fuente de realimentación.
+\end_layout
+
+\begin_layout Standard
+Para el siguiente análisis se consideró la impedancia de entrada del operacional
+ y la de salida como infinita y nula, respectivamente; es decir 
+\begin_inset Formula $Z_{in}=\infty$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{out}=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si tenemos en cuenta que 
+\begin_inset Formula $V^{+}=0$
+\end_inset
+
+, pues está conectado a tierra, la ganancia de un amplificador operacional
+ está dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{out}=A_{vol}(V^{+}-V^{-})=-A_{vol}V^{-}\label{eq:gananciaopamp}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Planteando nodos, la ecuación del circuito es entonces:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{V_{in}-V^{-}}{Z_{1}}+\frac{V_{out}-V^{-}}{Z_{2}}=0\label{nodoscircuitos}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Despejando 
+\begin_inset Formula $V_{in}$
+\end_inset
+
+ y 
+\begin_inset Formula $V_{out}$
+\end_inset
+
+ se llega a la siguiente función transferencia, con 
+\begin_inset Formula $A_{vol}=A_{o}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(s)=\frac{-A_{vol}Z_{2}}{Z_{1}(1+A_{vol})+Z_{2}}\label{eq:avolfinito}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:avolfinito"
+
+\end_inset
+
+ representa la transferencia para el caso de 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ finito.
+\end_layout
+
+\begin_layout Standard
+Si se hace tender 
+\begin_inset Formula $A_{vol}\rightarrow\infty$
+\end_inset
+
+ se obtiene el caso ideal(ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:avolideal"
+
+\end_inset
+
+), cuya función transferencia es:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(s)=\frac{-Z_{2}}{Z_{1}}\label{eq:avolideal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sin embargo, se puede hacer más parecido a la realidad si se considera el
+ polo dominante del operacional, ésto es que la ganancia del mismo no es
+ constante, sino que tiene un polo (
+\begin_inset Formula $A_{vol}=A_{o}(\omega))$
+\end_inset
+
+, según la siguiente expresión:
+\begin_inset Formula 
+\begin{equation}
+Avol=\frac{Ao}{\frac{s}{\omega_{p}}+1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reemplazando esta expresión en la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:avolfinito"
+
+\end_inset
+
+, se obtiene la función transferencia considerando el polo dominante del
+ operacional:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(s)=-\frac{Z_{2}/Z_{1}}{1+\left[\frac{s}{GBP}+\frac{1}{A_{o}}\right]+\left[1+\frac{Z_{2}}{Z_{1}}\right]}\label{eq:polodominante}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se tiene pues, tres modelos del comportamiento téorico del circuito.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Impedancia de entrada
+\end_layout
+
+\begin_layout Standard
+Se buscó a continuación la impedancia de entrada del circuito sabiendo que
+ la misma era 
+\begin_inset Formula $Z_{in}=\frac{V_{in}}{I_{in}}$
+\end_inset
+
+ y utilizando las ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "nodoscircuitos"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gananciaopamp"
+
+\end_inset
+
+, se llegó a la siguiente expresión:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Z_{in}=Z_{1}+\frac{Z_{2}}{A_{vol}+1}\label{zin}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Amplificador Operacional
+\end_layout
+
+\begin_layout Standard
+El operacional que se utilizó fue el LM833.
+ Los datos extraídos de la hoja de datos que fueron de utilidad se enumeran
+ a continuación:
+\end_layout
+
+\begin_layout Itemize
+Tensión operacional: 
+\begin_inset Formula $\pm5V$
+\end_inset
+
+ a 
+\begin_inset Formula $\pm18V$
+\end_inset
+
+.
+ Con ésto en mente, el OpAmp se alimentó con 
+\begin_inset Formula $\pm15V$
+\end_inset
+
+ (
+\begin_inset Formula $V_{CC}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A_{o}=110dB$
+\end_inset
+
+ (a 
+\begin_inset Formula $25^{o}C$
+\end_inset
+
+, valor típico), lo que da una ganancia promedio de 
+\begin_inset Formula $300\,V/mV.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $GBP=16MHz$
+\end_inset
+
+ (valor típico).
+\end_layout
+
+\begin_layout Standard
+Los valores nominales que se utilizaron para ambos circuitos fueron 
+\begin_inset Formula $C=4.7nF$
+\end_inset
+
+ y 
+\begin_inset Formula $R=18k\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Circuito Derivador
+\end_layout
+
+\begin_layout Standard
+Se tomó como 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ una resistencia y 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ un capacitor, es decir 
+\begin_inset Formula $Z_{1}=\frac{1}{sC}$
+\end_inset
+
+ con los valores especificados en la sección anterior.
+\end_layout
+
+\begin_layout Standard
+De esta forma, y según la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:avolideal"
+
+\end_inset
+
+, la transferencia ideal del circuito resulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(s)=-sRC\label{eq:derivadorideal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se vio en la sección anterior, la función transferencia tiene ahora
+ la forma de un derivador.
+ A simple vista se puede ver, además, que el signo negativo de la transferencia
+ cambia la fase de la derivada en 
+\begin_inset Formula $180^{o}$
+\end_inset
+
+.
+ En otras palabras, en vez de desfasar 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $90^{o}$
+\end_inset
+
+, su desfase será de 
+\begin_inset Formula $-90^{o}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para comprobar el carácter derivador del circuito se utilizó la función
+ 
+\begin_inset Formula $Math$
+\end_inset
+
+ del osciloscopio, se lo excitó con una señal triangular a 1.3kHz.
+ Entonces, la salida debería la pendiente de la recta, esto es una señal
+ cuadrada.
+ 
+\end_layout
+
+\begin_layout Standard
+Lo anterior se verifica en la siguiente imagen:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/singularidad derivador.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Salida del circuito al ser excitado con una señal triangular a 1.3kHz.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Notar que la señal derivada, es decir aquella verde, está desfasada 
+\begin_inset Formula $180^{o}$
+\end_inset
+
+ respecto de la derivada real, que se muestra con trazo violeta.
+ Esto se debe al signo negativo de la función transferencia de nuestro derivador.
+\end_layout
+
+\begin_layout Subsubsection
+Función Transferencia
+\end_layout
+
+\begin_layout Standard
+Se consideró relevante analizar la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:polodominante"
+
+\end_inset
+
+, reemplazando 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ por los valores pertinentes.
+ Llegándose a la siguiente expresión:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(s)=-\frac{sRC}{\frac{s^{2}RC}{GBP}+s\left[\frac{1}{GBP}+\frac{CR}{A_{o}}\right]+1}\label{eq:dersincompensar}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la misma se observa que si bien posee un cero que le otorga el carácter
+ derivador, tiene dos polos complejos conjugados, que pueden llegar a afectar
+ al comportamiento del circuito, como se analizará más adelante.
+ Su frecuencia de corte se encuentra en 
+\begin_inset Formula $f_{c}=\frac{1}{2\pi}\sqrt{\frac{GBP}{RC}}\thickapprox69kHz$
+\end_inset
+
+, por lo que alrededor de esa frecuencia el comportamiento del circuito
+ será indeseable.
+ 
+\end_layout
+
+\begin_layout Standard
+Se graficaron y compararon los bodes teóricos de la transferencia ideal,
+ es decir utilizando la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:avolideal"
+
+\end_inset
+
+, también con 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ finito, según la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:avolfinito"
+
+\end_inset
+
+, y utilizando también 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ con polo dominante, como se muestra en la expresión 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dersincompensar"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magbodesteoricossincompensarderivador.png
+	lyxscale 50
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de magnitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasebodesteoricossincompensarderivador.png
+	lyxscale 50
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de fase.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación de las funciones transferencia teóricas: ideal, Avol finito
+ y Avol(w) con polo dominante del derivador no compensado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notar que el caso 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ finito está superpuesto con el trazo del caso ideal, pues el valor de 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ es muy grande comparado con 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+, por lo que éstos son despreciables frente a éste, por lo que termina aproximán
+dose a una ganancia ideal.
+ 
+\end_layout
+
+\begin_layout Standard
+En el bode de magnitud se evidencia el efecto de los polos complejos conjugados
+ en el caso del polo dominante, es un diagrama típico de un circuito subamortigu
+ado.
+ De igual manera, en la fase, se nota el cambio casi instantáneo de 180
+ grados en la frecuencia de corte del mismo.
+ 
+\end_layout
+
+\begin_layout Standard
+Posteriormente, se analizaron los bodes del circuito simulado, el medido
+ y el teórico con polo dominante.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magbodesincompensarder.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de magnitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasebodesincompensarder.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de fase.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación del bode medido, comparado, y teórico (con polo dominante) del
+ derivador no compensado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teóricamente, funciona como un derivador hasta cierta frecuencia en la que
+ deja de derivar por efecto del polo dominante del operacional.
+ Ésto se condice con lo medido.
+\end_layout
+
+\begin_layout Standard
+Los bodes del circuito medido y el simulado presentan mucha similitud; sin
+ embargo, las variaciones pueden deberse a las tolerancias de los componentes
+ utilizados en el circuito que se realizó.
+ En el de magnitud, las diferencias con el téorico pueden ser consecuencia
+ de que los valores de 
+\begin_inset Formula $GBP$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ reales varían respecto de los datos presentes en la datasheet del operacional,
+ y ésto influye en la frecuencia de corte del circuito téorico.
+ De igual manera ocurre en el diagrama de fase, con un corrimiento en la
+ frecuencia de corte.
+ Aunque parece diferir mucho el valor al que tiende la fase teórica (-270°),
+ notamos que coincide con el medido y el simulado al sumarle una vuelta
+ completa (360°).
+ Es decir, sólo parecería diferir en la frecuencia de corte por lo mencionado
+ anteriormente.
+\end_layout
+
+\begin_layout Subsection
+Circuito Derivador Compensado
+\end_layout
+
+\begin_layout Standard
+Se puede ver por la forma de la transferencia, que diverge a altas frecuencias,
+ presentando el circuito un comportamiento indeseado.
+ Lo que se buscó al compensar fue un circuito inversor en las frecuencias
+ conflictivas del derivador, es decir, se buscaron 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ completamente resistivos.
+\end_layout
+
+\begin_layout Standard
+Esto se puede analizar de forma física, ya que a altas frecuencias el capacitor
+ actúa como un cable.
+ Entonces, colocando una resistencia de valor apropiado en serie con el
+ capacitor cuya impedancia se volviera relevante a altas frecuencias, cuando
+ el capacitor actuara como cortocircuito se evita la divergencia.
+\end_layout
+
+\begin_layout Standard
+De esta manera, se compensó con una resistencia de valor nominal 
+\begin_inset Formula $1k\Omega$
+\end_inset
+
+.
+ Para así, tener una ganancia considerable en las frecuencias del derivador
+ no compensado (
+\begin_inset Formula $G=-R2/R1=-18$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection
+Función transferencia
+\end_layout
+
+\begin_layout Standard
+Se repitieron los análisis para el caso del derivador compensado.
+ La función transferencia resultante en esta ocasión es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(s)=-\frac{sRC}{\frac{s^{2}C(R+R')}{GBP}+s\left[\frac{1}{GBP}+\frac{CR}{A_{o}}+CR'\right]+1}\label{eq:derivadorcompensado}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con 
+\begin_inset Formula $R'$
+\end_inset
+
+ la resistencia de compensación (
+\begin_inset Formula $1k\Omega$
+\end_inset
+
+).
+ Es de interés notar también que la frecuencia de corte es menor a la del
+ derivador no compensado, 
+\begin_inset Formula $f_{c}\thickapprox67kHz$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+También es válido analizar que esta nueva función transferencia no tiene
+ polos complejos conjugados, como el derivador sin compensar, sino que al
+ agregar la resistencia de compensación se obtiene un comportamiento sobreamorti
+guado, es decir sus polos son reales y distintos entre sí.
+\end_layout
+
+\begin_layout Standard
+Seguidamente, se graficaron los bodes comparativos teóricos, con ganancia
+ ideal, con 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ finito y con 
+\begin_inset Formula $A_{vol}(\omega)$
+\end_inset
+
+ con polo dominante, obtuviéndose los siguientes resultados:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magbodesteoricoscompensadosderivador.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de magnitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasebodesteoricoscompensadosderivador.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de fase.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación de las funciones transferencia teóricas: ideal, 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ finito y 
+\begin_inset Formula $A_{vol}(\omega)$
+\end_inset
+
+ con polo dominante del derivador compensado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De manera análoga al derivador sin compensar, se puede notar que el caso
+ 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ finito está superpuesto con el trazo del caso ideal, pues el valor de 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ es muy grande comparado con 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+, por lo que éstos son despreciables frente a éste, por lo que termina aproximán
+dose a una ganancia ideal.
+\end_layout
+
+\begin_layout Standard
+Además se evidencia el efecto de sendos polos distintos y reales, siendo
+ el cambio de fase mucho menos pronunciado alrededor de la frecuencia de
+ corte (al ser sobreamortiguado 
+\begin_inset Formula $\zeta>1$
+\end_inset
+
+) y el pico en la función transferencia suavizado en la frecuencia de corte.
+\end_layout
+
+\begin_layout Standard
+Posteriormente, se analizaron los bodes del circuito simulado, el medido
+ y el teórico con polo dominante.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magbodecompensadoder.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de magnitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasebodecompensadoder.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de fase.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación del bode medido, comparado, y teórico (con polo dominante).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teóricamente, funciona como un derivador hasta que alcanza cierta frecuencia,
+ cuya habilidad de derivación no se ve condicionada por la magnitud, ya
+ que no diverge, sino que el verdadero límite es la fase, que deja de ser
+ -90°.
+\end_layout
+
+\begin_layout Standard
+De manera análoga, se plantea que las diferencias entre el medido y simulado
+ con el téorico se deben a las tolerancias en los componentes, y a su vez,
+ al hecho de que los valores de 
+\begin_inset Formula $GBP$
+\end_inset
+
+ y 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ reales varían respecto de los datos presentes en la datasheet del operacional.
+ Lo mismo se observa en el diagrama de fase, con un corrimiento en en la
+ frecuencia de corte teórica respecto del medido/simulado.
+ En este caso la fase de estos últimos, parece ser muy diferentes del teórico,
+ sin embargo, es sólo una cuestión de perspectiva, ya que si, aproximadamente
+ a partir de la frecuencia de corte se resta una vuelta completa (360°)
+ a la fase medida y simulada, queda muy similar a la teórica.
+\end_layout
+
+\begin_layout Standard
+Por último, resulta de interés y se muestra a continuación la comparación
+ entre el bode del derivador compensado con el del no compensado.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magcompvsnocompder.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de magnitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasecompvsnocompder.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de fase.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación del bode medido del derivador compensado y no compensado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Analicemos primero la fase.
+ Si bien el compensado parece tener un cambio brusco de fase en la frecuencia
+ de corte, realmente el cambio no es brusco, ya que ocurre lo mismo que
+ en el caso anterior al restarle una vuelta completa.
+ El cambio repentino de fase se ve en el no compensado pues era un circuito
+ subamortiguado.
+ 
+\end_layout
+
+\begin_layout Standard
+Lo más relevante de esta comparación se observa en el diagrama de magnitud,
+ ya que si bien al compensarlo tiene menor ganancia, lo que se buscó fue
+ que no tuviera sobrepicos al tener un ancho de banda mayor, es decir, no
+ sature en un rango más amplio de frecuencias.
+ Es válido notar que a partir de cierta frecuencia la pendiente de ambos
+ se torna negativa, lo que es imposible de corregir, pues se debe al valor
+ propio del GBP del operacional.
+\end_layout
+
+\begin_layout Subsection
+Impedancia de entrada
+\end_layout
+
+\begin_layout Standard
+Para medir la impedancia de entrada del circuito se colocó una resistencia
+ de 
+\begin_inset Formula $1k\Omega$
+\end_inset
+
+ entre 
+\begin_inset Formula $V_{in}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+, y se midió la caída de tensión en la resistencia, que llamaremos 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+.
+ Con ésto se obtuvo la corriente (
+\begin_inset Formula $I_{in}$
+\end_inset
+
+) que pasa por la fuente 
+\begin_inset Formula $V_{in}$
+\end_inset
+
+, obteniendo 
+\begin_inset Formula $Z_{in}$
+\end_inset
+
+ como el cociente entre 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{in}$
+\end_inset
+
+.
+ Se pensó la resistencia elegida tal que fuera lo suficientemente pequeña
+ como para no influir en el circuito pero lo suficientemente grande como
+ para poder medir la corriente que circulase por ella.
+ 
+\end_layout
+
+\begin_layout Standard
+En este caso, la resistencia elegida para medir la impedancia de entrada
+ resulta igual a la utilizada al compensar el circuito, por lo que no se
+ volvió a medir para el circuito compensado, puesto que se habría medido
+ de igual forma.
+\end_layout
+
+\begin_layout Standard
+Se graficó el módulo de la impedancia de entrada medido, que se muestra
+ a continuación:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magzinder.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Módulo de impedancia de entrada simulada, medida, y teórica.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Si analizamos el circuito de manera física, debería tener impedancia de
+ entrada muy grande a bajas frecuencias (por el capacitor) e ir disminuyendo
+ a medida que aumenta la misma, pues el capacitor actúa como un cortocircuito.
+ Esto se puede evidenciar en la figura superior.
+\end_layout
+
+\begin_layout Subsubsection
+Observaciones 
+\end_layout
+
+\begin_layout Standard
+Se notó la presencia del transitorio de un subamortiguado al medir con el
+ osciloscopio el derivador no compensado.
+ La singularidad se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/delta.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a señal cuadrada de 500Hz.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/delta singularidad.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a señal cuadrada de 2.5kHz.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a una señal cuadrada a distintas frecuencias.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede observar que a menor frecuencia el transitorio subamortiguado parecería
+ no aparecer, sin embargo, esto se debe a que se está viendo un tiempo mayor
+ de la respuesta, por lo que llega a observarse en gran medida el estado
+ permanente.
+ De manera análoga, al aumentar la frecuencia, el tiempo que se observa
+ es menor, por lo que se nota el transitorio del circuito.
+\end_layout
+
+\begin_layout Standard
+Se resume entonces que esta singularidad aparece a cualquier frecuencia
+ de excitación de la señal de entrada como respuesta de un cambio brusco
+ en la tensión de entrada, cuando la derivada de la señal sólo existe de
+ manera generalizada, generando deltas en la salida.
+ Se notó que desaparecía al compensarlo; lo que se explica recordando que
+ la respuesta de este último era un segundo orden sobreamortiguado, donde
+ esta 'oscilación' no se presenta.
+\end_layout
+
+\begin_layout Subsection
+Circuito Integrador
+\end_layout
+
+\begin_layout Standard
+Como se vio en la introducción, para el caso del integrador se tomó 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ como un capacitor y 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ como una resistencia, con los valores nominales especificados.
+\end_layout
+
+\begin_layout Standard
+De esta forma, y según la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:avolideal"
+
+\end_inset
+
+, la transferencia ideal del circuito resulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(s)=-\frac{1}{sRC}\label{eq:integradorideal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora la función transferencia tiene la forma de un integrador.
+ También el signo negativo hace que se desfase 180° respecto de la fase
+ ideal.
+\end_layout
+
+\begin_layout Standard
+Para comprobar el carácter integrador del circuito, se lo excitó con una
+ señal cuadrada a 2.5kHz.
+ Entonces, la salida debería ser un señal triangular, pues esa es su integral.
+\end_layout
+
+\begin_layout Standard
+Lo anterior se verifica en la siguiente imagen:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/integrador2-5k.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Salida del circuito al ser excitado con una señal cuadrada a 2.5kHz.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Notar que la señal integrada, es decir aquella verde, está desfasada 
+\begin_inset Formula $180^{o}$
+\end_inset
+
+ respecto de la derivada real, o sea, está invertida.
+ Esto se debe al signo negativo de la función transferencia de nuestro integrado
+r.
+\end_layout
+
+\begin_layout Subsubsection
+Función Transferencia
+\end_layout
+
+\begin_layout Standard
+Se analizó la función transferencia con la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:polodominante"
+
+\end_inset
+
+, reemplazando 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ por los valores adecuados.
+\end_layout
+
+\begin_layout Standard
+Se graficaron y compararon los bodes teóricos de la transferencia ideal,
+ es decir utilizando la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:avolideal"
+
+\end_inset
+
+, también con 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ finito, según la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:avolfinito"
+
+\end_inset
+
+, y utilizando también 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ con polo dominante, como se muestra en la expresión 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dersincompensar"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magbodeintteoricosincompensar.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de magnitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasebodeintteoricosincompensar.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de fase.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación de las funciones transferencia teóricas: ideal, Avol finito
+ y Avol(w) con polo dominante del intregador no compensado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notar que el caso 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ finito está superpuesto con el trazo del caso ideal, pues el valor de 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ es muy grande comparado con 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+, por lo que éstos son despreciables frente a éste, por lo que termina aproximán
+dose a la ganancia del integrador ideal.
+ 
+\end_layout
+
+\begin_layout Standard
+Posteriormente, se analizaron los bodes del circuito simulado, el medido
+ y el teórico con polo dominante.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magbodesincompensarint.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de magnitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasebodesincompensarint.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de fase.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación del bode medido, comparado, y teórico (con polo dominante) del
+ integrador no compensado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teóricamente, funciona como un integrador a partir de cierta frecuencia.
+ Hasta que deja de integrar pues se ve limitado por la fase, que deja de
+ ser 90°, ocasionado por el polo dominante del operacional, que si bien
+ no se observa muy bien en el gráfico, comienza a tener influencia, a partir
+ de cierta frecuencia.
+\end_layout
+
+\begin_layout Subsection
+Circuito Integrador Compensado
+\end_layout
+
+\begin_layout Standard
+Como en el caso del derivador, cuya función transferencia diverge a altas
+ frecuencias, en la situación del integrador ocurre lo inverso, es decir,
+ diverge a bajas frecuencias, presentando un comportamiento indeseado.
+\end_layout
+
+\begin_layout Standard
+El análisis fue similar a la compensación del derivador; lo que se buscó
+ fue un circuito inversor en las frecuencias conflictivas del integrador,
+ es decir, se buscaron 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ completamente resistivos.
+\end_layout
+
+\begin_layout Standard
+Esto se puede analizar de forma física, ya que a bajas frecuencias el capacitor
+ actúa como un circuito abierto.
+ Entonces, colocando una resistencia de valor apropiado en paralelo con
+ el capacitor –para que se siga realimentando el circuito– cuya impedancia
+ se volviera relevante a bajas frecuencias, cuando el capacitor actuara
+ como circuito abierto se evita la divergencia.
+\end_layout
+
+\begin_layout Standard
+De esta manera, se compensó con una resistencia de valor nominal 
+\begin_inset Formula $120k\Omega$
+\end_inset
+
+.
+ Para así, tener una ganancia considerable en las frecuencias del integrador
+ no compensado (
+\begin_inset Formula $G=-R2/R1=-6.66$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Seguidamente, se graficaron los bodes comparativos teóricos, con ganancia
+ ideal, con 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ finito y con 
+\begin_inset Formula $A_{vol}(\omega)$
+\end_inset
+
+ con polo dominante, obtuviéndose los siguientes resultados:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magbodeintteoricocompensado.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de magnitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasebodeintteoricocompensado.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de fase.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación de las funciones transferencia teóricas: ideal, 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ finito y 
+\begin_inset Formula $A_{vol}(\omega)$
+\end_inset
+
+ con polo dominante del integrador compensado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede notar que el caso 
+\begin_inset Formula $A_{vol}$
+\end_inset
+
+ finito está superpuesto con el trazo del caso ideal, pues el valor de 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ es muy grande comparado con 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+, por lo que termina aproximándose a una ganancia ideal.
+\end_layout
+
+\begin_layout Standard
+Teóricamente, funciona como un integrador hasta que alcanza cierta frecuencia,
+ cuya habilidad de integración no se ve condicionada por la magnitud, ya
+ que no diverge a bajas frecuencias, sino que el verdadero límite es la
+ fase, que deja de ser 90°.
+\end_layout
+
+\begin_layout Standard
+Por último, resulta de interés y se muestra a continuación la comparación
+ entre el bode del integrador compensado con el no compensado.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magcompvsnocompint.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de magnitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasecompvsnocompint.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode de fase.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación del bode medido del integrador compensado y no compensado.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El módulo de la transferencia medida compensada se mantiene constante entre
+ 10 y 20 dB hasta los 1000Hz, que era aproximadamente hasta donde tenía
+ problemas el integrador no compensado.
+ Si bien la ganancia es menor, resulta más práctica la compensación ya que
+ no se llega a la saturación.
+ 
+\end_layout
+
+\begin_layout Standard
+Parecería haber algún error de medición en las fases más bajas ya que el
+ compensado medido no se condice con los bodes teóricos.
+\end_layout
+
+\begin_layout Subsection
+Impedancia de entrada
+\end_layout
+
+\begin_layout Standard
+La impedancia de entrada se midió de igual manera que para el derivador,
+ esto es, se colocó una resistencia entre 
+\begin_inset Formula $V_{in}$
+\end_inset
+
+ y 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+, midiendo la caída de tensión en ella, así obtuviendo la corriente y luego
+ 
+\begin_inset Formula $Z_{in}$
+\end_inset
+
+ como el cociente entre la tensión y la corriente que pasa por la resistencia.
+ 
+\end_layout
+
+\begin_layout Standard
+El valor nominal del resistor que se utilizó fue de 2.7kHz.
+ Seguidamente, se graficaró el módulo y la fase de la impedancia de entrada
+ del integrador con y sin compensar.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/magzinintcompvssincomp.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Módulo de la impedancia de entrada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/ej4/fasezinintcompvssincomp.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fase de impedancia de entrada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Impedancia de entrada del circuito integrador con y sin compensar.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si se observa la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "zin"
+
+\end_inset
+
+, se ve que es prácticamente igual a 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+, que en este caso es una resistencia.
+ Se puede observar que en un rango de frecuencias la fase y módulo de la
+ impedancia son los de la resistencia (R=
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+=18kHz).
+\end_layout
+
+\begin_layout Standard
+En el caso del compensado, a bajas frecuencias la impedancia es más alta
+ ya que se le suma la resistencia de compensación, que se hace comparable
+ a frecuencias bajas.
+\end_layout
+
+\begin_layout Subsection
+Observaciones
+\end_layout
+
+\begin_layout Standard
+Se observó que en el caso del integrador no compensado, la salida medida
+ con el osciloscopio aparecía corrida, o sea, tenía un offset de continua.
+ Para evitar esto se colocó al instrumento en modo coupling AC, para que
+ la señal permaneciera quieta en pantalla.
+ Con este modo se coloca un capacitor en serie, y así filtrando la continua.
+\end_layout
+
+\begin_layout Standard
+Este offset en la salida puede deberse a que la fuente de excitación de
+ entrada tiene algún componente de continua.
+ Entonces, la impedancia del capacitor se torna infinita, y se rompe la
+ realimentación, amplificando la tensión de offset del OpAmp.
+\end_layout
+
+\begin_layout Subsection
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+Se logró diseñar circuitos que deriven o integren una señal de entrada en
+ un rango de frecuencias.
+ Si bien, se encontraron comportamientos indeseados en las frecuencias altas
+ para el caso del derivador y en las altas para el caso del integrador,
+ se pudo compensar para evitar que se saturen en las frecuencias conflictivas
+ disminuyendo la ganancia, y así obteniendo un comportamiento más ideal
+ en un mayor ancho de banda.
+ 
+\end_layout
+
+\begin_layout Section
+Pedal de Distrorsion para guitarra electrica
+\end_layout
+
+\begin_layout Subsection
+Marco Teorico
+\end_layout
+
+\begin_layout Subsubsection
+Slew Rate
+\end_layout
+
+\begin_layout Standard
+El Slew Rate de un OpAmp es el valor maximo de la taza de cambio de la tension
+ de salida para cualquier senal de entrada al OpAmp.
+ Limita el funcionamiento del OpAmp ya que va a habe una frecuencia maxima,
+ a la cual, si se excede, el funcionamiento del OpAmp cambia radicalmente
+ ya que no puede 'mantener' esa taza de cambio en la tension de salida y
+ deforma la salida en las secciones donde el cambio, es decir la derivada,
+ es mayor.
+ En el caso de una senoidal, la derivada va a ser maxima en los puntos de
+ inflexion, donde al no poder entregar a la salida ese mismo cambio, la
+ salida se deforma a tener secciones lineales en donde el cambio es mayor
+ al permitido.
+ Esto deforma una senoidal en una especie de senal triangular como se puede
+ apreciar a continuacion:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename slewRate.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Excediendo el Slew Rate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para calcular esta taza de cambio maxima, se debe plantear:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $SR=\frac{dV_{o}}{dt}|_{max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde para una entrada senoidal, la salida tambien sera senoidal, por lo
+ que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $SR=\frac{d(A_{out}*sin(wt))}{dt}|_{max}=A_{out}*w=2\pi*f*A_{in}*G$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $A_{in}$
+\end_inset
+
+ es la amplitud de entrada y 
+\begin_inset Formula $G$
+\end_inset
+
+ es la ganancia del circuito.
+\end_layout
+
+\begin_layout Standard
+Por lo que la frecuencia maxima para un OpAmp con un SR fijo es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{max}=\frac{SR}{2\pi*A_{in}*G}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Diodos y Clipping
+\end_layout
+
+\begin_layout Standard
+Los diodos son semiconductores formados por una juntura entre un material
+ P y un material N.
+ El material tipo N contiene portadores de cargas negativas (electrones)
+ y el material tipo P tiene portadores de carga positiva (huecos).
+ Al diodo se lo puede polarizar de dos maneras: inversa y directa.
+ Cuando de polariza en directa, la tension en el anodo disminuye la barrera
+ de potencial en la juntura de los dos materiales (zona de carga espacial)
+ permitiendo el paso de electrones a través de la unión; entonces, el diodo
+ polarizado directamente conduce una corriente.
+ Para polarizar un diodio en directo se conecta el nodo positivo de la fuente
+ o entrada al anodo y el catodo en el nodo negativo (en este caso a tierra).
+ Cuando se polariza en inversa el nodo negativo de la batería se conecta
+ a el anodo y el nodo positivo a el catodo, lo que hace que aumente la zona
+ de carga espacial, y la tensión en la union hasta que se alcanza el valor
+ de la tensión en el nodo, por lo que practicamente no circula corriente
+ a traves del diodo.
+ Esto se puede resumir en un grafico:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename diodo.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Curva caracteristica del diodo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para analizar como se puede generar clipping con dos diodos se empieza por
+ analizar el efecto de un solo diodo en un circuito.
+ Si se lo coloca a tierra entre la tension de entrada y salida, usando la
+ curva presentada como referencia anteriormente, se puede ver que si la
+ tension en el nodo del diodo es menor que 
+\begin_inset Formula $0.7v$
+\end_inset
+
+ y mayor a la tension maxima en inversa (que es muy alta en modulo), el
+ diodo funciona como un circuito abierto, y la salida es igual a la entrada.
+ Pero si la tension es mayor a 
+\begin_inset Formula $07v$
+\end_inset
+
+, el diodo funciona como una fuente de 
+\begin_inset Formula $0.7v$
+\end_inset
+
+ y en el nodo del diodo, que esta a la msima tension que 
+\begin_inset Formula $V_{o}$
+\end_inset
+
+, tendra 
+\begin_inset Formula $0.7v$
+\end_inset
+
+ fijos.
+ De esta manera el grafico resultante es:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Inkedclippingej1_LI.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Clipping asimetrico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al agregarle otro diodo en sentido contrario, se produce el mismo efecto
+ pero para los voltajes de tension negativo.
+ Como en el pedal para guitarra electrica el OpAmp tendra a la salida como
+ maximo una tension de 
+\begin_inset Formula $\pm4.5v$
+\end_inset
+
+, ya que no puede superar la tension de la fuente de alimentacion, no se
+ llega nunca a la tension de ruptura y el grafico correspondiente es el
+ siguiente (con los dos diodos):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Inkedclippingej2_LI.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Clipping Simetrico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Segun que tan amplificada sea la senal antes de que los diodos produzcan
+ clipping, el clipping puede ser hard o soft.
+ Ya que si se amplifica demasiado una senal y luego se produce clipping
+ en 
+\begin_inset Formula $\pm0.7v$
+\end_inset
+
+, la senal queda muy similar a una cuadrada.
+ Si en cambio la senal de entrada no esta amplificada demasiado y su valor
+ pico a pico es comparable con 
+\begin_inset Formula $1.4v$
+\end_inset
+
+, el clipping va a deformar la senoidal pero no se va a azemejar a una senal
+ cuadrada.
+ Esto se puede ver en la siguiente imagen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename hardvssoft.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Hard Clipping vs Soft Clipping
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Pull Down Resistor
+\end_layout
+
+\begin_layout Standard
+Los capacitores en un circuito pueden quedar cargados tras apagarse y desconecta
+rse del resto de un circuito mas complejo.
+ Estos capacitores cargados pueden generar una diferencia de potencial en
+ la entrada y salida del circuito si estan aislados, es decir, si no hay
+ un circuito cerrado por el cual puedan decargarse.
+ Por lo que si se vuelve a conectar la circuito y este se prende, el voltaje
+ de corriente directa que se encontraba en los capacitores se descarga en
+ el mismo camino que la senal.
+ Cuando se esta trabajando con senales de audio, esto se refleja en un fuerte
+ ruido 'pop' cuando se enciende el circuito.
+ Esto puede pasar en parlantes, amplificadores y en este caso pedales de
+ distorsion.
+ Para evitar este problema se debe 'eliminar' esta corriente directa del
+ circuito.
+ La manera de resolver esto es agregando una resistencia a tierra, de manera
+ que la pequena carga almacenada en el capacitor puede descargarse a tierra
+ por esta resistencia sin alterar la senal.
+ El valor de la resistencia debe ser lo suficentemente grande como para
+ que se pueda descargar el capacitor.
+ Normalmente se puede empezar entre los 
+\begin_inset Formula $2M\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $5M\Omega$
+\end_inset
+
+, e ir bajando el valor hasta que se vuelva a escuchar el 'pop', de manera
+ que se encuentre un limite al que se puede bajar el valor de la resistencia.
+\end_layout
+
+\begin_layout Subsubsection
+Capacitor de Desacople y Acople
+\end_layout
+
+\begin_layout Standard
+Los capacitores de desacople se usan para reducir el ruido de una senal
+ de corriente continua.
+ Se dice que desacopla la senal AC de una senal DC.
+ Son usados mayormente en fuentes de alimentacion continuas donde se quiere
+ evitar ruido de una senal alterna.
+ Esto es necesario ya que aunque la fuente sea de DC, en el mundo real esto
+ no es 100% posible, ya que siempre hay ruido que distorsiona la senal.
+ De manera que una fuente de alimentacion de DC se ve de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ruido.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Verdadera senal de una fuente continua
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los capacitores son la mejor opcion para el desacople por su comportamiento
+ ante diferenctes frecuencias.
+ Ese comportamiento es reflejado en el modulo de su impedancia, la cual
+ es 
+\begin_inset Formula $|Z_{c}|=|\frac{1}{jwC}|=\frac{1}{2\pi fC}$
+\end_inset
+
+.
+ Es decir, que a frecuencias bajas este funciona como un circuito abierto
+ y a frecuencias muy altas funciona como un cortocircuito.
+ De manera que si se coloca de una manera que desvie la corriente, las frecuenci
+as medianas y altas se 'desvian' a tierra ya que el capacitor se comporta
+ como un cable que no ofrece gran resistencia.
+ Y la corriente contina no se desvia ya que el capacitor se comporta como
+ un circuito abierto.
+ Por lo que el capacitor de desacople se debe colocar de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename desacople.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Como colocar capacitor de desacople
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A diferencia de el capacitor de desacople, el capacitor de acople sirve
+ para eliminar la corriente continua de una corriente alterna.
+ Basandose en los mismos principios que para el capacitor de desacople,
+ el de acople debe colocarse de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename acople.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Como conectar capacitor de acople
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Descarga Electroestatica
+\end_layout
+
+\begin_layout Standard
+Descarga Electrostatica sucede cuando hay una re distribucion de cargas
+ entre dos objetos cargados causada por un contacto entre ellos, un corto
+ circuito o la ruptura de un dielectrico.
+ Estas cargas se pueden acumular en cualquier objeto o circuito que tenga
+ un componente capacitivo en el, ya se por efecto triboelectrico o induccion
+ electroestatica.
+ Esta descarga puede llegar a provocar chispas visibles y atrofiar circuitos
+ de manera que no se puedan utilizar mas.
+ Por lo que es necesario tener en cuenta este fenomeno al momento de disenar
+ un circuito.
+ En el caso del pedal para guitarra, las salida y la entrada estan expuestas
+ a contacto por parte del usuario.
+ Y los humanos tienen un componente capacitivo que permite que se acumulen
+ cargas, como se puede observar cuando se camina por una alfombra o se frota
+ un globo en el pelo.
+ De manera que si un usuario cargado toca la entrada o la salida del circuito
+ se puede producir una ESD que perjudique al circuito.
+ De manera que para evitar este probema se coloca un capacitor, capaz de
+ consevar carga, de manera que ante una ESD, se redistribuye la carga entre
+ el objeto que provoca la descarga y el capacitor colocado, sin danar el
+ circuito.
+ Este capacitor se debe colocar de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename esd.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Capacitor de ESD
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Analisis del circuito
+\end_layout
+
+\begin_layout Standard
+El circuito propuesto por la catedra es el siguiente:
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename circP.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito Propuesto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El circuito al que se llego luego de un analisis que sera explicado a continuaci
+on es el siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename InkedInkedcircuitoPedal_LI.jpg
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito disenado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es posible separar este circuito en tres grandes partes: El Power Supply,
+ el Op-Amp Gain y la etapa de Clipping.
+ La etapa de Power Supply es usada para alimentar el Op-Amp.
+ La etapa de Op-Amp Gain es usada para amplificar las frecuencias dentro
+ del rango audible y por ultimo la etapa de Clipping distorsiona la senal
+ ya amplificada y funciona como un pasa bajos para eliminar las frecuencias
+ altas no deseadas.
+\end_layout
+
+\begin_layout Subsubsection
+Power Supply 
+\end_layout
+
+\begin_layout Standard
+Para la alimentacion de la fuente se debe usar una fuente no partida de
+ 9v.
+ Por lo que el Vcc- del Op-Amp elegido es puesto a tierra y el Vcc+ es puesto
+ a 9v.
+ Asilando esta parte del circuito del resto queda de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename powerSupply.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power Supply Stage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde RippleRemoverC corresponde a C5, R6 corresponde a R1 y R7 corresponde
+ a R2 del circuito propuesto por la catedra.
+ RippleRemoverC es un capacitor de desacople, cumple la funcion de reducir
+ ruido de la forma explicada en el marco teorico y su valor es standard
+ (
+\begin_inset Formula $1\mu F$
+\end_inset
+
+).
+ Las dos resistencias de 
+\begin_inset Formula $1M\Omega$
+\end_inset
+
+ funcionan como un divisor resistivo donde hay 
+\begin_inset Formula $4.5v$
+\end_inset
+
+ en el tag especificado como tal en la figura 12, ya que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Vo=9v\frac{1M\Omega}{1M\Omega+1M\Omega}=\frac{9}{2}v=4.5v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es importante tener un nodo de tension 
+\begin_inset Formula $4.5v$
+\end_inset
+
+ ya que de esta manera, a la senal que ingresa de la guitarra, que esta
+ polarizada, se le monta una continua que lleva a que el rango de tensiones
+ sea positivo.
+ Esto se nececita ya que el OpAmp esta alimentado con una fuente partida
+ y satura toda senal con tensiones negativas.
+ Este componente continuo luego es eliminado por un capacitor de acople
+ que remueve el componente DC de la senal.
+ El nodo de 
+\begin_inset Formula $9v$
+\end_inset
+
+ es conectado al Vcc+ de el Op-Amp.
+\end_layout
+
+\begin_layout Subsubsection
+Clipping
+\end_layout
+
+\begin_layout Standard
+La etapa de Clipping corresponde a la siguiente parte del circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename clippingStage.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Clipping Stage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde R1 corresponde a R5, C1 corresponde a C4 y OutputRVar corresponde
+ a R7 del circuito propuesto.
+ R6 fue eliminada ya que no se le encontro ningun proposito util.
+ Los diodos son fundamentales ya que son los que generan el clipping explicado
+ en el marco teorico.
+ En nuestro caso usamos diodos de silicio, donde la tension de polarizacion
+ corresponde a 
+\begin_inset Formula $0.7v$
+\end_inset
+
+, que generan un hard clipping si la ganancia del Op-Amp es alta (al rededor
+ de 20db como minimo).
+ Ya que la entrada es de una guitarra, en el peor caso el input sera de
+ aproximadamente 
+\begin_inset Formula $500mv$
+\end_inset
+
+ pico a pico, donde con una ganancia de 
+\begin_inset Formula $20db$
+\end_inset
+
+ se obtiene un 
+\begin_inset Formula $V_{out}$
+\end_inset
+
+ de 
+\begin_inset Formula $5v$
+\end_inset
+
+, y ya que el clipping limita el voltaje entres 
+\begin_inset Formula $\pm0.7v$
+\end_inset
+
+, la senal a la salida se azemeja mucho a una senal cuadrada, lo que se
+ denomina hard clipping.
+ Es importante tener en cuenta que aunque la etapa de amplificaion puede
+ tener hasta 
+\begin_inset Formula $46dB$
+\end_inset
+
+ de ganancia, por o que aunque la entrada sea muy chica (aproximadamente
+ 
+\begin_inset Formula $100mV$
+\end_inset
+
+) la salida puede llegar a los 
+\begin_inset Formula $20v$
+\end_inset
+
+, de manera que hasta en el mejor caso el OpAmp satura, en el peor caso
+ puede llegar a amplificar a 
+\begin_inset Formula $200v$
+\end_inset
+
+.
+ Pero es importante entender que esta saturacion no afecta en los mas minimo
+ el output ya que el clipping elimina las tensiones superiores a aproximadamente
+ 
+\begin_inset Formula $1.4v$
+\end_inset
+
+ pico a pico.
+ Pedales comerciales como el MXR Distortion y el Tube Screamer tienen este
+ mismo funcionamiento ya que su ganancia ronda por los 
+\begin_inset Formula $40dB$
+\end_inset
+
+.
+ Si no se desea esta saturacion, aunque no afecte la salida distorsionada,
+ se puede modificar el 
+\begin_inset Formula $DistortionR_{var}$
+\end_inset
+
+ para que la ganancia sea menor, como se explicara as adelante.
+ Pero al bajar la ganancia, la distorsion pasa de ser hard-clip a soft-clip,
+ ya que al no ser amplificada demasiado, la salida deja de ser semejante
+ a una cuadrada y se parece mas a una senoidal un poco deformada en los
+ picos.
+ OutputRVar es un potenciometro que regula el volumen de la salida, esto
+ se puede ver mas adelante en la funcion tranferencia.
+ En el caso donde se regula a aproximadamente a 
+\begin_inset Formula $0\Omega$
+\end_inset
+
+ se genera un corto entre ground y Vout por lo que 
+\begin_inset Formula $V_{out}=GND=0v$
+\end_inset
+
+ , de manera que no se escucha nada a la salida.
+ R1 y C1 funcionan como un filtro pasa bajos pasivo donde su funcion tranferenci
+a es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $H(s)=\frac{1}{sRC+1}=\frac{1}{\frac{s}{\omega_{o}}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como la frecuencia de audio es en la region de los 
+\begin_inset Formula $20Hz-20kHz$
+\end_inset
+
+, se precisa un pasa bajos de frecuencia de corte un poco anterior a los
+ 
+\begin_inset Formula $20kHz$
+\end_inset
+
+ de manera que para aproximadamente a los 
+\begin_inset Formula $20Khz$
+\end_inset
+
+ ya no amplifique mas la senal.
+ Se eligio de esa manera una frecuencia de corte de proximadamente 
+\begin_inset Formula $16kHz$
+\end_inset
+
+.
+ De esta manera cuando la frecuencia llegue 
+\begin_inset Formula $20kHz$
+\end_inset
+
+ ya no va a ser tan ampllificada, y para frecuencias mas altas, atenuada.
+ Esto se logro con una R de 
+\begin_inset Formula $10k\Omega$
+\end_inset
+
+ y una C de 
+\begin_inset Formula $1nF$
+\end_inset
+
+, de manera que 
+\begin_inset Formula $f_{o}=$
+\end_inset
+
+
+\begin_inset Formula $\frac{\omega_{o}}{2\pi}=\frac{1}{2\pi RC}=\frac{1}{2\pi*10k*1n}\approx16kHz$
+\end_inset
+
+.
+ A su vez, la resistencia R1 limita la corriente que puede ingresar a los
+ diodos, ya que se usaron los 1N4007, que tienen una corriente maxima de
+ 
+\begin_inset Formula $1A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+De esta manera, la funcion tranferencia resultante es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $H(s)=\frac{1}{\frac{s}{100000}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pero teniendo en cuenta la resitencia variable, la funcion tranferencia
+ es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $H(s)=\frac{(\frac{1}{\frac{R_{1}}{OutputRVar}+1})}{s\frac{C_{1}}{(\frac{1}{R_{1}}+\frac{1}{OutputRVar})}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A la cual reemplazando los valores y variando la 
+\begin_inset Formula $OutputRVar$
+\end_inset
+
+ de 
+\begin_inset Formula $0\Omega$
+\end_inset
+
+ a 
+\begin_inset Formula $1M\Omega$
+\end_inset
+
+ se obtiene el siguiente diagrama de bode:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename bode.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de Bode (Pasa Bajos)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Op-Amp Gain
+\end_layout
+
+\begin_layout Standard
+La etapa del Op-Amp corresponde a la siguiente parte del circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename OpAmp.jpg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Op-Amp stage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La etapa del Op-Amp es fundamental ya que amplifica la senal de entrada
+ para poder ser escuchada posteriormente y para que pueda ocurrir clipping,
+ ya que si la 
+\begin_inset Formula $V_{pp}$
+\end_inset
+
+ de salida del Op-Amp fuese menor a 
+\begin_inset Formula $1.4v$
+\end_inset
+
+ aproximadamente, entonces los diodos no saturan la senal y esta va a ser
+ igual a la entrada, solo que levemente amplificada pero no distorsionada.
+ Tambien es muy importante que esta seccion filtre las bajas frecuencias
+ no deseadas (menores a 
+\begin_inset Formula $20Hz$
+\end_inset
+
+) , ya que en la etapa de clipping se filtran las frecuencias altas (agudos)
+ no deseados.
+ En paralelo con la fuente de tension, que en este caso es la 
+\begin_inset Formula $Vin$
+\end_inset
+
+ proporsionada por la guitarra, hay un capacitor y una resistencia.
+ La resistencia funciona como un Pull-Down Resistor, y su importancia es
+ explicada en el marco teorico.
+ El capacitor C5 sirve para prohibir que ruido de radio frecuencias o ruido
+ electrostatico entre al circuito, como se vio en el marco teorico.
+ El capacitor C4 no afecta la funcion transferencia del Op-Amp pero sirve
+ para eliminar la corriente directa, la cual no debe haber a la salida y
+ su valor alto de 
+\begin_inset Formula $1\mu F$
+\end_inset
+
+ ayuda a que ningun amplificador que se conecte a la salida del pedal modifique
+ la funcion tranferencia, ya que el capacitor contribuye a la impedancia
+ de entrada al Op-Amp.
+ C2, C3, R3 y R4 son los que dan la forma que se desea a la funcion transferenci
+a.
+ DistorsionRVar es un potenciometro que se puede asociar son R3, modicando
+ la funcion tranferencia, lo que hace variar la distorsion a la salida del
+ pedal.
+ Al calcular la funcion transferencia entre el nodo 
+\begin_inset Formula $V^{+}y$
+\end_inset
+
+ el nodo 
+\begin_inset Formula $OpAmpOut$
+\end_inset
+
+ se obtiene lo siguiente:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $H(s)=1+\frac{R_{4}}{R_{3}+DistortionR_{var}+\frac{1}{sC_{3}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suponiendo por un momento que 
+\begin_inset Formula $DistortionR_{var}=0\Omega$
+\end_inset
+
+ se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $H(s)=1+\frac{R_{4}}{R_{3}+\frac{1}{sC_{3}}}=\frac{sC_{3}(R_{3}+R_{4})+1}{sC_{3}R_{3}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta tranferencia corresponde a un filtro pasa altos, donde la frecuencia
+ de corte es 
+\begin_inset Formula $f_{o}=\frac{\omega_{o}}{2\pi}=\frac{1}{2\pi*R_{3}C_{3}}$
+\end_inset
+
+ y un cero en 
+\begin_inset Formula $c_{o}=\frac{1}{2\pi C_{3}*(R_{3}+R_{4})}$
+\end_inset
+
+.
+ Se precisa para la pedalera que se quiere hacer una frecuencia de corte
+ al rededor de los 
+\begin_inset Formula $500Hz$
+\end_inset
+
+ y un cero cercano a 
+\begin_inset Formula $20Hz$
+\end_inset
+
+ ya que queremos que empieze a amplificar la senal para los 
+\begin_inset Formula $20Hz$
+\end_inset
+
+ y deje de amplificar a los 
+\begin_inset Formula $500Hz$
+\end_inset
+
+.
+ Por consiguente, se eligio un C3 de 
+\begin_inset Formula $30nF$
+\end_inset
+
+, un R3 de 
+\begin_inset Formula $10k\Omega$
+\end_inset
+
+ y una R4 de 
+\begin_inset Formula $2M\Omega$
+\end_inset
+
+.
+ De manera que 
+\begin_inset Formula $f_{o}\thickapprox530Hz$
+\end_inset
+
+ y 
+\begin_inset Formula $c_{o}\thickapprox2.5Hz$
+\end_inset
+
+; y la funcion tranferencia queda de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $H(s)\thickapprox\frac{\frac{s}{2.5}+1}{\frac{s}{530}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Graficando el diagrama de bode de magnitud, variando la 
+\begin_inset Formula $DistortionR_{var}$
+\end_inset
+
+ de 
+\begin_inset Formula $0\Omega$
+\end_inset
+
+ a 
+\begin_inset Formula $10k\Omega$
+\end_inset
+
+ se obtiene lo siguiente:
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename bodePasaAltos.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama Bode Potenciometro 10k
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede observar que en 
+\begin_inset Formula $DistortionR_{var}=0\Omega$
+\end_inset
+
+ la ganancia maxima llega a 
+\begin_inset Formula $46dB$
+\end_inset
+
+ y con 
+\begin_inset Formula $DistortionR_{var}=10k\Omega$
+\end_inset
+
+ la ganancia maxima es 
+\begin_inset Formula $40dB$
+\end_inset
+
+.
+ De esto se puede concluir que se requeriria un potenciometro de mayor valor
+ y que varie logaritmicamente de manera que se pueda apreciar el cambio
+ en la distorsion.
+ De manera ilustrativa, colocando una 
+\begin_inset Formula $DistortionR_{var}$
+\end_inset
+
+ que varia de 
+\begin_inset Formula $0\Omega$
+\end_inset
+
+ a 
+\begin_inset Formula $1M\Omega$
+\end_inset
+
+ de manera logaritmica se obtiene una variacion de ganancia mucho mas apreciable
+ como se ve en la siguiente figura:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename bodePasaAltos2.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama Bode Potenciometro 1M
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De esta manera se podria alterar el clipping entre un hard clipping o soft
+ clipping.
+ Donde seteando 
+\begin_inset Formula $DistortionR_{var}$
+\end_inset
+
+ a 
+\begin_inset Formula $1M\Omega$
+\end_inset
+
+ la ganancia maxima baja a 
+\begin_inset Formula $10dB$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por ultimo, se puede calcular la impedancia de entrada despues de el C2,
+ de manera que se obtiene el siguiente circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename zin.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito de Zin
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde suponiendo que se elige un OpAmp con una impedancia de entrada muy
+ grande en comparacion a R2, que vale 
+\begin_inset Formula $10M\Omega$
+\end_inset
+
+, se puede ver facilmente que la impedancia de entrada que ve C2 es R2.
+\end_layout
+
+\begin_layout Standard
+Por lo que se puede ver al circuito para analizar su funcion tranferencia
+ como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pasaAltos.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito Pasa Altos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Que correponde a un filtro pasa altos, donde el capacitor C2 tambien sirve
+ que eliminar la DC de la senal de la guitarra.
+ La frecuencia de corte que se requiere es de 
+\begin_inset Formula $f_{o}=1Hz$
+\end_inset
+
+ hasta 
+\begin_inset Formula $f_{o}=20Hz$
+\end_inset
+
+ para que el OpAmp no amplifique las frecuencias que no corresponden al
+ rango de audio.
+ La funcion transferencia es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $H(s)=\frac{R_{2}C_{2}s}{R_{2}C_{2}s+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que 
+\begin_inset Formula $f_{o}=\frac{1}{2\pi R_{2}C_{2}}$
+\end_inset
+
+ .
+ De manera que se eligio el valor de 
+\begin_inset Formula $C_{2}=8nF$
+\end_inset
+
+ para que se obtenga la frecuencia de corte dentro del rango deseado, siendo
+ 
+\begin_inset Formula $f_{0}\approx2Hz$
+\end_inset
+
+.
+ Reemplazando los valores se obtiene la siguiente funcion:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $H(s)=\frac{\frac{s}{12.5}}{\frac{s}{12.5}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A la cual le correspond el siguiente diagrama de Bode:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename bodepasaaltos3.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de Bode Pasa Altos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para la eleccion del OpAmp se tuvo en cuenta 3 cracteristicas importantes:
+ la corriente de Bias, la impedancia de entrada y lel Slew Rate.
+ Se nececita una corriente de Bias muy chica, de manera que por R2 no cirucle
+ mucha corriente.
+ Ya que si circula mucha corriente la caida de potnecial por R2 seria apreciable
+, y se necesita que en 
+\begin_inset Formula $V^{+}$
+\end_inset
+
+ haya practicamente 
+\begin_inset Formula $4.5v$
+\end_inset
+
+.
+ Lo que equivale a decir que la caida de potencial en R2 sea despreciable.
+ Si por ejemplo la corrietne de bias esta aen los 
+\begin_inset Formula $100nF$
+\end_inset
+
+, como minimo la caida en R2 va a ser 
+\begin_inset Formula $V_{R_{2}}=100nF*10^{7}\Omega=1v$
+\end_inset
+
+, lo cual no seria apreciable.
+ Si en cambio elegimos un OpAmp con corriente de bias en el orden de los
+ 
+\begin_inset Formula $pA$
+\end_inset
+
+, se obtiene 
+\begin_inset Formula $V_{R_{2}}=1pF*10^{7}\Omega=10\mu v$
+\end_inset
+
+ lo cual ya puede ser considerado como despreciable contra los 
+\begin_inset Formula $5v$
+\end_inset
+
+.
+ Tambien se necesita una impedancia de entrada muy grande para considerarla
+ despreciable en los calculos que se hicieron anteriormente.
+ De esta manera se busca un impedancia de entrada mucho mayor a la mas grande
+ en el circuito (
+\begin_inset Formula $10M\Omega$
+\end_inset
+
+).
+ Y la caracterisitica mas importante a elegir es el Slew Rate.
+ Para ello usamos la formula explicada en el marco teorico 
+\begin_inset Formula $SR=A_{in}*G*f$
+\end_inset
+
+ .
+ Se procede a calcular el peor caso, donde la amplitud de entrada es 
+\begin_inset Formula $2v$
+\end_inset
+
+, la ganancia maxima es 
+\begin_inset Formula $46db$
+\end_inset
+
+y la mayor frecuencia posibles es 
+\begin_inset Formula $25kHz$
+\end_inset
+
+.
+ Entonces, reemplazando, 
+\begin_inset Formula $SR=10\frac{V}{\mu s}$
+\end_inset
+
+.
+ Luego de comparar los OpAmps disponibles se desidio usar el LF356.
+ Ya que este tiene una corriente de Bias de 
+\begin_inset Formula $30pA$
+\end_inset
+
+, una impedancia de entrada 
+\begin_inset Formula $10^{12}\Omega$
+\end_inset
+
+ y un Slew Rate de 
+\begin_inset Formula $12\frac{V}{\mu s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Simulaciones
+\end_layout
+
+\begin_layout Standard
+Tras implementar el circuito propuesto en LTspice se simulo las salida al
+ inyectar diferentes amplitudes y frecuencias.
+ A continuacion se muestran algunos resultados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename clipping1.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $f=10kHz$
+\end_inset
+
+, 
+\begin_inset Formula $V_{pp}=1v$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename clipping2.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $f=18kHz$
+\end_inset
+
+, 
+\begin_inset Formula $V_{pp}=1v$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename clipping3.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $f=100Hz$
+\end_inset
+
+, 
+\begin_inset Formula $V_{pp}=1v$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se puede ver, hay un claro hard-clipping para las senales lo que deberia
+ provocar gran distorsion al conectar la senal de una guitarra.
+\end_layout
+
+\begin_layout Standard
+Simulando la respuesta en frecuencia en LTspice se obtuvo el siguiente grafico
+ (sin conectar los diodos al circuito):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename bode(dB).png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia simulada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo cual concuerda con lo analizado al disenar el circuito.
+ Donde se puede ver que funciona como un pasa banda en la frecuencia de
+ audio, amplificando este rango en 
+\begin_inset Formula $46dB$
+\end_inset
+
+ como se analizo en el diseno del circuito (
+\begin_inset Formula $DistortionRVar$
+\end_inset
+
+=0).
+\end_layout
+
+\begin_layout Subsection
+Implementacion en PCB y Mediciones
+\end_layout
+
+\begin_layout Standard
+Luego de diseñar y simular el circuito con éxito, ya que este se adapta
+ a las especificaciones pedidas y las simulaciones responden a lo analizado,
+ se prosiguió a implementar el circuito en una placa.
+ El resultado es el siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename WhatsApp Image 2018-09-03 at 15.14.21.jpeg
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Placa Pedalera
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, se midio la respuesta en frecuencia y otros parametros que seran
+ analizados y comparados con la simulacion y el analisis previo en la conclusion.
+\end_layout
+
+\begin_layout Standard
+Primero se midio la respuesta en frecuencia con el oscilosocpio sin conectar
+ los diodos, el resultado fue el proximo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename bodemedido.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia medida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y el diagrama de Bode de fase:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename phaseMedido.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de Bode medido (fase)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Que se ajusta con las necesidades y con lo calculado anteriormente.
+ Ya que se puede apreciar claramente el pasa bandas donde amplifica las
+ frecuencias entre los 
+\begin_inset Formula $20Hz-20kHz$
+\end_inset
+
+ y atenua hasta 
+\begin_inset Formula $20dB$
+\end_inset
+
+ las frecuencias mas altas (agudos) indeseados.
+\end_layout
+
+\begin_layout Standard
+Midiendo la salida de una entrada senoidal con el osciolcopio se pueden
+ apreciar varias cosas, variando el potenciometro y el preset.
+ 
+\end_layout
+
+\begin_layout Standard
+Cuando el preset se coloca a 
+\begin_inset Formula $0\Omega$
+\end_inset
+
+ y el potenciometro a 
+\begin_inset Formula $1M\Omega$
+\end_inset
+
+, y una frecuencia de 
+\begin_inset Formula $6.3kHz$
+\end_inset
+
+, la salida es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename scope_8.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Salida a 
+\begin_inset Formula $6.3kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde se ve un claro hard-clipping a la salida y un pequeno defasaje.
+ El clipping no es perfectamente lineal ya que el diodo en la realidad no
+ es perfectamente ideal, sino que tiene su componente capacitivo y resistivo.
+\end_layout
+
+\begin_layout Standard
+Cuado a la misma frecuencia se setea el preset en un valor medio mas alto,
+ la ganancia disminuye como ya se discutio, generando soft clipping:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename scope_10.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Soft Clipping
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A continuacion se puede observar otras mediciones donde hay hard-clipping,
+ a 
+\begin_inset Formula $500Hz$
+\end_inset
+
+ y 
+\begin_inset Formula $3kHz$
+\end_inset
+
+ respectivamente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename scope_13.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Hard Clipping a 
+\begin_inset Formula $500Hz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename scope_14.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Hard Clipping a 
+\begin_inset Formula $3kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se pudo observar que la variacion de los potenciometros y presets al ser
+ lineal no responde al cambio de manera rapida, ya que para que esto ocurra
+ estos deberian ser de escala logaritmica.
+\end_layout
+
+\begin_layout Standard
+Como prueba final, se conecto el pedal a una guitarra electrica y a un amplifica
+dor y se grabo la salida, la cual se puede encontrar adjunta.
+\end_layout
+
+\begin_layout Standard
+Para determinar los rangos operativos del peda, se tomo tres frecuencias
+ representativas la validez de la salida en funcion de dos variables, el
+ preset de 
+\begin_inset Formula $1M\Omega$
+\end_inset
+
+ y el valor de la tension de entrada pico a pico.
+ Sabiendo que los verdes son puntos validos y rojos los invalidos, a continuacio
+n se presentan los siguientes graficos de la zona de vaildez:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 20Hzvalidez.jpg
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Zona de Validez (20Hz)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 10kHzvalidez.jpg
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Zona de Validez (10kHz)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 20kHzvalidez.jpg
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Zona de Validez (20kHz)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede observar que las bajas frecuencias son las mas problematicas.
+ Las zonas invalidas de alto valor de resistencia de preset y bajo voltaje
+ se deben a que alta resistencia la ganancia es menor, y si la entrada es
+ muy chica, la salida sera tambien muy chica y con mucho ruido, por lo que
+ no es util.
+ Las zonas invalidas a baja resistencia de preset y alto voltaje se deben
+ a que tras salir del OpAmp, la senal se ve saturada a altas ganancias,
+ y al pasar el capacitor de acople, este distorsiona pero de manera indeseada
+ las frecuencias agregadas en la seccion saturada del OpAmp.
+ Se noto que variando el potenciometro que regula el volumen a la salida,
+ las zonas de validez permanecieron igual.
+\end_layout
+
+\begin_layout Subsection
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+En conclusion, el pedal es un circuito electronico que en principio amplifica
+ la senal ingresada en la region del audio (
+\begin_inset Formula $20Hz$
+\end_inset
+
+ a 
+\begin_inset Formula $20kHz$
+\end_inset
+
+) proveniente de la guitarra, para luego provocalre clipping, producto de
+ el funcionamiento de los diodos.
+ En la practica, este circuito se pudo replicar excitosamente ya que lo
+ medido, simulado y calculado coincidieron de manera correcta y la posterior
+ implementacion en una guitarra electrica fue exitosa.
+\end_layout
+
+\begin_layout Section
+Sensor de temperatura
+\end_layout
+
+\begin_layout Subsection
+Objetivos y resumen
+\end_layout
+
+\begin_layout Standard
+En la siguiente sección se presenta el diseño de un sensor de temperatura
+ elaborado haciendo uso del integrado LM35, el cual tiene la particularidad
+ de proporcionar una tensión de salida que varia linealmente con la temperatura.
+ El objetivo de diseño de dicho sensor es que sea capaz de medir temperaturas
+ en el rango de los 35ºC hasta los 45ºC, donde la tensión de salida del
+ sensor sea una función lineal que va de 0V hasta 5V.
+ Una tensión de 0V a la salida debería corresponderse con una temperatura
+ de 35ºC y una tensión de 5V con una temperatura de 45ºC.
+\end_layout
+
+\begin_layout Standard
+Asimismo, el sensor debe tener la posibilidad de calibrarlo y también una
+ medida de seguridad que impida que la tensión de salida sea mayor a 6V
+ así como también impedir que sea menor a -1V.
+ La calibración del mismo se implemento mediante la utilización de dos presets(r
+esistencias variables), y la medida de seguridad mediante el uso de un diodo
+ zener.
+\end_layout
+
+\begin_layout Subsection
+Diseño y funcionamiento del dispositivo
+\end_layout
+
+\begin_layout Subsubsection
+Integrado LM35
+\end_layout
+
+\begin_layout Standard
+El circuito integrado LM35 es un dispositivo cuya tensión de salida varia
+ linealmente con la temperatura en grados centigrados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/LM35.PNG
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Representación del LM35 de la datasheet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como puede observarse en la figura, la salida del LM35 varia 10mV por cada
+ grado centigrado.
+ A una temperatura ambiente de 25ºC el fabricante asegura que el componente
+ tiene una precisión de por lo menos 0.5ºC.
+ Algunas características relevantes obtenidas de la datasheet son:
+\end_layout
+
+\begin_layout Itemize
+La salida del LM35 esta limitada entre -1V y 6V.
+\end_layout
+
+\begin_layout Itemize
+No requiere de calibraciones externas
+\end_layout
+
+\begin_layout Itemize
+La alimentación del mismo puede ser de 4V hasta 30V
+\end_layout
+
+\begin_layout Itemize
+Tiene una impedancia de salida baja(típicamente de 0.1Ω)
+\end_layout
+
+\begin_layout Itemize
+La coriente maxima de salida es 10mA.
+\end_layout
+
+\begin_layout Subsubsection
+Diseño implementado
+\end_layout
+
+\begin_layout Standard
+Una vez que se obtiene la tensión de salida del LM35, lo que resta para
+ cumplir las especificaciones de rango es desplazar la tensión y ajustar
+ la pendiente de la recta.La recta deseada es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{out}=50V_{LM}-17.5$
+\end_inset
+
+ (1)
+\end_layout
+
+\begin_layout Standard
+Para realizar el ajuste necesario se propuso el siguiente circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/SensorCircuito.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito que ajusta la tensión de salida del LM35
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Analizando el circuito en condiciones ideales (despreciando corrientes de
+ bias, tensión de offset, asumiendo impedancia de entrada infinita), para
+ el circuito a la izquierda de 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/SensorGananciaOpamp.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Región del circuito analizada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aplicando nodos para el modelo ideal de OpAmp se llega a las dos ecuaciones:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $v^{+}=v^{-}=V_{LM}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\frac{v^{-}-v_{out}}{R_{3}}+\frac{v^{-}}{R_{2}}=\frac{V_{cc}-v^{-}}{R_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Remplazando la primera ecuación en la segunda y despejando se llega a la
+ expresión para la tensión de salida.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{V_{LM}-v_{out}}{R_{3}}+\frac{V_{LM}}{R_{2}}=\frac{V_{cc}-V_{LM}}{R_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{LM}(\frac{1}{R_{3}}+\frac{1}{R_{2}}+\frac{1}{R_{1}})-\frac{V_{cc}}{R_{1}}=\frac{v_{out}}{R_{3}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $v_{out}=(1+\frac{R_{3}}{R_{2}}+\frac{R_{3}}{R_{1}})V_{LM}-\frac{R_{3}}{R_{1}}V_{cc}$
+\end_inset
+
+ (2)
+\end_layout
+
+\begin_layout Standard
+Hay mas de una forma y criterio de elegir valores paras las resistencias
+ y la tensión 
+\begin_inset Formula $V_{cc}$
+\end_inset
+
+ tal que la ecuación (2) quede como la ecuación (1).
+ En primer lugar se fijo el valor de 
+\begin_inset Formula $V_{cc}$
+\end_inset
+
+, para no tener que usar mas de una fuente, se eligió el valor de tensión
+ que alimenta tanto al OpAmp utilizado(se eligió el modelo TL082) como al
+ LM35.
+ A su vez hay mas de un valor posible de alimentación tal que el LM35 y
+ el TL082 funcionen correctamente a la vez, el valor elegido para 
+\begin_inset Formula $V_{cc}$
+\end_inset
+
+fue de 9V ya que se considera que el mismo permite utilizar valores prácticos
+ de resistencias y le da un buen rango de operación al TL082.
+\end_layout
+
+\begin_layout Standard
+Planteando la igualdad de (2) con (1), se tiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{R_{3}}{R_{1}}V_{cc}=17.5$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Utilizando 
+\begin_inset Formula $V_{cc}=9V$
+\end_inset
+
+ y despejando se obtiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{R_{3}}{R_{1}}=\frac{35}{18}$
+\end_inset
+
+ (3)
+\end_layout
+
+\begin_layout Standard
+Fijando los valores:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{1}=135k\varOmega$
+\end_inset
+
+(puede obtenerse de asociar en paralelo dos resistencias de 270kΩ)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{3}=262.5k\varOmega$
+\end_inset
+
+ (se utilizo un preset de 500kΩ de valor maximo para esta resistencia)
+\end_layout
+
+\begin_layout Standard
+Se tiene que se cumple la relacion (3).Asimismo, de igualar (2) con (1),
+ se obtiene la condicion:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $1+\frac{R_{3}}{R_{2}}+\frac{R_{3}}{R_{1}}=50$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Utilizando los valores para 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $R_{3}$
+\end_inset
+
+ fijados previamente y despejando 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ se llega a que:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{2}\approx5.57k\varOmega$
+\end_inset
+
+ (Se eligio un preset de 10kΩ como valor maximo para dicha resistencia)
+\end_layout
+
+\begin_layout Standard
+En lo que respecta a la etapa del Opamp del circuito, los valores de los
+ componentes ya estan establecidos.Ahora falta analizar los componentes necesario
+s luego del TL082.
+ Para el valor de 
+\begin_inset Formula $R_{4}$
+\end_inset
+
+se utilizo el hecho de que la corriente maxima da salida del LM35 es de
+ 10mA, y la tension maxima de salida es de 6V.
+ Por lo que 
+\begin_inset Formula $R_{4}$
+\end_inset
+
+ deberia ser capaz de tolerar la potencia disipada por dicha corriente como
+ tambien por dicha, las resistencias utilizadas son de 0.125Watts, por lo
+ que una resistencia mayor a 2kΩ ya cumple la especificacion.
+ Sin embargo, para tener un margen mas grande de errror el valor conveniente
+ para 
+\begin_inset Formula $R_{4}$
+\end_inset
+
+ fue de 10kΩ.
+\end_layout
+
+\begin_layout Standard
+Finalmente la medida de seguridad implementada para asegurar que la salida
+ del dispositivo cumpla con que no haya mas de 6V ni menos de -1V a la salida,
+ es la resistencia 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+ en serie con un diodo zener en inversa de 5.6V de tension de breakdown.
+ El diodo en inversa asegura que al superarse la tension de 5.6V a la salida
+ del amplificador operacional, el diodo puede modelarse como si fuera una
+ fuente de tension de valor constante de 5.6V, y que cuando la tension a
+ la salida del Opamp, se encuentra entre -0.7V y 5.6V el diodo se comporta
+ como un circuito abierto.
+\end_layout
+
+\begin_layout Standard
+Entonces cuando la tension a la salida del opamp es mayor a 5.6V, el circuito
+ se comporta de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/DiodoBreakdown.PNG
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diodo zener en breakdown
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que el valor maximo de tension de salida es 5.6V.
+ Asimismo, cuando la tension ded salida del Opamp se encuenta dentro del
+ intervalo -0.7V a 5.6V, se puede modelar al diodo como un circuito abierto:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/DiodoAbierto.PNG
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comportamiento del diodo para tensiones entre -0.7V y 5.6V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con lo que, si la corriente que pudiera circular por 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+ se considera despreciable, dentro del intervalo -0.7V a 5.6V, la tension
+ de salida del sensor es igual a la tension de salida del Opamp.
+ Por ultimo, cuando la tension de salida del OpAmp es menor a -0.7V, el comportam
+iento del diodo puede modelarse como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/DiodoEnForwardbias.PNG
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo del diodo para tensiones menores a -0.7V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logrando que la tension de salida tenga como valor minimo posible -0.7V,
+ y como valor maximo 5.6V.
+ El rol de la resistencia 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+ en el circuito es el de prevenir que la corriente que atravies al mismo
+ ocasione que este se queme.El diodo zenner implementado puede disipar una
+ potencia maxima de 0.5Watts, por lo que en el peor caso(cuando esta en breakdown
+ y ocasiona una caida de 5.6V), se tiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $P=V.I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $0.5Watts=5.6V.I_{max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I_{max}\thickapprox90mA$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Planteando mallas para el modelo en el que el diodo se comporta como una
+ fuente de 5.6V, se tiene que la corriente esta dada por:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $I=\frac{V_{opamp}-5.6V}{R_{5}}$
+\end_inset
+
+(4)
+\end_layout
+
+\begin_layout Standard
+Asumiendo que la tension del opamp es la maxima (9V, ya que es el valor
+ de la alimentacion), y que la corriente es la maxima permitida (90mA).
+ Entonces despejando la ecuacion anterior, se obtiene que el valor de la
+ resistencia debe ser como minimo:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $R_{5}>37.8\varOmega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tambien se debe tener en cuenta que las resistencias con las que se trabaja
+ son de 0.125Watts, por lo que el valor de resistencia debe ser tal que pueda
+ tolerar la potencia disipada sin quemarse.
+\end_layout
+
+\begin_layout Standard
+Al elegir 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+
+\begin_inset Formula $R_{5}=1.5k\varOmega$
+\end_inset
+
+ se obtiene de (4), que la corriente maxima es aproximadamente 2mA,corriente
+ a la cual 
+\begin_inset Formula $R_{5}$
+\end_inset
+
+ disipa una potencia de 6mW que esta dentro del maximo de 0.125Watts.
+ 
+\end_layout
+
+\begin_layout Subsection
+Datasheet
+\end_layout
+
+\begin_layout Subsubsection
+Layout y funcionamiento
+\end_layout
+
+\begin_layout Standard
+El sensor de temperatura tiene 4 puertos(dos entradas de alimentación, la
+ referencia a masa, y el puerto de salida).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/CircDatasheet.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Representación del circuito en LTSpice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para el correcto funcionamiento del sensor se debe tener en cuenta que:
+\end_layout
+
+\begin_layout Itemize
+El valor de la alimentación debe ser 
+\begin_inset Formula $V_{cc}=9V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Si se alimenta el dispositivo con 
+\begin_inset Formula $V_{cc}$
+\end_inset
+
+ mayor a 18V o menor a -0.2V se puede dañar permanentemente el dispositivo
+\end_layout
+
+\begin_layout Itemize
+La impedancia de salida del dispositivo es de 
+\begin_inset Formula $1.5k\varOmega$
+\end_inset
+
+(con una tolerancia del 5%) cuando el dispositivo no esta en saturación,
+ en saturación la impedancia de salida esta en el orden de los ohms.
+\end_layout
+
+\begin_layout Standard
+El dispositivo esta diseñado para funcionar correctamente en el rango de
+ los 35ºC hasta los 45ºC, para valores de temperatura menores que 35ºC el
+ dispositivo satura en una tensión cercana a -0.7V y para temperaturas mayores
+ a 45ºC satura en una tensión cercana a 5.6V.
+ El dispositivo puede no funcionar adecuadamente fuera del rango de 2ºC
+ hasta 150ºC por el uso interno del integrado LM35.
+ Asimismo, con el sistema calibrado y asumiendo el funcionamiento correcto
+ de todos los componentes, el error mínimo del dispositivo es de 0.5ºC por
+ el error del LM35 en el rango de los 35ºC hasta los 45ºC.
+\end_layout
+
+\begin_layout Standard
+A continuación se presentan las imágenes resultantes de las mediciones obtenidas
+ del sensor:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/VvsTemp.jpg
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tensión en funcion de la temperatura
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Los valores no se midieron directamente con temperatura, sino que se simulo
+ la tensión de salida del LM35 a dichas temperaturas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el siguiente gráfico se muestra en detalle los valores medidos para el
+ rango de 35ºC hasta los 45ºC(el rango para el cual fue diseñado el sensor)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/VvsTempentre0y5.jpg
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tensión de salida en el rango de 35º a 45º
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Calibración
+\end_layout
+
+\begin_layout Standard
+La calibración del dispositivo se realiza mediante dos presets.Para la correcta
+ calibración del sensor, primero debe ajustarse el preset correspondiente
+ a 
+\begin_inset Formula $R_{3}$
+\end_inset
+
+ y luego el preset correspondiente a 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+.
+ Esto se debe a que la resistencia 
+\begin_inset Formula $R_{3}$
+\end_inset
+
+ afecta tanto el offset como la gradiente de la recta que representa la
+ variación lineal con la temperatura.Mientras que la resistencia , solo afecta
+ la gradiente de la recta, por lo que si el valor mínimo o máximo devuelto
+ por el sensor es correcto, solo debe ajustarse el valor de la pendiente
+ ajustando el valor del preset correspondiente a 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+Resumiendo lo expuesto, se pudo diseñar un sensor de temperatura utilizando
+ el integrado LM35 y el modelo de amplificador TL082.
+ El dispositivo en si cuenta con dos presets que permiten la calibración
+ del mismo, así como un diodo zener que sirve para asegurar que la salida
+ del sensor este limitada dentro del rango de –0.7V a 5.6V .Se debe tener en
+ cuenta que el mayor error es cerca de la saturación del diodo, ya que el
+ mismo no es un elemento lineal por lo que la recta en ese punto se curva
+ un poco.
+\end_layout
+
+\end_body
+\end_document

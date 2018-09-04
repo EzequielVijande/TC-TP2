@@ -1,0 +1,461 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\headheight 3cm
+\headsep 3cm
+\footskip 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Pedal de Distrorsion para guitarra electrica
+\end_layout
+
+\begin_layout Subsection
+Analisis del circuito
+\end_layout
+
+\begin_layout Standard
+El circuito propuesto por la catedra es el siguiente:
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Manuel Mollon/Dropbox/TC/TP2/informe pedalera/circP.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito Propuesto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El circuito al que se llego luego de un analisis que sera explicado a continuaci
+on es el siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename InkedInkedcircuitoPedal_LI.jpg
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito disenado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es posible separar este circuito en tres grandes partes: El Power Supply,
+ el Op-Amp Gain y la etapa de Clipping.
+ La etapa de Power Supply es usada para alimentar el Op-Amp.
+ La etapa de Op-Amp Gain es usada para amplificar las frecuencias dentro
+ del rango audible y por ultimo la etapa de Clipping distorsiona la senal
+ ya amplificada y funciona como un pasa bajos para eliminar las frecuencias
+ altas no deseadas.
+\end_layout
+
+\begin_layout Subsubsection
+Power Supply 
+\end_layout
+
+\begin_layout Standard
+Para la alimentacion de la fuente se debe usar una fuente no partida de
+ 9v.
+ Por lo que el Vcc- del Op-Amp elegido es puesto a tierra y el Vcc+ es puesto
+ a 9v.
+ Asilando esta parte del circuito del resto queda de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename powerSupply.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power Supply Stage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde RippleRemoverC corresponde a C5, R6 corresponde a R1 y R7 corresponde
+ a R2 del circuito propuesto pot la catedra.
+ RippleRemoverC es un capacitor de desacople, cumple la funcion de reducir
+ ruido de la forma explicada en el marco teorico (EXPLICAR EN EL MARCO TEORICO)
+ y su valor es standard (
+\begin_inset Formula $1\mu F$
+\end_inset
+
+).
+ Las dos resistencias de 
+\begin_inset Formula $1M\Omega$
+\end_inset
+
+ funcionan como un diviso resistivo donde va a haber 
+\begin_inset Formula $4.5v$
+\end_inset
+
+ en el tag especificado como tal en la figura 2, ya que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Vo=9v\frac{1M\Omega}{1M\Omega+1M\Omega}=\frac{9}{2}v=4.5v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es importante tener un nodo de tension 
+\begin_inset Formula $4.5v$
+\end_inset
+
+ ya que (EXPLICAR).
+ El nodo de 
+\begin_inset Formula $9v$
+\end_inset
+
+ es conectado al Vcc+ de el Op-Amp.
+\end_layout
+
+\begin_layout Subsubsection
+Clipping
+\end_layout
+
+\begin_layout Standard
+La etapa de Clipping corresponde a la siguiente parte del circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename clippingStage.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Clipping Stage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde R1 corresponde a R5, C1 corresponde a C4 y OutputRVar corresponde
+ a R7 del circuito propuesto.
+ R6 fue eliminada ya que no se le encontro ningun proposito util.
+ Los diodos son fundamentales ya que son los que generan el clipping explicado
+ en el marco teorico (EXPLICAR).
+ En nuestro caso usamos diodos de silicio, donde la tension de polarizacion
+ corresponde a 
+\begin_inset Formula $0.7v$
+\end_inset
+
+, que generan un hard clipping si la ganancia del Op-Amp es alta (al rededor
+ de 20db como minimo).
+ Ya que la entrada es de una guitarra, en el peor caso el input sera de
+ aproximadamente 500mv, donde con una ganancia de 
+\begin_inset Formula $20db$
+\end_inset
+
+ se obtiene un 
+\begin_inset Formula $V_{out}$
+\end_inset
+
+ de 
+\begin_inset Formula $5v$
+\end_inset
+
+, y ya que el clipping limita el voltaje entres 
+\begin_inset Formula $\pm0.7v$
+\end_inset
+
+, la senal a la salida se azemeja mucho a una senal cuadrada, lo que se
+ denomina hard clipping.
+ OutputRVar es un potenciometro que regula el volumen de la salida.
+ Ya que 
+\begin_inset Formula $V_{out}=OutputRVar*I$
+\end_inset
+
+, donde la corriente es constante (EXPLICAR).
+ En el caso donde se regula a aproximadamente a 
+\begin_inset Formula $0\Omega$
+\end_inset
+
+ se genera un corto entre ground y Vout por lo que 
+\begin_inset Formula $V_{out}=GND=0v$
+\end_inset
+
+ , de manera que no se escucha nada a la salida.
+ R1 y C1 funcionan como un filtro pasa bajos pasivo donde su funcion tranferenci
+a es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $H(s)=\frac{1}{sRC+1}=\frac{1}{\frac{s}{\omega_{o}}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como la frecuencia de audio es en la region de los 
+\begin_inset Formula $20Hz-20kHz$
+\end_inset
+
+, se precisa un pasa bajos de frecuencia de corte un poco anterior a los
+ 
+\begin_inset Formula $20kHz$
+\end_inset
+
+ de manera que para aproximadamente a los 
+\begin_inset Formula $20Khz$
+\end_inset
+
+ ya no amplifique mas la senal.
+ Se eligio de esa manera una frecuencia de corte de aproximadamente 
+\begin_inset Formula $16kHz$
+\end_inset
+
+.
+ Esto se logro con una R de 
+\begin_inset Formula $10k\Omega$
+\end_inset
+
+ y una C de 
+\begin_inset Formula $1nF$
+\end_inset
+
+, de manera que 
+\begin_inset Formula $f_{o}=$
+\end_inset
+
+
+\begin_inset Formula $\frac{\omega_{o}}{2\pi}=\frac{1}{2\pi RC}=\frac{1}{2\pi*10k*1n}\approx16kHz$
+\end_inset
+
+.
+ A su vez, la resistencia R1 limita la corriente que puede ingresar a los
+ diodos (BUSCAR DATACSHEET DE LOS USADOS PARA JUSTIFICAR).
+\end_layout
+
+\begin_layout Subsubsection
+Op-Amp Gain
+\end_layout
+
+\begin_layout Standard
+La etapa del Op-Amp corresponde a la siguiente parte del circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Op-Amp stage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
