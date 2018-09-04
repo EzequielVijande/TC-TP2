@@ -3858,7 +3858,7 @@ Remplazando la primera ecuacion en la segunda y despejando se llega a la
 \begin_inset Formula $v_{out}=\frac{R_{2}+R_{3}}{3_{2}}V_{LM}-\frac{R_{3}}{R_{1}}V_{cc}$
 \end_inset
 
-
+ (2)
 \end_layout
 
 \begin_layout Subsection
