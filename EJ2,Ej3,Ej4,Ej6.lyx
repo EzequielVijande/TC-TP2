@@ -5484,7 +5484,7 @@ El valor nominal del resistor que se utilizó fue de 2.7kHz.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Box Frameless
@@ -5692,6 +5692,69 @@ Diseño y funcionamiento del dispositivo
 Integrado LM35
 \end_layout
 
+\begin_layout Standard
+El circuito integrado LM35 es un dispositivo cuya tensión de salida varia
+ linealmente con la temperatura en grados centigrados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/LM35.PNG
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Representación del LM35 de la datasheet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como puede observarse en la figura, la salida del LM35 varia 10mV por cada
+ grado centigrado.
+ A una temperatura ambiente de 25ºC el fabricante asegura que el componente
+ tiene una precisión de por lo menos 0.5ºC.
+ Algunas características relevantes obtenidas de la datasheet son:
+\end_layout
+
+\begin_layout Itemize
+La salida del LM35 esta limitada entre -1V y 6V.
+\end_layout
+
+\begin_layout Itemize
+No requiere de calibraciones externas
+\end_layout
+
+\begin_layout Itemize
+La alimentación del mismo puede ser de 4V hasta 30V
+\end_layout
+
+\begin_layout Itemize
+Tiene una impedancia de salida baja(típicamente de 0.1Ω)
+\end_layout
+
 \begin_layout Subsubsection
 Diseño implementado
 \end_layout
@@ -5719,7 +5782,7 @@ Para realizar el ajuste necesario se propuso el siguiente circuito:
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5961,6 +6024,10 @@ s luego del TL081.
 
 \begin_layout Subsection
 Datasheet
+\end_layout
+
+\begin_layout Subsection
+Conclusiones
 \end_layout
 
 \end_body
