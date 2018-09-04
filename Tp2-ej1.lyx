@@ -1,0 +1,1808 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part
+TP2-Teoría de Circuitos
+\end_layout
+
+\begin_layout Section
+Comportamiento de Amplificadores Operacionales
+\end_layout
+
+\begin_layout Standard
+El amplificador operacional (op-amp) es un dispositivo de alta ganancia
+ bajo ciertas condiciones.
+ Su comportamiento se puede modelar como un sistema lineal, siempre y cuando
+ se tengan en cuenta los factores correspondientes según el contexto de
+ uso.
+ A continuación se proponen dos circuitos con el amplificador operacional
+ LM324, a partir de los cuales se analizarán las distintas variables que
+ afectan su comportamiento.
+ Para esto, se asumirán modelos lineales de trabajo y luego se realizarán
+ mediciones de laboratorio para comprobar los resultados y hallar los límites
+ del modelo utilizado.
+\end_layout
+
+\begin_layout Standard
+Ambos circuitos se analizarán con distintos valores de resistencias.
+ En total tres casos:
+\end_layout
+
+\begin_layout Standard
+Caso 1: 
+\begin_inset Formula $R1=R3=6.2k\Omega$
+\end_inset
+
+ 
+\begin_inset Formula $R2=60k\Omega$
+\end_inset
+
+ 
+\begin_inset Formula $R4=25k\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Caso 2: 
+\begin_inset Formula $R1=R3=6.2k\Omega$
+\end_inset
+
+ 
+\begin_inset Formula $R2=6.2k\Omega$
+\end_inset
+
+ 
+\begin_inset Formula $R4=25k\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Caso 3: 
+\begin_inset Formula $R1=R3=60k\Omega$
+\end_inset
+
+ 
+\begin_inset Formula $R2=6.2k\Omega$
+\end_inset
+
+ 
+\begin_inset Formula $R4=250k\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En cuanto al orden de los temas a tratar en esta primer parte del artículo,
+ se procederá a realizar un análisis en general, sin especificar ninguno
+ de los dos circuitos, y en una sección avocada a cada circuito se expondrán
+ y se explicarán los resultados obtenidos para los casos particulares que
+ correspondan.
+\end_layout
+
+\begin_layout Subsection
+Información Relevante del op-amp LM324
+\end_layout
+
+\begin_layout Standard
+A continuación se enumerarán algunos datos relevantes necesarios para el
+ análisis posterior de los circuitos con el amplificador operacional LM324.
+\end_layout
+
+\begin_layout Standard
+Estos datos fueron extraídos de la hoja de datos oficial brindada por el
+ fabricante del amplificador que se utilizó.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{o}típico=10^{5}$
+\end_inset
+
+(Large signal amplification)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{o}mínimo=\frac{10^{5}}{2}=50000$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $GBW=1.2MHz$
+\end_inset
+
+(Unity Gain Band-Width)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $SR=0.5\frac{V}{\mu seg}$
+\end_inset
+
+(Slew Rate)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{CM}=VCC-2V$
+\end_inset
+
+ (Common-Mode Voltage)
+\end_layout
+
+\begin_layout Subsection
+Alinealidades de los Circuitos
+\end_layout
+
+\begin_layout Standard
+Los circuitos a resolver presentan resistencias y un amplificador operacional.
+ El comportamiento de las resistencias se pueden describir mediante un modelo
+ lineal, pero el amplificador operacional presenta ciertas alinealidades
+ en su comportamiento, que provocan el fracaso de un modelo lineal de comportami
+ento del circuito para ciertas situaciones.
+\end_layout
+
+\begin_layout Subsubsection
+Saturación
+\end_layout
+
+\begin_layout Standard
+Una de las alinealidades importantes del circuito es la saturación.
+ El operacional tiene la característica de que amplifica la señal dada por
+ la diferencia de potencial entre los terminales 
+\begin_inset Formula $V^{+}$
+\end_inset
+
+y 
+\begin_inset Formula $V^{-}$
+\end_inset
+
+, pero debe tenerse en cuenta que esto es posible debido a que el op-amp
+ se encuentra alimentado por una fuente de tensión (enrealidad pueden ser
+ una o más fuentes las que alimentan) que le otorga la energía necesaria.
+ La energía (y también la potencia) que entrega esta fuente de tensión (generalm
+ente identificada como fuente de 
+\begin_inset Formula $\pm Vcc$
+\end_inset
+
+) es limitada, por ende también se ve limitada la salida del operacional.
+ Esta limitación de la salida, idealmente debería ser igual a la limitación
+ de la fuente, es decir, la tensión máxima a la salida del op-amp debería
+ ser 
+\begin_inset Formula $Vcc$
+\end_inset
+
+.
+ Sin embargo, una parte (relativamente pequeña) de la potencia entregada
+ por la fuente de alimentación no se ve reflejada en la amplificación, si
+ no que es utilizada para el funcionamiento interno del operacional.
+ 
+\end_layout
+
+\begin_layout Standard
+Esta especificación sobre la saturación se puede encontrar en la hoja de
+ datos como 
+\begin_inset Formula $V_{CM}$
+\end_inset
+
+ o directamente como tensión de saturación 
+\begin_inset Formula $V_{s}$
+\end_inset
+
+.
+ En el caso del LM324, la tensión de saturación es igual a 
+\begin_inset Formula $\text{Vcc-2V}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por último, en cuanto a la saturación vale aclarar que existen algunos operacion
+ales que funcionan de tal manera que la tensión de saturación coincide (o
+ se acerca de tal manera que coincida aproximadamente) con la tensión de
+ alimentación.
+ A estos op-amp se los denomina con la característica de ser 'rail to rail'.
+\end_layout
+
+\begin_layout Subsubsection
+Amplificación No Constante
+\end_layout
+
+\begin_layout Standard
+La amplificación de un amplificador operacional esta dada por 
+\begin_inset Formula $V_{amplificada}=A_{v}(V^{+}-V^{-})$
+\end_inset
+
+.
+ Lo deseable es que esta amplificación tome un valor finito apreciable (por
+ arriba de los niveles de ruido) pero además que no supere los valores de
+ saturación del amplificador.
+ Esto se logra siendo 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ (Del orden de los Kilo o Megas) un valor relativamente 
+\begin_inset Quotes eld
+\end_inset
+
+grande
+\begin_inset Quotes erd
+\end_inset
+
+ a la vez que la diferencia de potencial entre las terminales del operacional
+ es relativamente 
+\begin_inset Quotes eld
+\end_inset
+
+pequeña
+\begin_inset Quotes erd
+\end_inset
+
+ (del orden de los mili o micro).
+ Sin embargo, este comportamiento deseable, comienza a variar debido a medida
+ que varía la frecuencia de trabajo ya que el amplificar operacional no
+ consigue mantener estable el factor de amplificación 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+.
+ Este factor no solo no se mantiene constante, si no que además comienza
+ a disminuir al aumentar la frecuencia.
+ El ritmo al cual disminuye puede variar según el amplificador operacional.
+ 
+\end_layout
+
+\begin_layout Standard
+Un buen modelo del comportamiento de 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ es expresarlo como una ganancia que se ve afectada por un filtro de primer
+ orden, el cual tiene determinado ancho de banda.
+ Esto es:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{v}=\frac{A_{o}}{1+\frac{s}{w_{p}}}$
+\end_inset
+
+ (
+\begin_inset Formula $s=jw$
+\end_inset
+
+, 
+\begin_inset Formula $w$
+\end_inset
+
+: 
+\begin_inset Quotes eld
+\end_inset
+
+frecuencia angular
+\begin_inset Quotes erd
+\end_inset
+
+ ).
+ 
+\end_layout
+
+\begin_layout Standard
+En cuanto a 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+, este es un paràmetro que representa la ganancia màxima del op-amp, el
+ cual toma un valor segùn el diseño del dispositivo.
+ Dicho valor suele especificarlo el fabricante en la hoja de datos del op-amp.
+ En el caso del LM324, 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ toma un valor mìnimo de 25000, mientras que su valor 
+\begin_inset Quotes eld
+\end_inset
+
+tìpico
+\begin_inset Quotes erd
+\end_inset
+
+ es de 
+\begin_inset Formula $10^{5}$
+\end_inset
+
+ (esto significa que en realidad 
+\begin_inset Formula $A_{o}$
+\end_inset
+
+ no es constante, pero se mantiene en valores elevados).
+ 
+\end_layout
+
+\begin_layout Standard
+Con respecto a 
+\begin_inset Formula $w_{p}$
+\end_inset
+
+, este valor representa el ancho de banda del circuito con ganancia unitaria.
+ Tambièn puede tratarse a 
+\begin_inset Formula $w_{p}$
+\end_inset
+
+ como la frecuencia angular de transiciòn, o polo dominante, del op-amp,
+ ya que superada esta frecuencia el amplificador comenzarìa a atenuar, hasta
+ encontrarse con otros polos que surgen a frecuencias màs elevadas que 
+\begin_inset Formula $w_{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El fabricante del op-amp, generalmente especifica este valor de polo dominante
+ de manera indirecta.
+ Lo hace brindando el valòr del llamado 
+\begin_inset Quotes eld
+\end_inset
+
+producto del ancho de banda
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset Quotes eld
+\end_inset
+
+BWP
+\begin_inset Quotes erd
+\end_inset
+
+) o lo que es lo mismo, 
+\begin_inset Quotes eld
+\end_inset
+
+ganancia por ancho de banda
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset Quotes eld
+\end_inset
+
+GBW
+\begin_inset Quotes erd
+\end_inset
+
+).
+ De esta forma, sabiendo el producto del ancho de banda, se obtiene el valor
+ del polo dominante, ya que se cumple:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{o}.w_{p}=BWP(\frac{1}{seg})$
+\end_inset
+
+ o 
+\begin_inset Formula $A_{o}.\frac{f_{p}}{2\pi}=BWP(Hz)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Slew Rate
+\end_layout
+
+\begin_layout Standard
+Las señales de exitación de un circuito pueden variar en el tiempo.
+ Esta variación en el tiempo conlleva consigo un ritmo de variación (o velocidad
+ de cambio), el cual esta dado matematicamente por la derivada de la señal.
+ Asimismo, esta velocidad de cambio se hace máxima cuando la derivada es
+ máxima.
+ Esto es relevante para analizar un circuito que contiene amplificadores
+ operacionales ya generalmente es deseable que la señal de salida de un
+ op-amp pueda variar de la misma manera que su entrada, es decir con la
+ rapidez que esta señal de entrada le infiere a la salida.
+ En caso contrario, si el ritmo de cambio de la señal de salida no llega
+ a igualar al ritmo provocado por la entrada, en el tiempo se observaría
+ (o se mediría) una señal deformada debido a esta limitación de la derivada
+ de la señal.
+ 
+\end_layout
+
+\begin_layout Standard
+En la práctica, la señal de salida de un amplificador operacional se encuentra
+ limitada por la corriente máxima que permiten circular los componentes
+ internos del amplificador.
+ Además de esto, a su salida, internamente los op-amps tiene un capacitor
+ de compensación necesario para el funcionamiento de los mismos, lo cual
+ hace que una señal de tensión a la salida de un operacional se pueda expresar
+ de la siguiente manera.:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{o}=$
+\end_inset
+
+
+\begin_inset Formula $\frac{1}{C}\intop I.dt$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si la señal de entrada es tal que se satura la corriente de salida (peor
+ caso), es decir que 
+\begin_inset Formula $I$
+\end_inset
+
+ toma un valor máximo (y que se considerará constante para el análisis),
+ se obtiene entonces:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{o}=\frac{I_{máx}.t}{C}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Luego:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dV_{o}}{dt}máx=\frac{I_{más}}{C}=Slew-Rate$
+\end_inset
+
+ (SR)
+\end_layout
+
+\begin_layout Standard
+Este valor de 
+\begin_inset Quotes eld
+\end_inset
+
+slew rate
+\begin_inset Quotes erd
+\end_inset
+
+ es dependiente de cada op-amp, y se encuentra en la hoja de datos del fabricant
+e en unidades de 
+\begin_inset Quotes eld
+\end_inset
+
+Volts/segundos
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para relacionar este parámetro con la señal de entrada, por ejemplo, cuando
+ la señal de entrada es de forma senoidal (este ejemplo es de utilidad debido
+ a que se pueden extrapolar los resultados a casos más generales a partir
+ de la teoría de series de Fourier) se debe derivar la expresión matemática
+ de dicha entrada:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Vin=Asen(wt+fase1)\Rightarrow Vout=AKsen(wt+fase2)\Rightarrow\frac{dVout}{dt}=AKwsen(wt+fase3)\Rightarrow\frac{dVout}{dt}máxima=A.K.w=AK.2\pi f$
+\end_inset
+
+, siendo 'K' el factor de ganancia y 'A' la amplitud de la señal de entrada.
+\end_layout
+
+\begin_layout Standard
+Luego, para que no se genere una deformación de la señal de salida con respecto
+ a la de entrada debido a el fenómeno de slew rate, se debe cumplir matemáticame
+nte la siguiente desigualdad:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $AK.2\pi f<SR$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Respuesta a una Señal de Continua
+\end_layout
+
+\begin_layout Standard
+Al ingresar a la entrada con una señal de corriente continua, dentro del
+ rango de operación (
+\begin_inset Formula $+Vcc,-Vcc$
+\end_inset
+
+ ) el operacional idealmente se comporta en forma lineal de manera que 
+\begin_inset Formula $Vo=Vin.GI$
+\end_inset
+
+.
+ Este modelo puede no ser exacto, ya que el amplificador operacional esta
+ conformado por componentes, tales como transistores, que no presentan comportam
+ientos lineales de este tipo y que además consumen energía para su funcionamient
+o de manera que pueden acotar el rango de funcionamiento, por ejemplo, debido
+ a saturación antes de la tensión 
+\begin_inset Formula $\pm Vcc$
+\end_inset
+
+.
+ Por esto, es de esperar que puedan encontrarse ciertas discrepancias con
+ el modelo lienal mencionado al prinicpio y la práctica.
+ Lo que sí se puede asegurar, es que fuera del rango de operación, el op-amp
+ se saturará imponiendo una tensión de saturación constante a la salida.
+\end_layout
+
+\begin_layout Standard
+Para comprobar el comportamiento del circuito (ya sea circuito 'a' o 'b')
+ ante una señal de continua, se procedió a realizar un 'DC Sweep' desde
+ -Vcc a +Vcc tomando 
+\begin_inset Formula $Vcc=15Volts$
+\end_inset
+
+, es decir, que se excitó al circuito con tensiones desde -15V a + 15V,
+ pasando por valores intermedios, y se midió la respuesta del mismo.
+\end_layout
+
+\begin_layout Standard
+Experimentalmente, para realizar esto se utilizó para la exictación un generador
+ de señales en modo de señal de tipo rampa con una frecuencia de 10mHZ (frecuenc
+ia cercana a la de una señal de continua), siendo la rampa una señal de
+ 30 Volts pico a pico con valor medio cero.
+ Esto permitió abarcar la mayor cantidad posible de puntos intermedios de
+ excitación entre +Vcc y -Vcc.
+ 
+\end_layout
+
+\begin_layout Standard
+En cuanto a la amplitud de la rampa utilizada, para que sean posible los
+ 30 Volts pico a pico, fue necesario el uso de un circuito multiplicador
+ de señales ya que el generador de señales utilizado no supearaba los 20
+ Volts pico a pico.
+ Por ende, se utilizó dicho multiplicador de señales, ingresando al mismo
+ una rampa de 15 Volts pico a pico (con valor medio cero) y obteniendose
+ a la salida (la cual posteriormente sería la entrada al circuito de análisis)
+ una señal multiplicada por '2' (de 30V pico a pico).
+ El análisis en profundidad del multiplicador utilizado para la medición
+ no se considera relevante, pero si vale aclarar que su circuito se realizó
+ con un amplificador operacional el cual fue necesario alimentar con una
+ tensión de alimentación mayor a los 15 Volts para que no se sature la señal
+ rampa de interés.
+\end_layout
+
+\begin_layout Standard
+Los resultados de estas mediciones serán expuestos posteriormente en el
+ artículo, en la sección que corresponde a cada circuito.
+\end_layout
+
+\begin_layout Subsection
+Respuesta En Frecuencia
+\end_layout
+
+\begin_layout Standard
+Como se ha mencionado anteriormente, la amplificación de un amplificador
+ operacional depende de la frecuencia, por ende es relevante analizar la
+ respuesta en frecuencia de los circuitos (ya que contienen una op-amp).
+ En la sección correspondiente a cada circuito, se mostrará la respuesta
+ en frecuencia obtenida, tanto mediante el análisis teórico y el obtenido
+ por las mediciones.
+ En cuanto a las mediciones, estas se realizaron en frecuencia aproximadamente
+ una década antes y una década después de la frecuencia que define el ancho
+ de banda calculado para el circuito, y se analizará si el ancho de banda
+ calculado se pudo apreciar en la medición.
+\end_layout
+
+\begin_layout Subsection
+Circuito 1.a
+\end_layout
+
+\begin_layout Standard
+El primer circuito a analizar es el presentado en la siguiente figura:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito 1.a
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Resoluciòn del circuito (anàlisis teòrico)
+\end_layout
+
+\begin_layout Standard
+Del circuito se puede observar con facilidad que 
+\begin_inset Formula $V^{+}=0v$
+\end_inset
+
+ ya que esta puesto a tierra.
+ Y aplicando nodos en 
+\begin_inset Formula $V^{-}$
+\end_inset
+
+ se obtiene la siguiente ecuacion:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{V_{i}-V^{-}}{R_{1}}+\frac{0-V^{-}}{R_{3}}=\frac{V^{-}-V_{o}}{R_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y como tambien sabemos:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{o}=A_{v}(V^{+}-V^{-})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos despejar estas dos ecuaciones para llegar a lo siguiente:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{V_{o}}{V_{i}}=-\frac{1}{\frac{R_{1}}{R_{2}}+\frac{R_{1}}{A_{v}}[\frac{1}{_{R_{1}}}+\frac{1}{R_{2}}+\frac{1}{R_{3}}]}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si hacemos el limite de 
+\begin_inset Formula $A_{v}\longrightarrow\infty$
+\end_inset
+
+, se obtiene la ganancia ideal, que en este caso es:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $G_{ideal}=-\frac{R_{2}}{R_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ se considera constante, se obtiene el siguiente resultado:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $G_{cte}=-\frac{1}{\frac{R_{1}}{R_{2}}+\frac{R_{1}}{A_{v}}[\frac{1}{_{R_{1}}}+\frac{1}{R_{2}}+\frac{1}{R_{3}}]}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y si se considera a 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ con un polo dominante (
+\begin_inset Formula $\omega_{p}$
+\end_inset
+
+), se obtiene la siguiente funcion:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $G(\omega)=-\frac{1}{\frac{R_{1}}{R_{2}}+\frac{R_{1}(1+\frac{s}{\omega_{p}})}{A_{c}}[\frac{1}{_{R_{1}}}+\frac{1}{R_{2}}+\frac{1}{R_{3}}]}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Impedancia de Entrada (anàlisis teòrico)
+\end_layout
+
+\begin_layout Standard
+La impedancia de entrada se puede escribir en funcion de la entrada y de
+ la corriente que circula por ella.
+ de manera que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Z_{in}=\frac{V_{in}}{I_{in}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Done la corrinte 
+\begin_inset Formula $I_{in}=\frac{V_{in}-V^{-}}{R_{1}}$
+\end_inset
+
+; y sabiendo que 
+\begin_inset Formula $V_{out}=A_{v}(V^{+}-V^{-})$
+\end_inset
+
+ y 
+\begin_inset Formula $G=\frac{V_{out}}{V_{in}}$
+\end_inset
+
+, se puede llegar a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Z_{in}=\frac{R_{1}}{1+\frac{G}{A_{v}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para la impedancia ideal, tomamos 
+\begin_inset Formula $A_{v}\longrightarrow\infty$
+\end_inset
+
+, por lo que;
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Z_{in(ideal)}=R_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aprovechando que la ganancia ya que calculada anteriormente, tomamos 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ constante, por lo que se obtiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Z_{in(cte)}=\frac{R_{1}}{1-\frac{1}{R_{1}(\frac{A_{o}}{R_{2}}+\frac{1}{R_{2}}+\frac{1}{R_{1}}+\frac{1}{R_{3}})}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y si se agrega 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ un polo dominante se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Z_{in}(w)=\frac{R_{1}}{1-\frac{1}{R_{1}(\frac{A_{o}}{R_{2}(\frac{s}{\omega_{p}+1})}+\frac{1}{R_{2}}+\frac{1}{R_{1}}+\frac{1}{R_{3}})}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Variaciones entre los Circuitos Propuestos
+\end_layout
+
+\begin_layout Subsubsection
+Características generales de los CircuitosFALTA COMPLETARRRRRRRRRRR
+\end_layout
+
+\begin_layout Subsubsection
+DC sweep
+\end_layout
+
+\begin_layout Standard
+La medición del DC sweep se realizó desde -15 V a +15V.
+ Los resultados fueron los siguientes:
+\end_layout
+
+\begin_layout Standard
+Circuito A:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DC sweep- circuito 1.b.A
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Circuito B:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DC sweep- circuito 1.b.B
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Circuito C:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DC sweep- circuito 1.b.C
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Medición de Respuesta en Frecuencia
+\end_layout
+
+\begin_layout Standard
+BODES CON EL OSCILOSCOPIO
+\end_layout
+
+\begin_layout Subsubsection
+Simulaciones en LTspice
+\end_layout
+
+\begin_layout Standard
+Con el fin de comparar y analizar posteriormente los resultados de las medicione
+s con los modelos teóricos, a continuación se presentan los gráficos obtenidos
+ de todas las simulaciones teóricas que se realizaron de cada medición.
+ Estas se realizaron con el programa de LTspice.
+\end_layout
+
+\begin_layout Standard
+SIMULACIONES
+\end_layout
+
+\begin_layout Subsubsection
+Análisis de Resultados Obtenidos
+\end_layout
+
+\begin_layout Standard
+ANALISIS
+\end_layout
+
+\begin_layout Subsection
+Circuito 1.b
+\end_layout
+
+\begin_layout Standard
+El segundo circuito a analizar es el presentado en la siguiente figura:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito 1.b
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Resoluciòn del circuito (anàlisis teòrico)
+\end_layout
+
+\begin_layout Standard
+Para la resoluciòn analìtica del circuito, es decir, para hallar 
+\begin_inset Formula $\frac{V_{o}}{V_{i}}(s)=H(s)$
+\end_inset
+
+, se considerarà nula a la corriente que circula por las ramas que entran
+ al op-amp.
+ Por esto se puede aplicar un divisor de tensiòn para abordar las siguientes
+ expresiones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V^{+}=V_{i}.(\frac{R4}{R3+R4})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V^{-}=V_{i}.(\frac{R1}{R1+R2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A su vez, se tiene que el la salida del op-amp tiene la siguiente forma:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{o}=A_{v}(V^{+}-V^{-})$
+\end_inset
+
+, siendo 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ la ganancia del op-amp.
+\end_layout
+
+\begin_layout Standard
+Resolviendo, se llega a lo siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{V_{o}}{V_{i}}=\frac{(1+\frac{R2}{R1})}{(1+\frac{R3}{R4})}.\frac{A_{v}}{1+\frac{R2}{R1}+A_{v}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notar, que si 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+tenderìa a un valor 
+\begin_inset Quotes eld
+\end_inset
+
+infinito
+\begin_inset Quotes erd
+\end_inset
+
+ (caso ideal), se obtendrìa una ganancia 
+\begin_inset Formula $\frac{(1+\frac{R2}{R1})}{(1+\frac{R3}{R4})}$
+\end_inset
+
+ a la cual se la llamarà 
+\begin_inset Quotes eld
+\end_inset
+
+ganancia ideal
+\begin_inset Quotes erd
+\end_inset
+
+ (
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $GI$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Por otro lado, considerando 
+\begin_inset Formula $A_{v}=\frac{A_{o}}{1+\frac{s}{w_{p}}}$
+\end_inset
+
+, nos queda:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H(s)=\frac{V_{o}}{V_{i}}=\frac{GI.A_{o}}{(1+\frac{s}{w_{p}}).(1+\frac{R2}{R1}+\frac{A_{o}}{1+\frac{s}{w_{p}}})}=\frac{GI}{((1+\frac{s}{w_{p}})\frac{(1+\frac{R2}{R1})}{A_{o}})+1}=\frac{GI}{\frac{(1+\frac{R2}{R1})}{A_{o}}+\frac{s}{(\frac{A_{o}.w_{p}}{(1+\frac{R2}{R1})})}+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se debe observar que para los casos a analizar, se cumple que 
+\begin_inset Formula $1+\frac{R2}{R1}\ll A_{o}$
+\end_inset
+
+, luego 
+\begin_inset Formula $\frac{(1+\frac{R2}{R1})}{A_{o}}\thickapprox0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Finalmente, se obtiene la resoluciòn de la transferencia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H(s)=\frac{GI}{\frac{s}{w'_{p}}+1},$
+\end_inset
+
+siendo 
+\begin_inset Formula $w'_{p}=\frac{A_{o}.w_{p}}{(1+\frac{R2}{R1})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Impedancia de Entrada (anàlisis teòrico)
+\end_layout
+
+\begin_layout Standard
+La impedancia de entrada al circuito (vista por el generador) se calcula
+ como 
+\begin_inset Formula $Zin=\frac{V_{i}}{I}$
+\end_inset
+
+, siendo 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $I$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ la corriente que circula por la rama de la excitaciòn.
+\end_layout
+
+\begin_layout Standard
+Para desarrollar la expresiòn de 
+\begin_inset Formula $Zin$
+\end_inset
+
+, se plantean convenientemente las siguientes igualdades:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{V^{+}}{R4}=I$
+\end_inset
+
+, 
+\begin_inset Formula $V_{o}=A_{v}(V$
+\end_inset
+
+
+\begin_inset Formula $^{+}-V^{-})$
+\end_inset
+
+, 
+\begin_inset Formula $V^{-}=V_{o}.(\frac{R1}{R1+R2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Luego, a partir de estas expresiones se puede obtener:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Zin=\frac{A_{v}.R4.V_{i}}{V_{o}(1+\frac{Av.R1}{R1+R2})}=$
+\end_inset
+
+
+\begin_inset Formula $\frac{\frac{s}{w'_{p}}+1}{GI}.\frac{R4(R1+R2)}{R1}=(\frac{s}{w'_{p}}+1).(R3+R4)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notar que si 
+\begin_inset Formula $s<<w'_{p}$
+\end_inset
+
+, luego la impedancia de entrada ideal queda:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z_{ideal}=R3+R4$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Variaciones entre los Circuitos Propuestos
+\end_layout
+
+\begin_layout Standard
+Luego del análisis teórico del circuito se puede concluir lo siguiente:
+\end_layout
+
+\begin_layout Standard
+Transferencia Ideal:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $GI=$
+\end_inset
+
+
+\begin_inset Formula $\frac{(1+\frac{R2}{R1})}{(1+\frac{R3}{R4})}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Transferencia con 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ finito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{V_{o}}{V_{i}}=GI.\frac{A_{v}}{1+\frac{R2}{R1}+A_{v}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Transferencia con 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ en función de la frecuencia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H(s)=\frac{GI}{\frac{s}{w'_{p}}+1},$
+\end_inset
+
+siendo 
+\begin_inset Formula $w'_{p}=\frac{A_{o}.w_{p}}{(1+\frac{R2}{R1})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Impedancia de Entrada Ideal:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z_{ideal}=R3+R4$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Impedancia de Entrada en función de la frecuencia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Zin=(\frac{s}{w'_{p}}+1).(R3+R4)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esto es en general para cualquier valor de resistencia del circuito.
+\end_layout
+
+\begin_layout Standard
+En particular, para cada circuito según los valores de resistencias, a partir
+ del análisis teórico y utilizando los datos brindados por la hoja de datos
+ del fabricante del operacional, se obtienen los siguientes parámetros:
+\end_layout
+
+\begin_layout Standard
+Circuito A:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $GI\thickapprox8.56$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f'_{p}\thickapprox112.4KHz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z_{ideal}=31.2K\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Circuito B:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $GI\thickapprox0.89$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f'_{p}\thickapprox1.09MHz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z_{ideal}=310K\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Circuito C:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $GI\thickapprox1.6$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f'_{p}\thickapprox600KHz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z_{ideal}=31.2K\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta estos parámetros, a continuación se presentan los gráficos
+ de ganancia e impedancia de entrada (en función de la frecuencia) correspondien
+tes a cada circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode Teórico (Ganancia)-Circuito 1.b.A
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode Teórico (Impedancia de Entrada)-Circuito 1.b.A
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode Teórico (Ganancia)-Circuito 1.b.B
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode Teórico (Impedancia de Entrada)-Circuito 1.b.B
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode Teórico (Ganancia)-Circuito 1.b.C
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Bode Teórico (Impedancia de Entrada)-Circuito 1.b.C
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vale la pena notar que a valores de frecuencias cercanas a cero (corriente
+ continua), tanto la ganancia como la impedancia son las 'ideales' mientras
+ que se apartan del valor ideal a medida que la frecuencia se acerca al
+ valor del 'ancho de banda'.
+\end_layout
+
+\begin_layout Subsubsection
+Características generales de los CircuitosFALTA COMPLETARRRRRRRRRRR
+\end_layout
+
+\begin_layout Standard
+El circuito se puede caracterizar como no inversor ya que la salida idealmente
+ no se ve desfasada con respecto a la entrada.
+ Pero, a diferencia del no inversor convencional de 2 resistencias cuya
+ ganancia es 
+\begin_inset Formula $1+b$
+\end_inset
+
+ siendo 'b' la relación entre una resistencia de realimentación y otra resistenc
+ia puesta a tierra, el no inversor que se analiza posee 4 resistencias,
+ las cuales forman parte de la expresión de la función transferencia.
+\end_layout
+
+\begin_layout Standard
+Sin embargo, en el caso que la resistencia R3 tomara valor 'cero' (sería
+ un cable) el circuito tendría la ganancia del no inversor de 2 resistencias,
+ apartando tanto a R3 como a R4 de la expresión de la ganancia, siendo esta
+ nueva ganancia 
+\begin_inset Formula $GI=1+\frac{R2}{R1}$
+\end_inset
+
+.
+ Luego, la ganancia con 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ dependiendo de la frecuencia quedaría 
+\begin_inset Formula $H(s)=\frac{GI}{\frac{s.GI}{GWP}+1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Esta última expresión de la función transferencia muestra claramente que
+ a medida que se aumenta la ganancia ideal GI, aumenta entonces la relevancia
+ del polo dominante del circuito, provocando que este se encuentre a frecuencias
+ menos elevadas y por lo tanto comience a afectar 'antes' en frecuencia.
+ En cuanto a R4, en este caso toma el papel de la impedancia de entrada
+ vista por el generador.
+\end_layout
+
+\begin_layout Standard
+Volviendo al caso que se analiza desde un principio, con 4 resistencias,
+ es importante incorporar al análisis las condiciones que deben cumplirse
+ para no toparse con los efectos alineales de saturación y de slew rate.
+\end_layout
+
+\begin_layout Standard
+Estos dos factores dependen del valor de amplitud de la salida de la señal,
+ el cual es igual a la amplitud ('Vin') de la señal de entrada multiplicado
+ por la ganancia del circuito ('K(f)').
+\end_layout
+
+\begin_layout Standard
+Para evitar slew rate debe cumplirse:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $VinK.2\pi f<SR\Rightarrow Vin<(SR/K.2\pi f)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por saturación debe cumplirse:
+\end_layout
+
+\begin_layout Standard
+FALTACOMPLETARRRRRRRR
+\end_layout
+
+\begin_layout Subsubsection
+DC sweep
+\end_layout
+
+\begin_layout Standard
+La medición del DC sweep se realizó desde -15 V a +15V.
+ Los resultados fueron los siguientes:
+\end_layout
+
+\begin_layout Standard
+Circuito A:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DC sweep- circuito 1.b.A
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Circuito B:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DC sweep- circuito 1.b.B
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Circuito C:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DC sweep- circuito 1.b.C
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Medición de Respuesta en Frecuencia
+\end_layout
+
+\begin_layout Standard
+BODES CON EL OSCILOSCOPIO
+\end_layout
+
+\begin_layout Subsubsection
+Simulaciones en LTspice
+\end_layout
+
+\begin_layout Standard
+Con el fin de comparar y analizar posteriormente los resultados de las medicione
+s con los modelos teóricos, a continuación se presentan los gráficos obtenidos
+ de todas las simulaciones teóricas que se realizaron de cada medición.
+ Estas se realizaron con el programa de LTspice.
+\end_layout
+
+\begin_layout Standard
+SIMULACIONES
+\end_layout
+
+\begin_layout Subsubsection
+Análisis de Resultados Obtenidos
+\end_layout
+
+\begin_layout Standard
+ANALISIS
+\end_layout
+
+\begin_layout Subsection
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+CONCLUSIONES
+\end_layout
+
+\end_body
+\end_document

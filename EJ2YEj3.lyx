@@ -513,7 +513,7 @@ La impedancia de entrada vista por el generador puede calcularse también
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -836,7 +836,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/ImpFase.PNG
+	filename Imagenes/ImpFase.png
 	scale 50
 
 \end_inset
@@ -900,7 +900,7 @@ s se realizaron con las puntas en configuración x1):
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -943,7 +943,7 @@ Se obtuvieron resultados que se ajustan mejor a los resultados medidos:
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1143,7 +1143,7 @@ En cuanto a la simulación en LTSpice, teniendo en cuenta el efecto de las
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5665,27 +5665,27 @@ Objetivos y resumen
 \end_layout
 
 \begin_layout Standard
-En la siguiente seccion se presenta el diseno de un sensor de temperatura
+En la siguiente sección se presenta el diseño de un sensor de temperatura
  elaborado haciendo uso del integrado LM35, el cual tiene la particularidad
- de proporcionar una tension de salida que varia linealmente con la temperatura.
- El objetivo de diseno de dicho sensor es que sea capaz de medir temperaturas
- en el rango de los 35ºC hasta los 45ºC, donde la tension de salida del
- sensor sea una funcion lineal que va de 0V hasta 5V.
- Una tension de 0V a la salida deberia corresponderse con una temperatura
- de 35ºC y una tension de 5V con una temperatura de 45ºC.
+ de proporcionar una tensión de salida que varia linealmente con la temperatura.
+ El objetivo de diseño de dicho sensor es que sea capaz de medir temperaturas
+ en el rango de los 35ºC hasta los 45ºC, donde la tensión de salida del
+ sensor sea una función lineal que va de 0V hasta 5V.
+ Una tensión de 0V a la salida debería corresponderse con una temperatura
+ de 35ºC y una tensión de 5V con una temperatura de 45ºC.
 \end_layout
 
 \begin_layout Standard
-Asimismo, el sensor debe tener la posibilidad de calibrarlo y tambien una
- medida de seguridad que impida que la tension de salida sea mayor a 6V
- asi como tambien impedir que sea menor a -1V.
- La calibracion del mismo se implemento mediante la utilizacion de dos presets(r
-esistencias variables), y la medida de seguirdad mediante el uso de un diodo
+Asimismo, el sensor debe tener la posibilidad de calibrarlo y también una
+ medida de seguridad que impida que la tensión de salida sea mayor a 6V
+ así como también impedir que sea menor a -1V.
+ La calibración del mismo se implemento mediante la utilización de dos presets(r
+esistencias variables), y la medida de seguridad mediante el uso de un diodo
  zener.
 \end_layout
 
 \begin_layout Subsection
-Diseno y funcionamiento del dispositivo
+Diseño y funcionamiento del dispositivo
 \end_layout
 
 \begin_layout Subsubsection
@@ -5693,12 +5693,12 @@ Integrado LM35
 \end_layout
 
 \begin_layout Subsubsection
-Diseno implementado
+Diseño implementado
 \end_layout
 
 \begin_layout Standard
-Una vez que se obtiene la tension de salida del LM35, lo que resta para
- cumplir las especificaciones de rango es desplazar la tension y ajustar
+Una vez que se obtiene la tensión de salida del LM35, lo que resta para
+ cumplir las especificaciones de rango es desplazar la tensión y ajustar
  la pendiente de la recta.La recta deseada es la siguiente:
 \end_layout
 
@@ -5719,7 +5719,7 @@ Para realizar el ajuste necesario se propuso el siguiente circuito:
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5736,7 +5736,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Circuito que ajusta la tension de salida del LM35
+Circuito que ajusta la tensión de salida del LM35
 \end_layout
 
 \end_inset
@@ -5755,8 +5755,8 @@ Circuito que ajusta la tension de salida del LM35
 
 \begin_layout Standard
 Analizando el circuito en condiciones ideales (despreciando corrientes de
- bias, tension de offset, asumiendo impedancia de entrada infinita), para
- el ciruito a la izquierda de 
+ bias, tensión de offset, asumiendo impedancia de entrada infinita), para
+ el circuito a la izquierda de 
 \begin_inset Formula $R_{5}$
 \end_inset
 
@@ -5784,7 +5784,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Region del circuito analizada
+Región del circuito analizada
 \end_layout
 
 \end_inset
@@ -5802,7 +5802,7 @@ Region del circuito analizada
 \end_layout
 
 \begin_layout Standard
-Aplicando nodos para el modelo ideal de Op-amp se llega a las dos ecuaciones:
+Aplicando nodos para el modelo ideal de OpAmp se llega a las dos ecuaciones:
 \end_layout
 
 \begin_layout Itemize
@@ -5820,8 +5820,8 @@ Aplicando nodos para el modelo ideal de Op-amp se llega a las dos ecuaciones:
 \end_layout
 
 \begin_layout Standard
-Remplazando la primera ecuacion en la segunda y despejando se llega a la
- expresion para la tension de salida.
+Remplazando la primera ecuación en la segunda y despejando se llega a la
+ expresión para la tensión de salida.
 \end_layout
 
 \begin_layout Standard
@@ -5834,7 +5834,7 @@ Remplazando la primera ecuacion en la segunda y despejando se llega a la
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $V_{LM}(\frac{1}{R_{3}}+\frac{1}{R_{2}})-\frac{V_{cc}}{R_{1}}=\frac{v_{out}}{R_{3}}$
+\begin_inset Formula $V_{LM}(\frac{1}{R_{3}}+\frac{1}{R_{2}}+\frac{1}{R_{1}})-\frac{V_{cc}}{R_{1}}=\frac{v_{out}}{R_{3}}$
 \end_inset
 
 
@@ -5842,10 +5842,121 @@ Remplazando la primera ecuacion en la segunda y despejando se llega a la
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $v_{out}=\frac{R_{2}+R_{3}}{3_{2}}V_{LM}-\frac{R_{3}}{R_{1}}V_{cc}$
+\begin_inset Formula $v_{out}=(1+\frac{R_{3}}{R_{2}}+\frac{R_{3}}{R_{1}})V_{LM}-\frac{R_{3}}{R_{1}}V_{cc}$
 \end_inset
 
  (2)
+\end_layout
+
+\begin_layout Standard
+Hay mas de una forma y criterio de elegir valores paras las resistencias
+ y la tensión 
+\begin_inset Formula $V_{cc}$
+\end_inset
+
+ tal que la ecuación (2) quede como la ecuación (1).
+ En primer lugar se fijo el valor de 
+\begin_inset Formula $V_{cc}$
+\end_inset
+
+, para no tener que usar mas de una fuente, se eligió el valor de tensión
+ que alimenta tanto al OpAmp utilizado(se eligió el modelo TL082) como al
+ LM35.
+ A su vez hay mas de un valor posible de alimentación tal que el LM35 y
+ el TL081 funcionen correctamente a la vez, el valor elegido para 
+\begin_inset Formula $V_{cc}$
+\end_inset
+
+fue de 9V ya que se considera que el mismo permite utilizar valores prácticos
+ de resistencias y le da un buen rango de operación al TL081.
+\end_layout
+
+\begin_layout Standard
+Planteando la igualdad de (2) con (1), se tiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{R_{3}}{R_{1}}V_{cc}=17.5$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Utilizando 
+\begin_inset Formula $V_{cc}=9V$
+\end_inset
+
+ y despejando se obtiene que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{R_{3}}{R_{1}}=\frac{35}{18}$
+\end_inset
+
+ (3)
+\end_layout
+
+\begin_layout Standard
+Fijando los valores:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{1}=135k\varOmega$
+\end_inset
+
+(puede obtenerse de asociar en paralelo dos resistencias de 270kΩ)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{3}=262.5k\varOmega$
+\end_inset
+
+ (se utilizo un preset de 500kΩ de valor maximo para esta resistencia)
+\end_layout
+
+\begin_layout Standard
+Se tiene que se cumple la relacion (3).Asimismo, de igualar (2) con (1),
+ se obtiene la condicion:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $1+\frac{R_{3}}{R_{2}}+\frac{R_{3}}{R_{1}}=50$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Utilizando los valores para 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $R_{3}$
+\end_inset
+
+ fijados previamente y despejando 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ se llega a que:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{2}\approx5.57k\varOmega$
+\end_inset
+
+ (Se eligio un preset de 10kΩ como valor maximo para dicha resistencia)
+\end_layout
+
+\begin_layout Standard
+En lo que respecta a la etapa del Opamp del circuito, los valores de los
+ componentes ya estan establecidos.Ahora falta analizar los componentes necesario
+s luego del TL081.
 \end_layout
 
 \begin_layout Subsection
